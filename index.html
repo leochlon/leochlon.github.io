@@ -639,6 +639,33 @@ track.addEventListener('pointerdown',e=>{stop();let x0=e.clientX,dx;track.style.
   window.addEventListener('pointermove',mv);window.addEventListener('pointerup',up);});
 addEventListener('keydown',e=>{e.code==='ArrowLeft'&&L.click();e.code==='ArrowRight'&&R.click();});
 play();
+
+// Mobile menu toggle
+const mobileToggle = document.querySelector('.mobile-menu-toggle');
+const navMenu = document.querySelector('nav');
+
+if (mobileToggle && navMenu) {
+  mobileToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('mobile-open');
+    mobileToggle.textContent = navMenu.classList.contains('mobile-open') ? '✕' : '☰';
+  });
+
+  // Close mobile menu when clicking nav links
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('mobile-open');
+      mobileToggle.textContent = '☰';
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+      navMenu.classList.remove('mobile-open');
+      mobileToggle.textContent = '☰';
+    }
+  });
+}
 </script>
 </body>
 </html>

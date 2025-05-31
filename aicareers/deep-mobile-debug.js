@@ -46,7 +46,7 @@ function debugMobileNavigation() {
   console.log('🔍 Analyzing X button event listeners...');
   
   // Get all event listeners (if possible)
-  const listeners = getEventListeners ? getEventListeners(xButton) : 'DevTools getEventListeners not available';
+  const listeners = (typeof getEventListeners !== 'undefined') ? getEventListeners(xButton) : 'DevTools getEventListeners not available in this environment';
   console.log('   - Event listeners:', listeners);
   
   // Check React fiber properties

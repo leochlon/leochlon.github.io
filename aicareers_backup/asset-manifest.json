@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aicareers/static/css/main.d40ae37c.css",
-    "main.js": "/aicareers/static/js/main.9211ce5b.js",
+    "main.js": "/aicareers/static/js/main.57eacc30.js",
     "static/js/52.58c7bb48.chunk.js": "/aicareers/static/js/52.58c7bb48.chunk.js",
     "static/js/745.d287c81f.chunk.js": "/aicareers/static/js/745.d287c81f.chunk.js",
     "static/js/62.74b15930.chunk.js": "/aicareers/static/js/62.74b15930.chunk.js",
@@ -11,7 +11,7 @@
     "static/js/104.49258cb0.chunk.js": "/aicareers/static/js/104.49258cb0.chunk.js",
     "index.html": "/aicareers/index.html",
     "main.d40ae37c.css.map": "/aicareers/static/css/main.d40ae37c.css.map",
-    "main.9211ce5b.js.map": "/aicareers/static/js/main.9211ce5b.js.map",
+    "main.57eacc30.js.map": "/aicareers/static/js/main.57eacc30.js.map",
     "52.58c7bb48.chunk.js.map": "/aicareers/static/js/52.58c7bb48.chunk.js.map",
     "745.d287c81f.chunk.js.map": "/aicareers/static/js/745.d287c81f.chunk.js.map",
     "62.74b15930.chunk.js.map": "/aicareers/static/js/62.74b15930.chunk.js.map",
@@ -22,6 +22,6 @@
   },
   "entrypoints": [
     "static/css/main.d40ae37c.css",
-    "static/js/main.9211ce5b.js"
+    "static/js/main.57eacc30.js"
   ]
 }

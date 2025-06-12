@@ -171,6 +171,10 @@ nav a::after{
   background:var(--cool-gradient);scale:0 1;transform-origin:right;
   transition:all .4s cubic-bezier(.4,0,.2,1);border-radius:2px;
 }
+a.btn {
+  display: inline-block;
+  margin: 0.5rem 1rem 0.5rem 0;
+}
 
 nav a:hover{color:var(--accent-blue);transform:translateY(-2px);}
 nav a:hover::after,nav a.active::after{scale:1 1;transform-origin:left}
@@ -613,8 +617,17 @@ section:nth-child(odd){
   border-radius:20px;display:inline-block;
 }
 
-.exp-panel ul{margin-top:1rem}
-
+.exp-panel ul{
+  
+  padding-left: 1.5rem; /* ensures bullets have space */
+  list-style-position: outside; /* ensures bullet is outside */
+  line-height: 1.6;
+  margin: 0;
+}
+.exp-panel li span.exp-key {
+  font-weight: 600;
+  color: #f39c12; /* adjust highlight color */
+}
 .exp-panel li{
   position:relative;
   padding-left:2rem;
@@ -624,32 +637,23 @@ section:nth-child(odd){
   font-size:1.05rem;
   display:block;
   clear:both;
+  margin-bottom: 0.8rem;
 }
 
-.exp-panel li::before{
-  content:'▶';
-  position:absolute;
-  left:0;
-  top:0.35em;
-  background:var(--cool-gradient);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-  font-family:var(--font-mono);
-  font-size:.9rem;
-  line-height:1;
-
-  position:relative;padding-left:2rem;margin:1.2rem 0;
-  color:var(--light-slate);line-height:1.7;font-size:1.05rem;
+.exp-panel li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  background: var(--cool-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
 }
 
-.exp-panel li::before{
-  content:'▶';position:absolute;left:0;
-  background:var(--cool-gradient);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  font-family:var(--font-mono);font-size:.9rem;
-
-}
 
 @media (max-width: 768px) {
   .exp-wrapper {

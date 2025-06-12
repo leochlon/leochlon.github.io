@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Zein Khamis – Software Engineer</title>
+
+<!--  FONTS  -->
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="head-inner">
+    <a class="brand" href="#intro">Zein A.&nbsp;Khamis</a>
+    <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">☰</button>
+    <nav><ul><li><a href="#intro">Home</a></li><li><a href="#about">About</a></li><li><a href="#experience">Experience</a></li><li><a href="#papers">Papers</a></li><li><a href="#projects">Projects</a></li><li><a href="/aicareers/">AI Careers</a></li></ul></nav>
+    <div class="social">
+      <a href="mailto:zeinkhamis1@hotmail.com"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M2 4h20v16H2zm10 8 8-6H4z"/></svg></a>
+      <a href="https://github.com/zein-l" target="_blank" rel="noopener"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.36 22.94c.58.11.79-.25.79-.55v-2.14c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.07-.73.08-.72.08-.72 1.18.09 1.8 1.21 1.8 1.21 1.05 1.8 2.76 1.28 3.44.98.11-.76.41-1.28.75-1.58-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.52.11-3.17 0 0 .97-.31 3.18 1.18A11.1 11.1 0 0 1 12 6.8a11.1 11.1 0 0 1 2.89.39c2.2-1.49 3.17-1.18 3.17-1.18.63 1.65.23 2.87.11 3.17.75.81 1.2 1.84 1.2 3.1 0 4.42-2.69 5.39-5.25 5.67.42.37.8 1.1.8 2.22v3.29c0 .31.21.67.8.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg></a>
+      <a href="www.linkedin.com/in/zein-khamis-8b836b221" target="_blank" rel="noopener"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 8.98h4v12H3zM9 8.98h3.8v1.62h.05c.53-.9 1.83-1.85 3.77-1.85 4.03 0 4.78 2.65 4.78 6.09v7.14h-4V15.2c0-2.37-.05-5.42-3.3-5.42-3.3 0-3.8 2.58-3.8 5.26v6.02H9z"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="intro">
+<!-- Fractal-hero banner  ➜  put this where the site’s header lives -->
+<div id="banner"></div>
+
+<!-- p5.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+<!-- p5.js runtime -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+
+<!-- p5.js runtime -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+
+<script>
+let brainNeurons = [];
+let brainOutline = [];
+let brainHue;
+let breatheTime = 0;
+
+function setup() {
+  // Responsive height based on screen size
+  const h = windowWidth < 768 ? 120 : 180;
+  const cnv = createCanvas(windowWidth, h);
+  cnv.parent('banner');
+  colorMode(HSL, 360, 100, 100, 1);
+  noFill();
+  frameRate(30);
+  
+  createBrainShape();
+}
+
+function draw() {
+  clear();
+
+  /* Time-driven parameters */
+  const now = new Date();
+  const minutes = now.getHours() * 60 + now.getMinutes();
+  const progress = minutes / 1440;
+  brainHue = map(progress, 0, 1, 180, 320); // teal → pink
+  
+  breatheTime += 0.02; // breathing rhythm
+  
+  // Brain breathing scale (grows and shrinks)
+  let breatheScale = 1 + sin(breatheTime) * 0.15; // ±15% size variation
+  
+  push();
+  translate(width / 2, height / 2);
+  scale(breatheScale);
+  drawBrain();
+  pop();
+}
+
+function createBrainShape() {
+  brainNeurons = [];
+  brainOutline = [];
+  
+  // Create complete superior brain outline - anatomically correct proportions
+  const baseWidth = min(width * 0.45, 200);  // Narrower width
+  const baseHeight = min(height * 0.95, 170); // Longer length (anterior-posterior)
+  
+  // Anatomically accurate superior brain outline
+  const outlinePoints = [
+    // Frontal pole
+    {x: 0, y: -baseHeight * 0.45},
+    
+    // Right frontal lobe
+    {x: baseWidth * 0.12, y: -baseHeight * 0.44},
+    {x: baseWidth * 0.22, y: -baseHeight * 0.42},
+    {x: baseWidth * 0.32, y: -baseHeight * 0.38},
+    {x: baseWidth * 0.40, y: -baseHeight * 0.32},
+    {x: baseWidth * 0.45, y: -baseHeight * 0.24},
+    {x: baseWidth * 0.48, y: -baseHeight * 0.15},
+    
+    // Right parietal lobe
+    {x: baseWidth * 0.50, y: -baseHeight * 0.05},
+    {x: baseWidth * 0.50, y: baseHeight * 0.05},
+    {x: baseWidth * 0.48, y: baseHeight * 0.15},
+    
+    // Right temporal lobe
+    {x: baseWidth * 0.45, y: baseHeight * 0.22},
+    {x: baseWidth * 0.40, y: baseHeight * 0.28},
+    {x: baseWidth * 0.32, y: baseHeight * 0.32},
+    
+    // Right occipital lobe
+    {x: baseWidth * 0.22, y: baseHeight * 0.35},
+    {x: baseWidth * 0.12, y: baseHeight * 0.37},
+    
+    // Occipital pole
+    {x: 0, y: baseHeight * 0.38},
+    
+    // Left occipital lobe
+    {x: -baseWidth * 0.12, y: baseHeight * 0.37},
+    {x: -baseWidth * 0.22, y: baseHeight * 0.35},
+    
+    // Left temporal lobe
+    {x: -baseWidth * 0.32, y: baseHeight * 0.32},
+    {x: -baseWidth * 0.40, y: baseHeight * 0.28},
+    {x: -baseWidth * 0.45, y: baseHeight * 0.22},
+    
+    // Left parietal lobe
+    {x: -baseWidth * 0.48, y: baseHeight * 0.15},
+    {x: -baseWidth * 0.50, y: baseHeight * 0.05},
+    {x: -baseWidth * 0.50, y: -baseHeight * 0.05},
+    
+    // Left frontal lobe
+    {x: -baseWidth * 0.48, y: -baseHeight * 0.15},
+    {x: -baseWidth * 0.45, y: -baseHeight * 0.24},
+    {x: -baseWidth * 0.40, y: -baseHeight * 0.32},
+    {x: -baseWidth * 0.32, y: -baseHeight * 0.38},
+    {x: -baseWidth * 0.22, y: -baseHeight * 0.42},
+    {x: -baseWidth * 0.12, y: -baseHeight * 0.44}
+  ];
+  
+  brainOutline = outlinePoints;
+  
+  // Distribute neurons throughout the brain area with better coverage
+  for (let i = 0; i < 120; i++) {
+    let point = getBrainPoint(baseWidth, baseHeight, i);
+    
+    brainNeurons.push({
+      x: point.x,
+      y: point.y,
+      size: random(2.5, 4.5),
+      activity: random(0, TWO_PI),
+      region: getRegion(point.x, point.y, baseWidth, baseHeight)
+    });
+  }
+}
+
+function getBrainPoint(w, h, index) {
+  // Generate points with strategic distribution for complete brain coverage
+  let attempts = 0;
+  
+  // Ensure good coverage of upper brain regions (frontal and parietal areas)
+  let biasTowardsTop = index < 40; // First 40 neurons biased towards top
+  
+  while (attempts < 50) {
+    let x, y;
+    
+    if (biasTowardsTop) {
+      // Bias towards upper brain areas
+      x = random(-w * 0.45, w * 0.45);
+      y = random(-h * 0.5, h * 0.05); // Focus on upper portion
+    } else {
+      // Normal distribution throughout brain
+      x = random(-w * 0.5, w * 0.5);
+      y = random(-h * 0.5, h * 0.4);
+    }
+    
+    // Check if point is inside brain shape
+    if (isInsideBrain(x, y, w, h)) {
+      return {x: x, y: y};
+    }
+    attempts++;
+  }
+  return {x: 0, y: 0}; // fallback
+}
+
+function isInsideBrain(x, y, w, h) {
+  // Anatomically accurate brain shape - oval with narrower front and back
+  let normalizedX = x / (w * 0.5);
+  let normalizedY = y / (h * 0.4);
+  
+  // Main brain oval
+  let brainOval = (normalizedX * normalizedX) + (normalizedY * normalizedY) < 1;
+  
+  // Frontal narrowing
+  if (y < -h * 0.2) {
+    let frontFactor = 1 - Math.abs(y + h * 0.2) / (h * 0.25);
+    brainOval = brainOval && Math.abs(x) < w * 0.35 * frontFactor;
+  }
+  
+  // Occipital narrowing
+  if (y > h * 0.15) {
+    let backFactor = 1 - (y - h * 0.15) / (h * 0.25);
+    brainOval = brainOval && Math.abs(x) < w * 0.4 * backFactor;
+  }
+  
+  return brainOval;
+}
+
+function getRegion(x, y, w, h) {
+  if (y < -h * 0.2) return 'frontal';
+  if (y > h * 0.1) return 'occipital';
+  if (abs(x) > w * 0.3) return 'temporal';
+  return 'parietal';
+}
+
+function drawBrain() {
+  // Draw neural connections
+  stroke(brainHue, 40, 50, 0.35);
+  strokeWeight(1.2);
+  
+  for (let i = 0; i < brainNeurons.length; i++) {
+    for (let j = i + 1; j < brainNeurons.length; j++) {
+      let neuronA = brainNeurons[i];
+      let neuronB = brainNeurons[j];
+      let d = dist(neuronA.x, neuronA.y, neuronB.x, neuronB.y);
+      
+      if (d < 40 && random() < 0.5) {
+        let alpha = map(d, 0, 40, 0.5, 0.1);
+        stroke(brainHue, 45, 65, alpha);
+        strokeWeight(map(d, 0, 40, 1.8, 0.8));
+        line(neuronA.x, neuronA.y, neuronB.x, neuronB.y);
+      }
+    }
+  }
+  
+  // Draw neurons
+  for (let neuron of brainNeurons) {
+    let activity = sin(neuron.activity + breatheTime * 2.5) * 0.5 + 0.5;
+    let alpha = map(activity, 0, 1, 0.5, 1.0);
+    
+    // Main neuron
+    stroke(brainHue, 75, 75, alpha);
+    strokeWeight(neuron.size);
+    point(neuron.x, neuron.y);
+    
+    // Glow effect
+    stroke(brainHue, 50, 85, alpha * 0.4);
+    strokeWeight(neuron.size * 2.8);
+    point(neuron.x, neuron.y);
+  }
+}
+
+function windowResized() {
+  const h = windowWidth < 768 ? 120 : 180;
+  resizeCanvas(windowWidth, h);
+  createBrainShape();
+}
+</script>
+
+
+
+
+  <h1>hi,</h1><h2><span class="accent">Zein</span>&nbsp;here<span class="cursor"></span>.</h2>
+  <h3>I build smart tools that make a difference.</h3>
+  <p>Final-year Computer Science & Engineering student @ AUB.  
+  Software Engineer Intern at Modelpro & Scopsis.  
+  Passionate about AI, product thinking, and creative engineering.</p>
+  <a class="btn" href="mailto:zeinkhamis1@hotmail.com"><span>✉️ Say hi</span></a>
+  <a class="button-outline" href="ZeinKhamis_CV.pdf" download>📄 My CV</a>
+  <br style="margin-bottom:1.2rem;">
+ 
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="heading-row">
+    <h2 class="section-heading"><span class="slash">/</span>about&nbsp;me</h2>
+  </div>
+  <div class="about-grid">
+    <div>
+      <p>I’m a <strong>Research/ Machine Learning Engineer</strong> at <span style="color:var(--green)">Apple</span> and a former Research Fellow at <span style="color:var(--green)">Harvard</span> and <span style="color:var(--green)">Cambridge</span>. </p>
+      <p>Technologies I’ve worked with recently:</p>
+      <ul class="tech-list">
+        <li>Python</li>
+        <li>MySQL</li>
+        <li>Java</li>
+        <li>C#</li>
+        <li>C++</li>
+        <li>Flutter</li>
+        <li>React</li>
+        <li>Azure</li>
+        <li>Docker</li>
+        <li>FastAPI</li>
+        <li>Flask</li>
+        <li>JavaScript</li>
+      </ul>
+      <p>Off the clock, you’ll find me building smart apps, launching AI-powered tools, or exploring the intersection of software and business. I love coding, consulting, the gym, and the occasional hike through Lebanon’s mountains.</p>
+    </div>
+    <img src="engineering pic.jpg" alt="Zein Khamis" class="profile-pic" />
+
+  </div>
+</section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="heading-row">
+      <h2 class="section-heading"><span class="slash">/</span>experience</h2>
+    </div>
+    <div class="exp-wrapper">
+      <div class="exp-tabs" role="tablist">
+        <button data-i="0" class="active" role="tab">SCOPSIS</button>
+        <button data-i="1" role="tab">Model Pro Consulting</button>
+        
+      </div>
+
+      <article class="exp-panel active" role="tabpanel">
+        <h3>AI Product Lead Engineer Intern&nbsp;<span>@ SCOPSIS Beirut - Lebanon </span></h3>
+        <time>June&nbsp;2025&nbsp;— Present</time>
+        <ul>
+          <li>Led the end-to-end <span class="exp-key">design, architecture, and implementation of a competitive intelligence platform</span> using <span class="exp-key">Python, FastAPI, and Azure Cloud</span>, achieving <span class="exp-key">24/7 competitor monitoring</span>, <span class="exp-key">80% faster content response time</span>, and <span class="exp-key">under $20/month operating cost</span>.</li>
+          <li>Designed and deployed a <span class="exp-key">cost-optimized, serverless architecture</span> using <span class="exp-key">Azure Functions, Container Apps, Storage Queues</span>, and <span class="exp-key">Static Web Apps</span>.</li>
+          <li>Built a <span class="exp-key">scalable web scraping pipeline</span> that feeds structured data into <span class="exp-key">MySQL</span> and <span class="exp-key">Qdrant</span> through <span class="exp-key">Azure Storage Queues</span>.</li>
+          <li>Developed a <span class="exp-key">trend detection engine</span> using <span class="exp-key">z-score logic</span> for real-time alerts and <span class="exp-key">engagement spike detection</span> across competitor data sources.</li>
+          <li>Integrated <span class="exp-key">OpenAI GPT-4o</span> and <span class="exp-key">Embeddings API</span> for <span class="exp-key">multilingual content generation</span>, <span class="exp-key">summarization</span>, and <span class="exp-key">vector-based hybrid search</span>.</li>
+          <li>Delivered a <span class="exp-key">full-stack interactive dashboard</span> with <span class="exp-key">React</span>, featuring <span class="exp-key">real-time alerts</span>, <span class="exp-key">semantic search</span>, and <span class="exp-key">GPT-powered insights</span>.</li>
+          <li>Prioritized <span class="exp-key">cost-efficiency</span>, <span class="exp-key">developer autonomy</span>, and <span class="exp-key">scalability</span> for early-stage product deployment and validation.</li>
+        </ul>
+      </article>
+
+
+      <article class="exp-panel" role="tabpanel">
+        <h3>Software Engineering Intern&nbsp;<span>@ ModelPro Consulting Tunis - Tunisia</span></h3>
+        <time>June&nbsp;2024&nbsp;— August&nbsp;2024</time>
+        <ul>
+          <li>Led the development of a <span class="exp-key">cross-platform Flutter app</span> with <span class="exp-key">Supabase backend</span> for collaborative document sharing and user workspaces.</li>
+          <li>Implemented a modular <span class="exp-key">user and workspace management system</span> with <span class="exp-key">RESTful APIs</span> and local persistence using <span class="exp-key">SharedPreferences</span>.</li>
+          <li>Architected the app with a <span class="exp-key">clean, maintainable structure</span>, enabling scalable onboarding and rapid feature rollout.</li>
+          <li>Worked in a <span class="exp-key">consulting-driven agile environment</span> to align software design with strategic business needs and technical feasibility.</li>
+          <li>Collaborated with stakeholders to deliver a product that balanced <span class="exp-key">user experience</span>, <span class="exp-key">data privacy</span>, and <span class="exp-key">performance optimization</span>.</li>
+        </ul>
+      </article>
+
+
+      
+    </div>
+  </section>
+
+<!-- EDUCATION -->
+
+<section id="education">
+  <div class="heading-row">
+    <h2 class="section-heading">education</h2>
+  </div>
+  <div class="edu-scroll-clip">
+    <div class="edu-row-scroll">
+      <div class="edu-card">
+        <div class="edu-title">American University of Beirut (AUB)</div>
+        <div class="edu-school">
+          <span>Computer Science and Engineering</span><br>
+          <span class="edu-badge">Bachelor’s</span> <span class="edu-time">2021 – 2025</span>
+        </div>
+        <div class="edu-desc">GPA: 3.47/4. Coursework: Algorithms, Machine Learning, Web Dev, Cloud, Databases, Architecture, Cryptography.</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-title">Greenfield College</div>
+        <div class="edu-school">
+          <span>Life Sciences</span><br>
+          <span class="edu-badge">Baccalaureate</span> <span class="edu-time">2005 – 2020</span>
+        </div>
+        <div class="edu-desc">Lebanese Baccalaureate Certificate with Distinction.</div>
+      </div>
+    </div>
+  </div>
+  <div class="edu-scroll-indicator"></div>
+</section>
+
+
+
+
+<!-- PET PROJECTS -->
+<section id="projects">
+  <div class="heading-row">
+    <h2 class="section-heading"><span class="slash">/</span>pet&nbsp;projects</h2>
+  </div>
+
+  <div class="slider">
+    <button class="slider-arrow arrow-left" aria-label="prev">❮</button>
+    <button class="slider-arrow arrow-right" aria-label="next">❯</button>
+
+    <div class="slide-track">
+      <div class="project-slide">
+        <img src="bayec.png" alt="Bayesian Flashcards project illustration">
+        <div class="content">
+          <div>
+            <h3>Bayesian Flashcards</h3>
+            <p>A revolutionary study application that uses advanced Bayesian statistics to optimize your learning efficiency.</p>
+          </div>
+          <a href="https://github.com/leochlon/bayesian-flashcards">Code →</a>
+        </div>
+      </div>
+      <div class="project-slide">
+        <img src="multimod.png" alt="Adaptive Entropy-Gated Contrastive Fusion (AECF) project illustration">
+        <div class="content"><div><h3>Adaptive Entropy-Gated Contrastive Fusion (AECF)</h3><p>Robust, calibrated multimodal inference with dynamic entropy-gated fusion. Handles missing inputs in real-world systems.</p></div><div class="project-links"><a href="https://github.com/leochlon/aecf">Code →</a><a href="https://arxiv.org/abs/2505.15417" target="_blank" rel="noopener">Paper →</a></div></div>
+      </div>
+      <div class="project-slide">
+        <img src="aicareers.svg" alt="AI Careers 2025 project illustration">
+        <div class="content">
+          <div>
+            <h3>AI Careers 2025</h3>
+            <p>Interactive presentation exploring AI career paths, industry trends, and strategies for transitioning into artificial intelligence roles.</p>
+          </div>
+          <a href="/aicareers/">View Presentation →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dots"></div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="heading-row">
+    <h2 class="section-heading"><span class="slash">/</span>contact</h2>
+  </div>
+  <p>I’m open to freelance and contract work. Whether you’ve got a project or just want to chat, my inbox is always open.</p><br>
+  <a class="btn" href="mailto:zeinkhamis1@hotmail.com"><span>✉️ Say hello</span></a>
+</section>
+
+<footer><p>© 2025 — rebuilt with love and no frameworks.</p></footer>
+
+<!--  SCRIPTS (unchanged logic) -->
+<script>
+const io=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('in-view')),{threshold:.15});
+document.querySelectorAll('section').forEach(el=>io.observe(el));
+
+const nav=[...document.querySelectorAll('nav a')],secs=[...document.querySelectorAll('section')];
+function sync(){const y=scrollY+innerHeight/3;secs.forEach(s=>nav.forEach(l=>l.classList.toggle('active',l.hash==='#'+s.id&&y>=s.offsetTop&&y<s.offsetTop+s.offsetHeight)));}addEventListener('scroll',sync);sync();
+
+const name=document.querySelector('.accent'),cursor=document.querySelector('.cursor'),txt=name.textContent;
+name.textContent='';[...txt].forEach((c,i)=>setTimeout(()=>{name.textContent+=c;i===txt.length-1&&(cursor.style.animationPlayState='running');},50*i));
+
+document.querySelectorAll('.exp-tabs button').forEach((b,i)=>b.onclick=()=>{document.querySelectorAll('.exp-tabs button').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.exp-panel').forEach((p,idx)=>p.classList.toggle('active',idx===i));});
+
+const track=document.querySelector('.slide-track'),slides=[...track.children],dotsWrap=document.querySelector('.dots'),L=document.querySelector('.arrow-left'),R=document.querySelector('.arrow-right');
+let idx=0,auto;
+slides.forEach((_,i)=>{const d=document.createElement('button');d.className='slider-dot'+(!i?' active':'');d.dataset.i=i;dotsWrap.appendChild(d);});
+const dots=[...document.querySelectorAll('.slider-dot')];
+function go(n){idx=(n+slides.length)%slides.length;track.style.transform=`translateX(-${idx*100}%)`;dots.forEach((d,i)=>d.classList.toggle('active',i===idx));}
+function next(){go(idx+1)}function play(){auto=setInterval(next,7000)}function stop(){clearInterval(auto)}
+L.onclick=()=>{stop();go(idx-1);play()};R.onclick=()=>{stop();go(idx+1);play()};dots.forEach(d=>d.onclick=()=>{stop();go(+d.dataset.i);play()});
+track.addEventListener('pointerdown',e=>{stop();let x0=e.clientX,dx;track.style.transition='none';
+  const mv=ev=>{dx=ev.clientX-x0;track.style.transform=`translateX(${ -idx*100+dx*100/innerWidth }%)`},up=()=>{track.style.transition='';Math.abs(dx)>60?go(idx-(dx>0?1:-1)):go(idx);play();window.removeEventListener('pointermove',mv);window.removeEventListener('pointerup',up)};
+  window.addEventListener('pointermove',mv);window.addEventListener('pointerup',up);});
+addEventListener('keydown',e=>{e.code==='ArrowLeft'&&L.click();e.code==='ArrowRight'&&R.click();});
+play();
+
+// Mobile menu toggle
+const mobileToggle = document.querySelector('.mobile-menu-toggle');
+const navMenu = document.querySelector('nav');
+
+if (mobileToggle && navMenu) {
+  mobileToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('mobile-open');
+    mobileToggle.textContent = navMenu.classList.contains('mobile-open') ? '✕' : '☰';
+  });
+
+  // Close mobile menu when clicking nav links
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('mobile-open');
+      mobileToggle.textContent = '☰';
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+      navMenu.classList.remove('mobile-open');
+      mobileToggle.textContent = '☰';
+    }
+  });
+}
+</script>
+</body>
+</html>
+

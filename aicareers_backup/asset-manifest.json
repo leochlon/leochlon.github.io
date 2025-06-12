@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/aicareers/static/css/main.d40ae37c.css",
+    "main.js": "/aicareers/static/js/main.57eacc30.js",
+    "static/js/52.58c7bb48.chunk.js": "/aicareers/static/js/52.58c7bb48.chunk.js",
+    "static/js/745.d287c81f.chunk.js": "/aicareers/static/js/745.d287c81f.chunk.js",
+    "static/js/62.74b15930.chunk.js": "/aicareers/static/js/62.74b15930.chunk.js",
+    "static/js/828.a0a62ce8.chunk.js": "/aicareers/static/js/828.a0a62ce8.chunk.js",
+    "static/js/832.0f9e8ceb.chunk.js": "/aicareers/static/js/832.0f9e8ceb.chunk.js",
+    "static/js/488.62e9b9ca.chunk.js": "/aicareers/static/js/488.62e9b9ca.chunk.js",
+    "static/js/104.49258cb0.chunk.js": "/aicareers/static/js/104.49258cb0.chunk.js",
+    "index.html": "/aicareers/index.html",
+    "main.d40ae37c.css.map": "/aicareers/static/css/main.d40ae37c.css.map",
+    "main.57eacc30.js.map": "/aicareers/static/js/main.57eacc30.js.map",
+    "52.58c7bb48.chunk.js.map": "/aicareers/static/js/52.58c7bb48.chunk.js.map",
+    "745.d287c81f.chunk.js.map": "/aicareers/static/js/745.d287c81f.chunk.js.map",
+    "62.74b15930.chunk.js.map": "/aicareers/static/js/62.74b15930.chunk.js.map",
+    "828.a0a62ce8.chunk.js.map": "/aicareers/static/js/828.a0a62ce8.chunk.js.map",
+    "832.0f9e8ceb.chunk.js.map": "/aicareers/static/js/832.0f9e8ceb.chunk.js.map",
+    "488.62e9b9ca.chunk.js.map": "/aicareers/static/js/488.62e9b9ca.chunk.js.map",
+    "104.49258cb0.chunk.js.map": "/aicareers/static/js/104.49258cb0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d40ae37c.css",
+    "static/js/main.57eacc30.js"
+  ]
+}

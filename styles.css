@@ -46,6 +46,50 @@ header{
   box-shadow:var(--shadow-soft);
 }
 
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slide-track-wrapper {
+  overflow: hidden;
+}
+
+.slide-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.project-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+
+
 .head-inner{
   max-width:1000px;
   margin:auto;

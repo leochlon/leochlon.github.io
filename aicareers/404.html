@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AI Careers</title>
+    <script type="text/javascript">
+      // Single Page Application (SPA) redirect for GitHub Pages
+      // This script takes the current pathname and search string and redirects to index.html
+      // with the path and search as URL parameters that can be parsed by the SPA router
+      
+      var pathSegmentsToKeep = 2; // Set to 2 for /aicareers/ subdirectory deployment
+      
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + 
+        '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

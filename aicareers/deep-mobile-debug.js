@@ -55,22 +55,11 @@ function debugMobileNavigation() {
   
   // Monitor the navigation state
   const nav = document.querySelector('nav[aria-label="Main navigation"]');
-  if (!nav) {
-    console.log('❌ Navigation element not found in debugMobileNavigation');
-    return;
-  }
-  
   console.log('🏗️ Current navigation state:');
   console.log('   - aria-expanded:', nav.getAttribute('aria-expanded'));
-  
-  // Use try-catch to prevent potential errors with getComputedStyle
-  try {
-    console.log('   - transform:', getComputedStyle(nav).transform);
-    console.log('   - visibility:', getComputedStyle(nav).visibility);
-    console.log('   - display:', getComputedStyle(nav).display);
-  } catch (e) {
-    console.log('   - Error getting computed style:', e.message);
-  }
+  console.log('   - transform:', getComputedStyle(nav).transform);
+  console.log('   - visibility:', getComputedStyle(nav).visibility);
+  console.log('   - display:', getComputedStyle(nav).display);
   
   // Hook into the X button click
   const originalClick = xButton.onclick;
@@ -100,44 +89,22 @@ function debugMobileNavigation() {
     setTimeout(() => {
       const navAfter = document.querySelector('nav[aria-label="Main navigation"]');
       console.log('📊 Navigation state after click:');
-      if (navAfter) {
-        try {
-          console.log('   - transform:', getComputedStyle(navAfter).transform);
-          console.log('   - aria-expanded:', navAfter.getAttribute('aria-expanded'));
-        } catch (e) {
-          console.log('   - Error getting computed style after click:', e.message);
-        }
-      } else {
-        console.log('   - Navigation element not found after click');
-      }
+      console.log('   - transform:', getComputedStyle(navAfter).transform);
+      console.log('   - aria-expanded:', navAfter.getAttribute('aria-expanded'));
     }, 100);
   }, true); // Use capture phase
   
   // Monitor for React state changes
-  let previousTransform = 'none';
-  try {
-    if (nav) {
-      previousTransform = getComputedStyle(nav).transform;
-    }
-  } catch (e) {
-    console.log('Error getting initial transform:', e.message);
-  }
-  
+  let previousTransform = getComputedStyle(nav).transform;
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-        if (nav && nav.parentNode) {
-          try {
-            const currentTransform = getComputedStyle(nav).transform;
-            if (currentTransform !== previousTransform) {
-              console.log('🔄 Navigation transform changed:');
-              console.log('   - From:', previousTransform);
-              console.log('   - To:', currentTransform);
-              previousTransform = currentTransform;
-            }
-          } catch (e) {
-            console.log('Error monitoring transform changes:', e.message);
-          }
+        const currentTransform = getComputedStyle(nav).transform;
+        if (currentTransform !== previousTransform) {
+          console.log('🔄 Navigation transform changed:');
+          console.log('   - From:', previousTransform);
+          console.log('   - To:', currentTransform);
+          previousTransform = currentTransform;
         }
       }
     });

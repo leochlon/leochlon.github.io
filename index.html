@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HassanaLabs – Home</title>
+  <meta name="description" content="HassanaLabs bridges rigorous drug discovery and community impact, honoring Hassana’s legacy through research, education, and mentorship.">
+  <meta property="og:title" content="HassanaLabs"/>
+  <meta property="og:description" content="Bridging scientific research and community impact."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="favicon.svg"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="hassanalabs-theme/css/hassanalabs.css">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&family=Fira+Code&display=swap" rel="stylesheet">
@@ -12,7 +20,8 @@
 <header>
   <div class="container">
     <a class="logo" href="index.html">HassanaLabs</a>
-    <nav>
+    <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">☰</button>
+    <nav id="site-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>

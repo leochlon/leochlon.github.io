@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="tealCopper" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#00695C"/>
+      <stop offset="100%" stop-color="#B87333"/>
+    </linearGradient>
+  </defs>
+  <path d="M0,120 C240,160 480,40 720,80 C960,120 1200,200 1440,120 L1440,200 L0,200 Z" fill="url(#tealCopper)" opacity="0.6"/>
+  <path d="M0,140 C240,180 480,60 720,100 C960,140 1200,220 1440,140" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="8 6"/>
+  <path d="M0,150 C180,120 360,160 540,130 C720,100 900,140 1080,110 C1260,80 1350,100 1440,90" fill="none" stroke="#00d1b2" stroke-opacity="0.25" stroke-width="2"/>
+</svg>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HassanaLabs – Home</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hassanalabs-theme/css/hassanalabs.css">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&family=Fira+Code&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,29 +23,59 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    <button data-theme-toggle class="hl-theme-toggle" aria-label="Toggle theme"><span class="icon"></span>Theme</button>
   </div>
 </header>
 
-<section class="hero">
-  <h1>Advancing Science, Empowering Communities</h1>
+<section class="hero hl-hero">
+  <div class="hl-helix hl-layer-back" aria-hidden="true"></div>
+  <div class="hl-scrim" aria-hidden="true"></div>
+  <h1 class="hl-title hl-typing">Advancing Science, Empowering Communities</h1>
   <p>Honoring Hassana’s legacy through cutting-edge drug discovery and inclusive education.</p>
-  <a class="btn" href="about.html">Learn More</a>
+  <a class="btn hl-btn hl-pulse" href="about.html"><i class="hl-icon hands" aria-hidden="true"></i> Learn More</a>
 </section>
 
-<section>
+<section class="hl-tessellate">
+  <h2 class="terminal-title" data-text="Our Impact">Our Impact</h2>
+  <div class="bento-grid">
+    <div class="card hl-card hl-tilt hl-shine">
+      <div class="impact-number"><span class="hl-arabic-hover" data-count-up data-target="60" data-suffix="+">0</span></div>
+      <div>People trained across workshops</div>
+    </div>
+    <div class="card hl-card hl-tilt hl-shine">
+      <div class="impact-number"><span class="hl-arabic-hover" data-count-up data-target="3" data-suffix="+">0</span></div>
+      <div>Published papers and calls</div>
+    </div>
+    <div class="card hl-card hl-tilt hl-shine">
+      <div class="impact-number"><span class="hl-arabic-hover" data-count-up data-target="12" data-suffix="+">0</span></div>
+      <div>Workshops and seminars delivered</div>
+    </div>
+  </div>
+  <div class="hl-divider-star" aria-hidden="true"></div>
+</section>
+
+<section class="hl-tessellate">
   <h2 class="terminal-title" data-text="Our Dual Mission">Our Dual Mission</h2>
   <p>HassanaLabs bridges rigorous scientific research with social impact across the Levant and beyond.</p>
   <div class="bento-grid">
-    <div class="card">Drug discovery pipeline leveraging AI.</div>
-    <div class="card">Three papers published calling for contributions from underrepresented backgrounds.</div>
-    <div class="card">Workshops and mentorship for Gulf women and displaced communities.</div>
+    <div class="card hl-card hl-tilt hl-shine hl-reveal">Drug discovery pipeline leveraging AI.
+      <div class="hl-reveal-hidden">Why it matters: focus on neglected diseases.</div>
+    </div>
+    <div class="card hl-card hl-tilt hl-shine hl-reveal">Three papers published calling for contributions from underrepresented backgrounds.
+      <div class="hl-reveal-hidden">Why it matters: broaden voices in science.</div>
+    </div>
+    <div class="card hl-card hl-tilt hl-shine hl-reveal">Workshops and mentorship for Gulf women and displaced communities.
+      <div class="hl-reveal-hidden">Why it matters: equitable access to skills.</div>
+    </div>
   </div>
-  <a class="btn" href="work.html">Explore Our Work</a>
+  <a class="btn hl-btn hl-pulse" href="work.html"><i class="hl-icon flask" aria-hidden="true"></i> Explore Our Work</a>
 </section>
 
+<div class="hl-wave-divider" aria-hidden="true"></div>
 <footer>
   <p>&copy; 2025 HassanaLabs. Inspired by Hassana’s legacy.</p>
 </footer>
+<script defer src="hassanalabs-theme/js/hassanalabs.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

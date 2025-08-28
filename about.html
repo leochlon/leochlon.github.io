@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HassanaLabs – About</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hassanalabs-theme/css/hassanalabs.css">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,33 +23,61 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    <button data-theme-toggle class="hl-theme-toggle" aria-label="Toggle theme"><span class="icon"></span>Theme</button>
   </div>
 </header>
 
-<section>
-  <h1 class="terminal-title" data-text="About HassanaLabs">About HassanaLabs</h1>
+<section class="hl-tessellate">
+  <h1 class="hl-title hl-typing">About HassanaLabs</h1>
   <p>HassanaLabs is named in memory of Hassana, whose resilience and compassion inspire our work. We strive to unite scientific innovation with community empowerment across the Levant and beyond.</p>
   <p>Our values center on inclusivity, open knowledge, and using technology for social good.</p>
 </section>
 
 <section>
   <h2 class="terminal-title" data-text="Milestones">Milestones</h2>
-  <ul>
-    <li>2023 – HassanaLabs founded.</li>
-    <li>2024 – AI-driven drug discovery pipeline established.</li>
-    <li>2024 – Three papers published inviting contributions from underrepresented backgrounds.</li>
-    <li>2024 – Workshops delivered to Gulf women and displaced people in Lebanon.</li>
-  </ul>
+  <div class="hl-timeline">
+    <div class="hl-time-item">
+      <span class="hl-time-dot" aria-hidden="true"></span>
+      <details class="hl-time-card" open>
+        <summary>2023 · HassanaLabs founded</summary>
+        <p>Established to honor Hassana’s legacy by bridging research and community.</p>
+      </details>
+    </div>
+    <div class="hl-time-item">
+      <span class="hl-time-dot" aria-hidden="true"></span>
+      <details class="hl-time-card">
+        <summary>2024 · AI drug discovery pipeline</summary>
+        <p>Built an AI-enhanced pipeline targeting neglected diseases.</p>
+      </details>
+    </div>
+    <div class="hl-time-item">
+      <span class="hl-time-dot" aria-hidden="true"></span>
+      <details class="hl-time-card">
+        <summary>2024 · Open research & papers</summary>
+        <p>Published calls for contributions from underrepresented backgrounds.</p>
+      </details>
+    </div>
+    <div class="hl-time-item">
+      <span class="hl-time-dot" aria-hidden="true"></span>
+      <details class="hl-time-card">
+        <summary>2024 · Workshops & mentorship</summary>
+        <p>Hands-on ML sessions for Gulf women and displaced communities in Lebanon.</p>
+      </details>
+    </div>
+  </div>
 </section>
 
 <section>
   <h2 class="terminal-title" data-text="Team">Team</h2>
   <p>Led by Leo Chlon with collaborators, advisors, and volunteers dedicated to advancing science and opportunity.</p>
+  <div class="hl-divider-star" aria-hidden="true"></div>
 </section>
 
+<div class="hl-wave-divider" aria-hidden="true"></div>
 <footer>
   <p>&copy; 2025 HassanaLabs. Inspired by Hassana’s legacy.</p>
 </footer>
+<script defer src="hassanalabs-theme/js/hassanalabs.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

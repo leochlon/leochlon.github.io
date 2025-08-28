@@ -1,9 +1,9 @@
 :root {
-  --primary: #00D9FF;
-  --accent: #FFD700;
-  --deep: #1A0B2E;
-  --glow: #00FFF0;
-  --glass-bg: rgba(255, 255, 255, 0.15);
+  --primary: #004D40; /* deep teal */
+  --accent: #B87333;  /* copper */
+  --deep: #0f1413;    /* dark base */
+  --glow: #00BFA5;    /* teal glow */
+  --glass-bg: rgba(255, 255, 255, 0.18); /* lightened ~10% */
   --glass-border: rgba(255, 255, 255, 0.25);
   --color-text: #fff;
 }

@@ -1,0 +1,8 @@
+.islamic-overlay { position: absolute; inset: 0; background-image: url('../assets/patterns/islamic-star.svg'); background-size: 100px 100px; opacity: .05; transition: opacity .3s ease; pointer-events: none; mix-blend-mode: overlay; }
+.bento-item:hover .islamic-overlay { opacity: .1; animation: patternShift 20s linear infinite; }
+@keyframes patternShift { to { background-position: 100px 100px; } }
+
+.image-container { position: relative; overflow: hidden; }
+.image-container::after { content: ''; position: absolute; inset: 0; background: repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 10deg, rgba(255, 215, 0, 0.1) 10deg, rgba(255, 215, 0, 0.1) 20deg); pointer-events: none; opacity: 0; transition: opacity .3s ease; }
+.image-container:hover::after { opacity: 1; }
+

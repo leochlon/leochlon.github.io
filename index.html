@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +12,17 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="favicon.svg">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="hassanalabs-theme/css/hassanalabs.css">
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/glassmorphism.css">
+  <link rel="stylesheet" href="css/islamic-patterns.css">
+  
 </head>
 <body>
+<canvas id="particles-canvas"></canvas>
+<div id="matrix-rain"></div>
 <header>
   <div class="container">
     <a class="logo" href="index.html">HassanaLabs</a>
@@ -32,59 +38,88 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <button data-theme-toggle class="hl-theme-toggle" aria-label="Toggle theme"><span class="icon"></span>Theme</button>
+    
   </div>
 </header>
 
-<section class="hero hl-hero">
-  <div class="hl-helix hl-layer-back" aria-hidden="true"></div>
-  <div class="hl-scrim" aria-hidden="true"></div>
-  <h1 class="hl-title hl-typing">Advancing Science, Empowering Communities</h1>
+<section class="hero">
+  <h1>Advancing Science, Empowering Communities</h1>
   <p>Honoring Hassana’s legacy through cutting-edge drug discovery and inclusive education.</p>
-  <a class="btn hl-btn hl-pulse" href="about.html"><i class="hl-icon hands" aria-hidden="true"></i> Learn More</a>
+  <button class="magnetic-button" data-magnetic onclick="location.href='about.html'">
+    <span class="button-text">Learn More</span>
+    <div class="button-bg"></div>
+  </button>
 </section>
 
-<section class="hl-tessellate">
-  <h2 class="terminal-title" data-text="Our Impact">Our Impact</h2>
-  <div class="bento-grid">
-    <div class="card hl-card hl-tilt hl-shine">
-      <div class="impact-number"><span class="hl-arabic-hover" data-count-up data-target="60" data-suffix="+">0</span></div>
-      <div>People trained across workshops</div>
+<section>
+  <h2 class="terminal-header" data-text="OUR_IMPACT">
+    <span class="prefix">&gt;_</span>
+    <span class="typing-text"></span>
+    <span class="cursor">|</span>
+  </h2>
+  <div class="bento-grid" id="projects-grid">
+    <div class="bento-item bento-large" data-aos="fade-up">
+      <div class="islamic-overlay"></div>
+      <div class="content">
+        <h3>People trained</h3>
+        <div class="stat-number" data-target="60" data-suffix="+">0</div>
+      </div>
     </div>
-    <div class="card hl-card hl-tilt hl-shine">
-      <div class="impact-number"><span class="hl-arabic-hover" data-count-up data-target="3" data-suffix="+">0</span></div>
-      <div>Published papers and calls</div>
+    <div class="bento-item" data-aos="fade-up">
+      <div class="islamic-overlay"></div>
+      <div class="content">
+        <h3>Published papers</h3>
+        <div class="stat-number" data-target="3" data-suffix="+">0</div>
+      </div>
     </div>
-    <div class="card hl-card hl-tilt hl-shine">
-      <div class="impact-number"><span class="hl-arabic-hover" data-count-up data-target="12" data-suffix="+">0</span></div>
-      <div>Workshops and seminars delivered</div>
+    <div class="bento-item bento-wide" data-aos="fade-up">
+      <div class="islamic-overlay"></div>
+      <div class="content">
+        <h3>Workshops & seminars</h3>
+        <div class="stat-number" data-target="12" data-suffix="+">0</div>
+      </div>
     </div>
   </div>
-  <div class="hl-divider-star" aria-hidden="true"></div>
 </section>
 
-<section class="hl-tessellate">
-  <h2 class="terminal-title" data-text="Our Dual Mission">Our Dual Mission</h2>
+<section>
+  <h2 class="terminal-header" data-text="OUR_DUAL_MISSION"><span class="prefix">&gt;_</span><span class="typing-text"></span><span class="cursor">|</span></h2>
   <p>HassanaLabs bridges rigorous scientific research with social impact across the Levant and beyond.</p>
   <div class="bento-grid">
-    <div class="card hl-card hl-tilt hl-shine hl-reveal">Drug discovery pipeline leveraging AI.
-      <div class="hl-reveal-hidden">Why it matters: focus on neglected diseases.</div>
-    </div>
-    <div class="card hl-card hl-tilt hl-shine hl-reveal">Three papers published calling for contributions from underrepresented backgrounds.
-      <div class="hl-reveal-hidden">Why it matters: broaden voices in science.</div>
-    </div>
-    <div class="card hl-card hl-tilt hl-shine hl-reveal">Workshops and mentorship for Gulf women and displaced communities.
-      <div class="hl-reveal-hidden">Why it matters: equitable access to skills.</div>
-    </div>
+    <div class="bento-item" data-aos="fade-in"><div class="islamic-overlay"></div><div class="content">Drug discovery pipeline leveraging AI.</div></div>
+    <div class="bento-item" data-aos="fade-in"><div class="islamic-overlay"></div><div class="content">Three papers inviting contributions from underrepresented backgrounds.</div></div>
+    <div class="bento-item" data-aos="fade-in"><div class="islamic-overlay"></div><div class="content">Workshops and mentorship for Gulf women and displaced communities.</div></div>
   </div>
-  <a class="btn hl-btn hl-pulse" href="work.html"><i class="hl-icon flask" aria-hidden="true"></i> Explore Our Work</a>
+  <a class="magnetic-button" data-magnetic href="work.html"><span class="button-text">Explore Our Work</span><div class="button-bg"></div></a>
 </section>
 
-<div class="hl-wave-divider" aria-hidden="true"></div>
 <footer>
   <p>&copy; 2025 HassanaLabs. Inspired by Hassana’s legacy.</p>
+  <nav aria-label="Footer">
+    <a href="work.html">Research</a> · <a href="programs.html">Programs</a>
+  </nav>
 </footer>
-<script defer src="hassanalabs-theme/js/hassanalabs.js"></script>
-<script src="main.js"></script>
+<!-- Command Palette Shell -->
+<div id="command-palette" class="command-palette" style="display: none;">
+  <div class="command-overlay"></div>
+  <div class="command-modal">
+    <input type="text" class="command-input" placeholder="Type a command or search...">
+    <div class="command-results">
+      <div class="command-section">
+        <div class="command-item" data-action="projects"><span class="command-icon">📊</span><span class="command-text">View Projects</span><span class="command-shortcut">⌘P</span></div>
+        <div class="command-item" data-action="research"><span class="command-icon">🔬</span><span class="command-text">Research Papers</span><span class="command-shortcut">⌘R</span></div>
+        <div class="command-item" data-action="contact"><span class="command-icon">📧</span><span class="command-text">Contact</span><span class="command-shortcut">⌘C</span></div>
+        <div class="command-item" data-action="theme"><span class="command-icon">🎨</span><span class="command-text">Toggle Theme</span><span class="command-shortcut">⌘T</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- New modular JS -->
+<script src="js/particles.js" defer></script>
+<script src="js/animations.js" defer></script>
+<script src="js/command-palette.js" defer></script>
+<script src="js/easter-eggs.js" defer></script>
+<script src="js/site.js" defer></script>
 </body>
 </html>

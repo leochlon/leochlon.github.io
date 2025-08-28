@@ -1,0 +1,37 @@
+/* Terminal headers, matrix rain containers, AOS, magnetic buttons */
+.terminal-header { font-family: var(--font-code); color: var(--glow); font-size: clamp(1.5rem, 3vw, 2.5rem); margin: 2rem 0; display: flex; align-items: center; gap: .5rem; }
+.terminal-header .prefix { color: var(--matrix-green); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+.terminal-header .cursor { animation: blink 1s infinite; }
+@keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+#particles-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; opacity: .5; }
+#matrix-rain { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden; }
+.matrix-column { position: absolute; font-family: var(--font-arabic); font-size: 14px; color: var(--matrix-green); writing-mode: vertical-rl; text-orientation: mixed; animation: fall linear infinite; opacity: .05; }
+@keyframes fall { to { transform: translateY(100vh); } }
+
+[data-aos] { opacity: 0; transition: all 0.8s var(--transition-smooth); }
+.aos-animate { opacity: 1; }
+.aos-fade-up { animation: fadeUp 0.8s ease forwards; }
+.aos-fade-in { animation: fadeIn 0.8s ease forwards; }
+.aos-zoom-in { animation: zoomIn 0.8s ease forwards; }
+@keyframes fadeUp { from { opacity:0; transform: translateY(30px);} to { opacity:1; transform: none; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes zoomIn { from { opacity:0; transform: scale(0.9);} to { opacity:1; transform: scale(1);} }
+
+.magnetic-button { position: relative; padding: 1rem 2rem; background: transparent; border: 1px solid var(--primary); color: var(--primary); font-family: var(--font-code); font-size: .9rem; text-transform: uppercase; cursor: pointer; overflow: hidden; transition: all .3s var(--transition-smooth); }
+.magnetic-button .button-bg { position: absolute; inset: 0; background: var(--primary); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--transition-smooth); z-index: -1; }
+.magnetic-button:hover .button-bg { transform: scaleX(1); }
+.magnetic-button:hover { color: var(--deep); border-color: transparent; }
+
+@media (max-width: 768px) {
+  #particles-canvas { opacity: .3; }
+  #matrix-rain { display: none; }
+  .terminal-header { font-size: 1.5rem; }
+  .magnetic-button { padding: 1.2rem 2.5rem; font-size: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+

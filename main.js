@@ -19,6 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     type();
   });
+});
 
   // Slight magnetic hover effect on buttons
   document.querySelectorAll('.btn').forEach(btn => {

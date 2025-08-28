@@ -1,4 +1,5 @@
 :root {
+<<<<<<< HEAD
   --primary: #00D9FF;
   --accent: #FFD700;
   --deep: #1A0B2E;
@@ -6,6 +7,12 @@
   --glass-bg: rgba(255, 255, 255, 0.15);
   --glass-border: rgba(255, 255, 255, 0.25);
   --color-text: #fff;
+=======
+  --color-primary: #006d77;
+  --color-accent: #ee6c4d;
+  --color-bg: #fdfdfd;
+  --color-text: #333;
+>>>>>>> main
 }
 
 * { box-sizing: border-box; }
@@ -14,6 +21,7 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
+<<<<<<< HEAD
   background: var(--deep);
   color: var(--color-text);
   background-image: radial-gradient(at 40% 20%, hsla(174,100%,50%,0.3) 0px, transparent 50%),
@@ -44,6 +52,20 @@ h1, h2, h3 {
 header {
   background: rgba(0,0,0,0.2);
   border-bottom: 1px solid rgba(255,255,255,0.1);
+=======
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1, h2, h3 {
+  font-family: 'Merriweather', serif;
+  color: var(--color-primary);
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+>>>>>>> main
 }
 
 header .container {
@@ -58,7 +80,11 @@ header .container {
 .logo {
   font-weight: 700;
   font-family: 'Merriweather', serif;
+<<<<<<< HEAD
   color: var(--primary);
+=======
+  color: var(--color-primary);
+>>>>>>> main
   text-decoration: none;
   font-size: 1.5rem;
 }
@@ -73,14 +99,22 @@ nav ul {
 
 nav a {
   text-decoration: none;
+<<<<<<< HEAD
   color: var(--primary);
+=======
+  color: var(--color-primary);
+>>>>>>> main
   font-weight: 600;
 }
 
 .hero {
   text-align: center;
   padding: 4rem 1rem;
+<<<<<<< HEAD
   background: linear-gradient(120deg, var(--primary), var(--glow));
+=======
+  background: linear-gradient(120deg, var(--color-primary), #83c5be);
+>>>>>>> main
   color: #fff;
 }
 
@@ -90,17 +124,27 @@ nav a {
 
 section {
   padding: 2rem 1rem;
+<<<<<<< HEAD
   max-width: 1000px;
+=======
+  max-width: 800px;
+>>>>>>> main
   margin: 0 auto;
 }
 
 .btn {
+<<<<<<< HEAD
   background: var(--accent);
   color: #000;
+=======
+  background: var(--color-accent);
+  color: #fff;
+>>>>>>> main
   padding: 0.5rem 1rem;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
+<<<<<<< HEAD
   transition: transform 0.2s ease;
 }
 
@@ -157,3 +201,13 @@ footer {
   background: rgba(0,0,0,0.2);
   margin-top: 2rem;
 }
+=======
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #f0f0f0;
+  margin-top: 2rem;
+}
+>>>>>>> main

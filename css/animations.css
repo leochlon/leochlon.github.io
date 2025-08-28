@@ -35,3 +35,20 @@
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
 
+/* Name transform (Arabic ↔ Code) */
+.name-transform { position: relative; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; cursor: pointer; display: inline-block; perspective: 1000px; }
+.arabic-text { font-family: var(--font-arabic); background: linear-gradient(90deg, var(--accent), var(--primary)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; transition: all .5s var(--transition-smooth); display: inline-block; }
+.code-text { position: absolute; left: 0; top: 0; font-family: var(--font-code); color: var(--glow); opacity: 0; transform: rotateY(90deg); transition: all .5s var(--transition-smooth); }
+.name-transform:hover .arabic-text { opacity: 0; transform: rotateY(-90deg); }
+.name-transform:hover .code-text { opacity: 1; transform: rotateY(0); }
+
+/* Hero mesh overlay and optional iridescent shift */
+.hero-mesh { position: absolute; inset: 0; z-index: 0; opacity: .35; background-image: var(--gradient-mesh); pointer-events: none; }
+.hero.iridescent { animation: colorShift 20s linear infinite; }
+@keyframes colorShift { from { filter: hue-rotate(0deg); } to { filter: hue-rotate(360deg); } }
+
+/* Loading tube (lab-inspired loader) */
+.loading-tube { width: 140px; height: 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.2); position: relative; overflow: hidden; }
+.loading-tube::after { content: ""; position: absolute; left: -40%; top: 0; bottom: 0; width: 40%; background: linear-gradient(90deg, var(--primary), var(--glow)); animation: tubeFill 1.4s ease-in-out infinite; }
+@keyframes tubeFill { 50% { left: 100%; } 100% { left: 100%; } }
+

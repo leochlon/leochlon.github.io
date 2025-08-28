@@ -38,5 +38,28 @@ window.addEventListener('DOMContentLoaded',()=>{
   new ScrollAnimations();
   document.querySelectorAll('.stat-number').forEach(el=> new AnimatedCounter(el));
   initMagneticButtons();
+  // Optional: Orbital nav
+  if (document.querySelector('.orbital-container')) new OrbitalNav();
 });
 
+// Orbital nav items rotating gently around a center element
+class OrbitalNav {
+  constructor(){
+    this.container = document.querySelector('.orbital-container');
+    this.items = Array.from(document.querySelectorAll('.orbital-item'));
+    this.t = 0; this.rAF = null;
+    if (this.container && this.items.length) this.animate();
+  }
+  animate(){
+    const rect = this.container.getBoundingClientRect();
+    const cx = rect.width / 2; const cy = rect.height / 2; const radius = Math.min(cx, cy) - 10;
+    this.items.forEach((el, i)=>{
+      const angle = this.t + (i * (Math.PI*2 / this.items.length));
+      const x = cx + Math.cos(angle) * radius;
+      const y = cy + Math.sin(angle) * radius;
+      el.style.position = 'absolute';
+      el.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
+    });
+    this.t += 0.005; this.rAF = requestAnimationFrame(()=>this.animate());
+  }
+}

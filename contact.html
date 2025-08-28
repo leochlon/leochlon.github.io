@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HassanaLabs – Contact</title>
+  <meta name="description" content="Contact HassanaLabs for collaborations, programs, and media inquiries.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="hassanalabs-theme/css/hassanalabs.css">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -12,7 +14,8 @@
 <header>
   <div class="container">
     <a class="logo" href="index.html">HassanaLabs</a>
-    <nav>
+    <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">☰</button>
+    <nav id="site-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -41,6 +44,9 @@
 <div class="hl-wave-divider" aria-hidden="true"></div>
 <footer>
   <p>&copy; 2025 HassanaLabs. Inspired by Hassana’s legacy.</p>
+  <nav aria-label="Footer">
+    <a href="work.html">Research</a> · <a href="programs.html">Programs</a>
+  </nav>
 </footer>
 <script defer src="hassanalabs-theme/js/hassanalabs.js"></script>
 <script src="main.js"></script>

@@ -21,6 +21,8 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Initialize after DOM ready for other effects
+window.addEventListener('DOMContentLoaded', () => {
   // Slight magnetic hover effect on buttons
   document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('mousemove', e => {

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HassanaLabs – Our Work</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hassanalabs-theme/css/hassanalabs.css">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,11 +23,12 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    <button data-theme-toggle class="hl-theme-toggle" aria-label="Toggle theme"><span class="icon"></span>Theme</button>
   </div>
 </header>
 
 <section>
-  <h1 class="terminal-title" data-text="Scientific Research">Scientific Research</h1>
+  <h1 class="hl-title hl-typing">Scientific Research <span class="tag-research">• Research</span></h1>
   <p>Our team develops an AI-enhanced drug discovery pipeline aimed at addressing neglected diseases. We publish open research and invite collaboration from scientists across underrepresented backgrounds.</p>
   <p>Published Papers:</p>
   <ul>
@@ -37,18 +39,21 @@
 </section>
 
 <section>
-  <h1 class="terminal-title" data-text="Community Impact">Community Impact</h1>
+  <h1 class="hl-title hl-typing">Community Impact <span class="tag-community">• Community</span></h1>
   <p>Beyond the lab, HassanaLabs delivers educational workshops and mentorship. We have provided machine learning tutorials and career advice to women in the Gulf and to displaced communities in Lebanon.</p>
   <p>Impact Highlights:</p>
   <ul>
     <li>Dozens of participants trained through hands-on ML sessions.</li>
     <li>Free career seminars in London and talks at UCL.</li>
   </ul>
+  <div class="hl-divider-star" aria-hidden="true"></div>
 </section>
 
+<div class="hl-wave-divider" aria-hidden="true"></div>
 <footer>
   <p>&copy; 2025 HassanaLabs. Inspired by Hassana’s legacy.</p>
 </footer>
+<script defer src="hassanalabs-theme/js/hassanalabs.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HassanaLabs – Resources</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hassanalabs-theme/css/hassanalabs.css">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,11 +23,12 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    <button data-theme-toggle class="hl-theme-toggle" aria-label="Toggle theme"><span class="icon"></span>Theme</button>
   </div>
 </header>
 
-<section>
-  <h1 class="terminal-title" data-text="Resources">Resources</h1>
+<section class="hl-tessellate">
+  <h1 class="hl-title hl-typing">Resources</h1>
   <p>Explore open educational materials and career guidance produced by HassanaLabs. We aim to make knowledge freely available to everyone.</p>
   <ul>
     <li>Machine learning tutorial slides – coming soon.</li>
@@ -36,9 +38,11 @@
   <p>Check back for updates or <a href="contact.html">reach out</a> to request specific resources.</p>
 </section>
 
+<div class="hl-wave-divider" aria-hidden="true"></div>
 <footer>
   <p>&copy; 2025 HassanaLabs. Inspired by Hassana’s legacy.</p>
 </footer>
+<script defer src="hassanalabs-theme/js/hassanalabs.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

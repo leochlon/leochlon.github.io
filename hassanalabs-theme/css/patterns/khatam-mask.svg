@@ -1,0 +1,15 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'>
+  <defs>
+    <g id='star'>
+      <path d='M120 10 L140 35 L230 35 L205 65 L230 120 L140 120 L120 230 L100 120 L10 120 L35 65 L10 35 L100 35 Z' fill='none' stroke='#ffffff' stroke-opacity='0.9' stroke-width='4' />
+    </g>
+  </defs>
+  <rect width='240' height='240' fill='none'/>
+  <g opacity='0.35'>
+    <use href='#star' x='0' y='0'/>
+    <use href='#star' x='-120' y='-60'/>
+    <use href='#star' x='120' y='-60'/>
+    <use href='#star' x='-120' y='60'/>
+    <use href='#star' x='120' y='60'/>
+  </g>
+  </svg>

@@ -50,10 +50,10 @@ footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid rgba(255,
 /* Header and navigation */
 header { position: relative; z-index: 10; background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)); border-bottom: 1px solid rgba(255,255,255,0.08); }
 header .container { display: flex; align-items: center; justify-content: space-between; }
-.logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
+.logo { font-weight: 700; font-size: 1.5rem; color: var(--text); text-decoration: none; }
 nav ul { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; }
-nav a { text-decoration: underline; text-decoration-thickness: 1px; color: var(--primary); font-weight: 600; }
-nav a:hover { color: #66ffe6; }
+nav a { font-family: var(--font-main); color: var(--text); font-weight: 500; letter-spacing: .02em; text-decoration: none; }
+nav a:hover { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 
 /* Mobile menu */
 .menu-toggle { display: none; margin-right: .5rem; width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); background: #ffffff; color: #1A0B2E; font-size: 1.2rem; }

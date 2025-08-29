@@ -24,5 +24,40 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-});
 
+  // Theme toggle (switches brand palette to hero warm tones)
+  const key = 'hl-color-theme';
+  const applyTheme = (mode) => {
+    document.documentElement.classList.toggle('theme-hero', mode === 'hero');
+    localStorage.setItem(key, mode);
+  };
+  const current = localStorage.getItem(key) || 'default';
+  applyTheme(current);
+
+  const headerContainer = document.querySelector('header .container');
+  if (headerContainer) {
+    const btn = document.createElement('button');
+    btn.className = 'theme-toggle';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Toggle color theme');
+    btn.innerHTML = '<span class="dot" aria-hidden="true"></span><span>Theme</span>';
+    headerContainer.appendChild(btn);
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.classList.contains('theme-hero') ? 'default' : 'hero';
+      applyTheme(next);
+    });
+  }
+
+  // Scroll progress indicator (thin top bar)
+  const progress = document.createElement('div');
+  progress.id = 'scroll-progress';
+  document.body.appendChild(progress);
+  const updateProgress = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progress.style.width = pct + '%';
+  };
+  updateProgress();
+  window.addEventListener('scroll', updateProgress, { passive: true });
+});

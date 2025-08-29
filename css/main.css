@@ -29,6 +29,16 @@
     }
 }
 
+/* Warm hero theme (orange/peach) overrides */
+.theme-hero {
+    --primary: #FF8A3D;       /* warm orange */
+    --accent: #FFC796;        /* peach */
+    --glow: #FFA864;          /* soft orange glow */
+    --matrix-green: #FFB15E;  /* warmed matrix tint */
+    --gradient-mesh: radial-gradient(at 40% 20%, hsla(30,100%,65%,0.25) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsla(15,100%,60%,0.18) 0px, transparent 50%);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -40,10 +50,25 @@ body {
     min-height: 100vh;
 }
 
+/* Subtle global noise for depth */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/ filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.07' /%3E%3C/svg%3E");
+    background-size: 120px 120px;
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Scroll progress indicator */
+#scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--accent), var(--primary)); z-index: 10000; box-shadow: 0 0 12px rgba(0,0,0,0.3); transition: width .1s linear; }
+
 /* Layout containers */
 .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
-section { padding: 2rem 1rem; }
-section + section { margin-top: 6rem; }
+section { padding: 6rem 2rem; }
+section + section { margin-top: 4rem; }
 footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.15); }
 .center-hero { min-height: 50vh; }
 
@@ -63,6 +88,11 @@ nav a:hover { color: var(--primary); text-decoration: underline; text-underline-
   nav.open { display: block; }
   nav ul { flex-direction: column; gap: .5rem; padding-top: .5rem; }
 }
+
+/* Theme toggle button */
+.theme-toggle { margin-left: .5rem; display: inline-flex; align-items: center; gap: .5rem; height: 40px; padding: 0 .9rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08); color: var(--text); cursor: pointer; backdrop-filter: blur(6px); }
+.theme-toggle:hover { border-color: var(--primary); }
+.theme-toggle .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
 
 /* Hero section (image-ready) */
 .hero { position: relative; min-height: 68vh; display: grid; place-items: center; padding: clamp(2rem, 6vw, 6rem) 1rem; text-align: center; overflow: hidden; }
@@ -84,3 +114,36 @@ nav a:hover { color: var(--primary); text-decoration: underline; text-underline-
 .command-results { max-height: 400px; overflow-y: auto; padding: 1rem; }
 .command-item { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1rem; margin: 0.25rem 0; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; }
 .command-item:hover, .command-item.active { background: rgba(0, 217, 255, 0.1); border-left: 3px solid var(--primary); padding-left: calc(1rem - 3px); }
+
+/* Konami Easter Egg */
+@keyframes konamiGlow {
+    0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+    50% { filter: hue-rotate(180deg) brightness(1.5); }
+}
+
+.konami-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, var(--deep), rgba(255, 215, 0, 0.2));
+    border: 2px solid var(--accent);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    z-index: 10000;
+    animation: popIn 0.5s ease;
+    box-shadow: 0 0 100px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes popIn {
+    from { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Timeline (milestones) */
+.hl-timeline { position: relative; padding-left: 2rem; }
+.hl-timeline::before { content: ''; position: absolute; left: 0.5rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--primary), var(--accent)); }
+.hl-time-item { position: relative; margin: 2rem 0; }
+.hl-time-dot { position: absolute; left: -1.5rem; top: 0.5rem; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 20px var(--primary); }
+.hl-time-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 1rem; backdrop-filter: blur(10px); }

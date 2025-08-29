@@ -1,0 +1,141 @@
+/* Memorial Hero */
+.memorial-hero { min-height: 56vh; display: grid; place-items: center; text-align: center; position: relative; overflow: hidden; padding: 2rem 2rem 0; }
+.memorial-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26, 11, 46, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%), url('assets/lebanon-mountains.jpg'); background-size: cover; background-position: center; filter: brightness(.9); }
+.memorial-hero::after { content: ''; position: absolute; inset: 0; background-image: url('../assets/patterns/islamic-star.svg'); opacity: 0.05; pointer-events: none; }
+.memorial-hero > * { position: relative; z-index: 1; }
+.memorial-hero + section { margin-top: 0; }
+.memorial-hero + .personal-story { padding-top: 0; }
+.hassana-intro { color: var(--text); padding: 2rem; }
+.hassana-intro .subtitle { opacity: .85; margin: .25rem 0; }
+.hassana-intro .dedication { opacity: .9; margin-top: .5rem; }
+/* Emphasize Arabic condolence line */
+.hassana-intro .dedication[lang="ar"],
+.hassana-intro .dedication[dir="rtl"] {
+  font-family: var(--font-arabic);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  color: var(--accent);
+  opacity: 1;
+  text-align: center;
+  text-shadow: 0 0 18px rgba(255, 215, 0, 0.18);
+}
+.arabic-calligraphy-large { font-size: clamp(3rem, 9vw, 7rem); font-family: var(--font-arabic); background: linear-gradient(90deg, var(--accent), var(--primary)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s ease-in-out infinite; letter-spacing: .02em; }
+@keyframes shimmer { 0%,100% { filter: brightness(1); } 50% { filter: brightness(1.35); } }
+
+/* Parallel Timelines */
+.parallel-timelines { position: relative; padding: 4rem 1rem; }
+.timeline-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; position: relative; max-width: 1200px; margin: 0 auto; }
+.timeline-container::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%); transform: translateX(-50%); opacity: .5; }
+.hassana-timeline, .lab-timeline { position: relative; padding-left: 2rem; }
+.hassana-timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent), var(--primary)); }
+.hassana-timeline h3, .lab-timeline h3 { margin-bottom: 1rem; }
+.memory-card, .legacy-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1.25rem; margin: 1.25rem 0; backdrop-filter: blur(10px); opacity: 0; transform: translateY(20px); transition: opacity .6s var(--transition-smooth), transform .6s var(--transition-smooth); }
+.memory-card.visible, .legacy-card.visible { opacity: 1; transform: translateY(0); }
+.memory-card img { width: 100%; border-radius: 10px; margin-bottom: .75rem; object-fit: cover; background: linear-gradient(135deg, var(--deep), var(--accent)); min-height: 200px; }
+.memory-content h4 { margin: .25rem 0 .5rem; }
+
+/* Photo Memories */
+.photo-memories { padding: 3rem 1rem; max-width: 1200px; margin: 0 auto; }
+.gallery-mosaic { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+.photo-tile { position: relative; overflow: hidden; border-radius: 12px; cursor: pointer; transition: transform .3s ease; }
+.photo-tile:hover { transform: translateY(-4px); }
+.photo-tile img { width: 100%; height: 100%; object-fit: cover; filter: sepia(20%); transition: filter .3s ease; display: block; background: linear-gradient(135deg, var(--deep), var(--accent)); min-height: 200px; }
+.photo-tile:hover img { filter: sepia(0%); }
+.photo-overlay { position: absolute; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%); color: #fff; padding: 1rem; transform: translateY(100%); transition: transform .3s ease; }
+.photo-tile:hover .photo-overlay { transform: translateY(0); }
+.story-panel { margin-top: 1.5rem; padding: 1rem; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: rgba(255,255,255,0.03); display: none; }
+.story-panel.active { display: block; }
+
+/* Teachings */
+.hassana-teachings { padding: 3rem 1rem; max-width: 1200px; margin: 0 auto; text-align: center; }
+.teaching-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.teaching { position: relative; z-index: 0; padding: 2rem; background: rgba(255, 215, 0, 0.05); border: 1px solid var(--accent); border-radius: 20px; transition: transform .3s ease, box-shadow .3s ease; }
+.teaching::before { content: ''; position: absolute; inset: -1px; background: linear-gradient(45deg, var(--accent), var(--primary)); border-radius: 20px; opacity: 0; transition: opacity 0.3s ease; z-index: -1; }
+.teaching:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 215, 0, 0.25); }
+.teaching:hover::before { opacity: 0.3; }
+.teaching .arabic-text { font-size: 2rem; font-family: var(--font-arabic); display: block; margin-bottom: .5rem; }
+.teaching .translation { font-style: italic; opacity: .9; display: block; margin-bottom: 1rem; }
+.teaching .application { opacity: .85; }
+
+/* Living Memorial */
+.living-memorial { padding: 3rem 1rem; max-width: 1200px; margin: 0 auto; text-align: center; }
+.impact-counter { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 1rem; }
+.memorial-metric .number { font-size: clamp(2rem, 6vw, 4rem); font-weight: 700; color: var(--primary); display: block; }
+.memorial-map { margin-top: 2rem; min-height: 220px; border: 1px dashed rgba(255,255,255,0.2); border-radius: 12px; display: grid; place-items: center; opacity: .7; }
+
+@media (max-width: 900px) { .timeline-container { grid-template-columns: 1fr; } .timeline-container::before { display: none; } }
+
+@media (max-width: 600px) {
+  .gallery-mosaic { grid-template-columns: 1fr; }
+  .teaching-cards { grid-template-columns: 1fr; }
+  .arabic-calligraphy-large { font-size: 3rem; }
+}
+
+/* Personal Story (compact narrative) */
+/* Editorial treatment for personal story */
+.personal-story { padding: 6rem 2rem; max-width: 1400px; margin: 0 auto; }
+.story-container h2 { text-align: center; font-weight: 800; letter-spacing: .02em; font-size: clamp(2.2rem, 4.5vw, 3.2rem); display: inline-block; margin: 0 auto; }
+.story-container h2::after { content: ''; display: block; height: 3px; width: 80px; margin: .6rem auto 0; background: linear-gradient(90deg, var(--accent), var(--primary)); border-radius: 2px; }
+.story-grid { display: block; position: relative; margin-top: 2rem; }
+.photo-mosaic-compact { display: none; }
+.main-photo { display: none; }
+.photo-snippets { display: none; }
+.narrative-content { max-width: 800px; margin: 3rem auto 0; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 3rem; border-radius: 16px; position: relative; z-index: 1; font-size: 1.2rem; line-height: 2; }
+.narrative-content::before { content: ''; position: absolute; left: -20px; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, transparent, var(--accent), transparent); }
+.narrative-content p { margin-bottom: 2rem; }
+.narrative-content .lead { font-size: 1.8rem; line-height: 1.4; font-weight: 300; color: var(--text); margin-bottom: 3rem; }
+.narrative-content .emphasis { background: rgba(255, 215, 0, 0.08); border-left: 3px solid var(--accent); padding: 1rem; margin-top: 2rem; font-weight: 500; }
+
+/* Quranic verse — inline, with subtle border and translation always visible */
+.quranic-verse { border-left: 3px solid var(--accent); border-right: 3px solid var(--accent); padding: 0 2rem; margin: 2rem auto; cursor: default; text-align: center; display: inline-block; }
+.quranic-verse .arabic-verse { font-family: var(--font-arabic); font-size: 1.4rem; line-height: 2; color: var(--accent); opacity: .9; display: block; }
+.quranic-verse .verse-translation { display: block; margin-top: .5rem; font-size: .95rem; font-style: italic; opacity: .7; }
+
+/* Core principles */
+.core-principles { padding: 3rem 1rem; max-width: 1200px; margin: 0 auto; text-align: center; }
+.principles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.principle { text-align: center; padding: 2rem; background: rgba(255,255,255,0.03); border-radius: 16px; transition: transform .3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.05); animation: float 6s ease-in-out infinite; animation-delay: calc(var(--index, 0) * 0.2s); }
+.principle:hover { transform: translateY(-5px); }
+.principle .arabic { font-family: var(--font-arabic); font-size: 1.5rem; display: block; }
+.principle .translation { opacity: .9; font-style: italic; display: block; margin-bottom: .5rem; }
+
+/* Stagger variables for principle cards */
+.principles-grid .principle:nth-child(1) { --index: 0; }
+.principles-grid .principle:nth-child(2) { --index: 1; }
+.principles-grid .principle:nth-child(3) { --index: 2; }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* Living impact */
+.living-impact { padding: 3rem 1rem; max-width: 1200px; margin: 0 auto; text-align: center; }
+.impact-visual { text-align: center; padding: 2rem 0; }
+.central-stat .big-number { font-size: clamp(4rem, 10vw, 8rem); font-weight: 700; color: var(--primary); display: block; }
+.ripple-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 1.2rem; font-size: 1.1rem; }
+.living-impact .closing { opacity: .9; margin-top: 1.2rem; }
+
+@media (max-width: 768px) {
+  .personal-story { padding: 4rem 1rem; }
+  .narrative-content { margin: -4rem auto 0; padding: 2rem; }
+  .principles-grid { grid-template-columns: 1fr; }
+}
+
+/* -------------------------------------------------- */
+/* Simplified Personal Story (restore human layout)   */
+/* -------------------------------------------------- */
+.personal-story { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
+.narrative-flow { display: block; }
+.story-photo { float: left; width: min(500px, 48%); margin: 0 2rem 2rem 0; border-radius: 8px; display: block; filter: grayscale(50%) contrast(1.1); box-shadow: 0 20px 40px rgba(0,0,0,0.3); transition: filter 1s ease; }
+.story-photo:hover { filter: grayscale(0%) contrast(1); }
+.narrative-content { font-size: 1rem; line-height: 1.8; }
+.narrative-content p:first-of-type::first-letter { font-size: 3rem; float: left; line-height: 1; margin: 0 0.5rem 0 0; color: var(--accent); }
+.narrative-content .lead { font-size: 1.05rem; font-weight: 700; color: #ffffff; margin-bottom: 1.2rem; }
+.narrative-content .emphasis { background: rgba(255, 215, 0, 0.05); border-left: 3px solid var(--accent); padding: 1rem; margin-top: 2rem; }
+
+/* Verse integrated into narrative flow */
+.personal-story .quranic-verse { margin: 2rem 0; padding: 2rem; border-left: 0; background: radial-gradient(ellipse at center, rgba(255,215,0,0.03), transparent); text-align: left; max-width: none; display: block; position: relative; }
+.personal-story .quranic-verse .arabic-verse { font-family: var(--font-arabic); font-size: 1.8rem; color: var(--accent); display: block; margin-bottom: .5rem; opacity: .95; }
+.personal-story .quranic-verse .verse-translation { font-style: italic; opacity: .8; }
+
+@media (max-width: 768px) {
+  .personal-story { padding: 4rem 1rem; }
+  .story-photo { float: none; width: 100%; margin: 0 0 2rem 0; }
+}

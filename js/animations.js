@@ -36,7 +36,9 @@ window.addEventListener('DOMContentLoaded',()=>{
   new TypingHeaders();
   new MatrixRain();
   new ScrollAnimations();
-  document.querySelectorAll('.stat-number').forEach(el=> new AnimatedCounter(el));
+  // Stagger counters for a more sequential reveal
+  const statCounters = Array.from(document.querySelectorAll('.stat-number'));
+  statCounters.forEach((el, i)=> setTimeout(()=> new AnimatedCounter(el), i * 150));
   initMagneticButtons();
   // Optional: Orbital nav
   if (document.querySelector('.orbital-container')) new OrbitalNav();

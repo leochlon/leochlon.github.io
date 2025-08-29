@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/glassmorphism.css">
   <link rel="stylesheet" href="css/islamic-patterns.css">
-  
+  <link rel="stylesheet" href="css/memorial.css">
 </head>
 <body>
 <canvas id="particles-canvas"></canvas>
@@ -42,50 +42,54 @@
   </div>
 </header>
 
-<section>
-  <h2 class="terminal-header" data-text="ABOUT_HASSANALABS"><span class="prefix">&gt;_</span><span class="typing-text"></span><span class="cursor">|</span></h2>
-  <p>HassanaLabs is named in memory of Hassana, whose resilience and compassion inspire our work. We strive to unite scientific innovation with community empowerment across the Levant and beyond.</p>
-  <p>Our values center on inclusivity, open knowledge, and using technology for social good.</p>
+<!-- Memorial Hero -->
+<section class="memorial-hero">
+  <div class="hassana-intro">
+    <div class="arabic-calligraphy-large">حسانة</div>
+    <p class="subtitle">1948–2024</p>
+    <p class="dedication">This laboratory bears her name; her spirit guides our mission.</p>
+    <p class="dedication" dir="rtl" lang="ar">إِنَّا لِلَّٰهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ</p>
+  </div>
 </section>
 
-<section>
-  <h2 class="terminal-header" data-text="MILESTONES"><span class="prefix">&gt;_</span><span class="typing-text"></span><span class="cursor">|</span></h2>
-  <div class="hl-timeline">
-    <div class="hl-time-item">
-      <span class="hl-time-dot" aria-hidden="true"></span>
-      <details class="hl-time-card" open>
-        <summary>2023 · HassanaLabs founded</summary>
-        <p>Established to honor Hassana’s legacy by bridging research and community.</p>
-      </details>
-    </div>
-    <div class="hl-time-item">
-      <span class="hl-time-dot" aria-hidden="true"></span>
-      <details class="hl-time-card">
-        <summary>2024 · AI drug discovery pipeline</summary>
-        <p>Built an AI-enhanced pipeline targeting neglected diseases.</p>
-      </details>
-    </div>
-    <div class="hl-time-item">
-      <span class="hl-time-dot" aria-hidden="true"></span>
-      <details class="hl-time-card">
-        <summary>2024 · Open research & papers</summary>
-        <p>Published calls for contributions from underrepresented backgrounds.</p>
-      </details>
-    </div>
-    <div class="hl-time-item">
-      <span class="hl-time-dot" aria-hidden="true"></span>
-      <details class="hl-time-card">
-        <summary>2024 · Workshops & mentorship</summary>
-        <p>Hands-on ML sessions for Gulf women and displaced communities in Lebanon.</p>
-      </details>
+<!-- Personal Story (replaces parallel timelines) -->
+<section class="personal-story">
+  <div class="story-container">
+    <div class="narrative-flow">
+      <img src="assets/hassana-portrait.jpg" alt="Hassana" class="story-photo">
+      <div class="narrative-content">
+        <blockquote class="quranic-verse">
+          <span class="arabic-verse">وَمَنْ تَطَوَّعَ خَيْرًا فَإِنَّ اللَّهَ شَاكِرٌ عَلِيمٌ</span>
+          <span class="verse-translation">And whoever volunteers good – then indeed, Allah is Appreciative and Knowing.</span>
+        </blockquote>
+        <p class="lead">My grandmother Hassana never attended university, yet she understood something profound about knowledge—it was the only inheritance that couldn't be taken away.</p>
+        <p>Growing up during Lebanon's civil war, I watched her transform our cramped apartment into a classroom. While bombs fell outside, she taught neighborhood children to read, refusing to let war steal their futures.</p>
+        <p>When I told her I wanted to study physics, she sold her gold bracelet—her last valuable possession—to buy me textbooks. "This," she said, pointing to my head, "is your homeland. No one can occupy it."</p>
+        <p>Years later, as I worked at Apple, Meta, and top universities, I realized my success wasn't mine alone. It belonged to every child in that makeshift classroom, every family that sacrificed for education.</p>
+        <p class="emphasis">HassanaLabs exists because science shouldn't be a luxury. Every workshop we run, every paper we open‑source, every student we mentor carries forward her belief: knowledge belongs to those who need it most.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section>
-  <h2 class="terminal-header" data-text="TEAM"><span class="prefix">&gt;_</span><span class="typing-text"></span><span class="cursor">|</span></h2>
-  <p>Led by Leo Chlon with collaborators, advisors, and volunteers dedicated to advancing science and opportunity.</p>
-  
+<!-- Core Principles -->
+<section class="core-principles">
+  <h2>Her Principles, Our Mission</h2>
+  <div class="principles-grid">
+    <div class="principle"><span class="arabic">العلم نور</span><span class="translation">"Knowledge is light"</span><p>We open-source everything. No paywalls on hope.</p></div>
+    <div class="principle"><span class="arabic">الكرامة في العطاء</span><span class="translation">"Dignity in giving"</span><p>We teach those society overlooks—refugees, women in restrictive systems, the displaced.</p></div>
+    <div class="principle"><span class="arabic">الأمل أقوى من الخوف</span><span class="translation">"Hope is stronger than fear"</span><p>We research diseases that affect the poor, because profit shouldn't determine who lives.</p></div>
+  </div>
+</section>
+
+<!-- Living Impact (compact) -->
+<section class="living-impact">
+  <h2>Her Legacy Lives</h2>
+  <div class="impact-visual">
+    <div class="central-stat"><span class="big-number" data-target="60">0</span><span class="label">minds lit</span></div>
+    <div class="ripple-stats"><span><strong>12</strong> communities</span><span><strong>3</strong> continents</span><span><strong>∞</strong> potential</span></div>
+  </div>
+  <p class="closing">Every student we teach plants a seed she would recognize—knowledge growing despite the stones thrown at it.</p>
 </section>
 
 <footer>
@@ -114,6 +118,7 @@
 <script src="js/animations.js" defer></script>
 <script src="js/command-palette.js" defer></script>
 <script src="js/easter-eggs.js" defer></script>
+<script src="js/memorial.js" defer></script>
 <script src="js/site.js" defer></script>
 </body>
 </html>

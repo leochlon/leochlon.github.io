@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/glassmorphism.css">
+  <link rel="stylesheet" href="css/blog.css">
   <link rel="stylesheet" href="css/islamic-patterns.css">
   
 </head>
@@ -26,7 +27,6 @@
 <header>
   <div class="container">
     <a class="logo" href="index.html">HassanaLabs</a>
-    <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">☰</button>
     <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">☰</button>
     <nav id="site-nav">
       <ul>
@@ -42,26 +42,44 @@
   </div>
 </header>
 
-<section>
-  <h2 class="terminal-header" data-text="SCIENTIFIC_RESEARCH"><span class="prefix">&gt;_</span><span class="typing-text"></span><span class="cursor">|</span></h2>
-  <p>Our team develops an AI-enhanced drug discovery pipeline aimed at addressing neglected diseases. We publish open research and invite collaboration from scientists across underrepresented backgrounds.</p>
-  <p>Published Papers:</p>
-  <ul>
-    <li><a href="#">Paper 1 – abstract and link coming soon</a></li>
-    <li><a href="#">Paper 2 – abstract and link coming soon</a></li>
-    <li><a href="#">Paper 3 – abstract and link coming soon</a></li>
-  </ul>
-</section>
+<section id="blog-container">
+  <div class="blog-filters glass-panel">
+    <div class="filter-group">
+      <button type="button" class="filter-btn active" data-filter="all">All Posts</button>
+      <button type="button" class="filter-btn" data-filter="research">Research</button>
+      <button type="button" class="filter-btn" data-filter="community">Community</button>
+      <button type="button" class="filter-btn" data-filter="papers">Papers</button>
+    </div>
+    <div class="filter-timeline">
+      <select id="year-filter"><option value="">All Years</option></select>
+      <select id="month-filter"><option value="">All Months</option></select>
+    </div>
+    <div class="filter-search">
+      <input type="text" placeholder="Search posts..." id="blog-search" />
+    </div>
+  </div>
 
-<section>
-  <h2 class="terminal-header" data-text="COMMUNITY_IMPACT"><span class="prefix">&gt;_</span><span class="typing-text"></span><span class="cursor">|</span></h2>
-  <p>Beyond the lab, HassanaLabs delivers educational workshops and mentorship. We have provided machine learning tutorials and career advice to women in the Gulf and to displaced communities in Lebanon.</p>
-  <p>Impact Highlights:</p>
-  <ul>
-    <li>Dozens of participants trained through hands-on ML sessions.</li>
-    <li>Free career seminars in London and talks at UCL.</li>
-  </ul>
-  <div class="hl-divider-star" aria-hidden="true"></div>
+  <div class="blog-grid" id="blog-posts"></div>
+
+  <template id="blog-card-template">
+    <article class="blog-card" data-aos="fade-up">
+      <div class="card-header">
+        <span class="post-date"></span>
+        <span class="post-category"></span>
+      </div>
+      <div class="card-content">
+        <h3 class="post-title"><span class="post-emoji"></span><span class="title-text"></span></h3>
+        <div class="post-summary"></div>
+        <div class="post-metrics"></div>
+        <button class="expand-btn">Read More →</button>
+      </div>
+      <div class="expanded-content">
+        <div class="full-post"></div>
+        <div class="post-links"></div>
+        <div class="post-tags"></div>
+      </div>
+    </article>
+  </template>
 </section>
 
 <footer>
@@ -89,6 +107,8 @@
 <script src="js/animations.js" defer></script>
 <script src="js/command-palette.js" defer></script>
 <script src="js/easter-eggs.js" defer></script>
+<script src="js/blog-posts.js" defer></script>
+<script src="js/blog-system.js" defer></script>
 <script src="js/site.js" defer></script>
 </body>
 </html>

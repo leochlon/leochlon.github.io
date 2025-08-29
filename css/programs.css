@@ -197,8 +197,16 @@
 @media (max-width: 768px) {
   .programs-grid { grid-template-columns: 1fr; }
   .achievements { grid-template-columns: repeat(2, 1fr); }
-  .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+  /* Make tiles full-width on mobile for readability */
+  .programs-bento { padding: 0 1rem 1.5rem; }
+  .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 1rem; }
+  .bento-tile { padding: 1.25rem; }
   .tile-research, .tile-community, .tile-papers, .tile-metrics { grid-column: auto; grid-row: auto; }
+}
+
+/* Very small screens: stack achievement cards */
+@media (max-width: 480px) {
+  .achievements { grid-template-columns: 1fr; }
 }
 
 /* Tablet: keep 2+ columns */

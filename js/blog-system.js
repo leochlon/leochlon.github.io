@@ -7,9 +7,12 @@ class BlogSystem {
 
   init() {
     this.cache();
+    // Apply initial category from hash before binding events/rendering
+    const initialCat = this.getCategoryFromHash();
+    if (initialCat) this.setActiveFilter(initialCat);
     this.setupFilters();
     this.generateTimeline();
-    this.renderPosts();
+    this.applyFilters();
     this.setupSearch();
     this.applyHash();
     window.addEventListener('hashchange', ()=> this.applyHash());
@@ -26,14 +29,15 @@ class BlogSystem {
 
   setupFilters(){
     this.filterButtons.forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        this.filterButtons.forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        this.applyFilters();
-      });
+      btn.addEventListener('click', ()=>{ this.setActiveFilter(btn.dataset.filter || 'all'); this.applyFilters(); });
     });
     this.yearSelect?.addEventListener('change', ()=> this.applyFilters());
     this.monthSelect?.addEventListener('change', ()=> this.applyFilters());
+  }
+
+  setActiveFilter(category){
+    const cat = category || 'all';
+    (this.filterButtons||[]).forEach(b=> b.classList.toggle('active', (b.dataset.filter||'all')===cat));
   }
 
   setupSearch(){ this.searchInput?.addEventListener('input', ()=> this.applyFilters()); }
@@ -50,7 +54,7 @@ class BlogSystem {
 
   applyFilters(){
     const activeBtn = Array.from(this.filterButtons || []).find(b=>b.classList.contains('active'));
-    const category = (activeBtn && activeBtn.dataset.filter) ? activeBtn.dataset.filter : 'all';
+    const category = (activeBtn && activeBtn.dataset.filter) ? activeBtn.dataset.filter : (this.getCategoryFromHash() || 'all');
     const year = this.yearSelect?.value || '';
     const month = this.monthSelect?.value || '';
     const q = (this.searchInput?.value || '').toLowerCase();
@@ -174,14 +178,10 @@ class BlogSystem {
     if (!h) return;
     // Category jump: support #research, #community, #papers
     if (['research','community','papers'].includes(h)) {
-      const btn = Array.from(this.filterButtons||[]).find(b=> b.dataset.filter===h);
-      if (btn) {
-        this.filterButtons.forEach(b=> b.classList.remove('active'));
-        btn.classList.add('active');
-        this.applyFilters();
-        document.getElementById('blog-container')?.scrollIntoView({behavior:'smooth'});
-        return;
-      }
+      this.setActiveFilter(h);
+      this.applyFilters();
+      document.getElementById('blog-container')?.scrollIntoView({behavior:'smooth'});
+      return;
     }
 
     // Direct post jump: expand by id
@@ -193,6 +193,24 @@ class BlogSystem {
       card.scrollIntoView({ behavior:'smooth', block:'start' });
     }
   }
+
+  getCategoryFromHash(){
+    const h = (window.location.hash||'').replace('#','');
+    return ['research','community','papers'].includes(h) ? h : 'all';
+  }
 }
 
-document.addEventListener('DOMContentLoaded', ()=>{ new BlogSystem(); });
+document.addEventListener('DOMContentLoaded', ()=>{
+  const start = () => { try { new BlogSystem(); } catch (e) { console.error('BlogSystem init failed', e); } };
+  // Ensure posts are available (handles occasional race on local file:// loads)
+  if (Array.isArray(window.blogPosts) && window.blogPosts.length) {
+    start();
+  } else {
+    let tries = 0;
+    const id = setInterval(()=>{
+      tries++;
+      if (Array.isArray(window.blogPosts)) { clearInterval(id); start(); }
+      else if (tries > 50) { clearInterval(id); start(); }
+    }, 20);
+  }
+});

@@ -19,6 +19,8 @@
   text-shadow: 0 0 18px rgba(255, 215, 0, 0.18);
 }
 .arabic-calligraphy-large { font-size: clamp(3rem, 9vw, 7rem); font-family: var(--font-arabic); background: linear-gradient(90deg, var(--accent), var(--primary)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s ease-in-out infinite; letter-spacing: .02em; }
+/* About hero: keep the Arabic title static */
+.memorial-hero .arabic-calligraphy-large { animation: none !important; }
 @keyframes shimmer { 0%,100% { filter: brightness(1); } 50% { filter: brightness(1.35); } }
 
 /* Parallel Timelines */
@@ -123,19 +125,29 @@
 /* -------------------------------------------------- */
 .personal-story { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
 .narrative-flow { display: block; }
-.story-photo { float: left; width: min(500px, 48%); margin: 0 2rem 2rem 0; border-radius: 8px; display: block; filter: grayscale(50%) contrast(1.1); box-shadow: 0 20px 40px rgba(0,0,0,0.3); transition: filter 1s ease; }
-.story-photo:hover { filter: grayscale(0%) contrast(1); }
-.narrative-content { font-size: 1rem; line-height: 1.8; }
+/* Media block: photo full width of text container, no dark filter */
+.story-media { position: relative; max-width: 600px; margin: 0 auto 1.25rem; overflow: hidden; border-radius: 10px; }
+.story-photo { width: 100%; height: auto; display: block; border-radius: 10px; box-shadow: 0 12px 28px rgba(0,0,0,0.25); filter: none; }
+.narrative-content { font-size: 1rem; line-height: 1.8; max-width: 600px; margin: 0 auto; }
 .narrative-content p:first-of-type::first-letter { font-size: 3rem; float: left; line-height: 1; margin: 0 0.5rem 0 0; color: var(--accent); }
 .narrative-content .lead { font-size: 1.05rem; font-weight: 700; color: #ffffff; margin-bottom: 1.2rem; }
 .narrative-content .emphasis { background: rgba(255, 215, 0, 0.05); border-left: 3px solid var(--accent); padding: 1rem; margin-top: 2rem; }
 
-/* Verse integrated into narrative flow */
-.personal-story .quranic-verse { margin: 2rem 0; padding: 2rem; border-left: 0; background: radial-gradient(ellipse at center, rgba(255,215,0,0.03), transparent); text-align: left; max-width: none; display: block; position: relative; }
-.personal-story .quranic-verse .arabic-verse { font-family: var(--font-arabic); font-size: 1.8rem; color: var(--accent); display: block; margin-bottom: .5rem; opacity: .95; }
-.personal-story .quranic-verse .verse-translation { font-style: italic; opacity: .8; }
+/* Verse overlay centered on photo */
+.story-media .quranic-verse {
+  position: absolute; left: 0; right: 0; bottom: 0; transform: none;
+  margin: 0; border: 0; text-align: center;
+  background: linear-gradient(to top, rgba(10,10,11,0.65), rgba(10,10,11,0.0));
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  padding: 1rem .75rem 1.2rem;
+}
+.story-media .quranic-verse .arabic-verse { font-family: var(--font-arabic); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--accent); text-shadow: 0 2px 8px rgba(0,0,0,0.6); letter-spacing: .02em; }
+.story-media .quranic-verse .verse-translation { margin-top: .3rem; font-size: clamp(.9rem, 2vw, 1rem); color: var(--text); opacity: .95; text-shadow: 0 2px 8px rgba(0,0,0,0.6); font-style: italic; }
 
 @media (max-width: 768px) {
   .personal-story { padding: 4rem 1rem; }
-  .story-photo { float: none; width: 100%; margin: 0 0 2rem 0; }
+  .story-media { max-width: 100%; margin-bottom: 1rem; }
+  .story-photo { width: 100%; }
+  .story-media .quranic-verse { padding: .8rem .75rem 1rem; }
 }

@@ -11,6 +11,8 @@ class BlogSystem {
     this.generateTimeline();
     this.renderPosts();
     this.setupSearch();
+    this.applyHash();
+    window.addEventListener('hashchange', ()=> this.applyHash());
   }
 
   cache(){
@@ -76,6 +78,8 @@ class BlogSystem {
     this.filteredPosts.forEach(post=> frag.appendChild(this.createCard(post)));
     this.container.innerHTML = '';
     this.container.appendChild(frag);
+    // After rendering, if a hash is present, expand the matching post
+    this.applyHash();
   }
 
   createCard(post){
@@ -84,6 +88,7 @@ class BlogSystem {
     // Ensure visibility even with AOS defaults; cards are added dynamically after DOMContentLoaded
     article.classList.add('aos-animate');
     article.dataset.id = post.id;
+    article.id = post.id; // allow anchor navigation
     frag.querySelector('.post-date').textContent = this.formatDate(post.date);
     frag.querySelector('.post-category').textContent = post.category;
     frag.querySelector('.post-emoji').textContent = post.emoji || '';
@@ -126,6 +131,14 @@ class BlogSystem {
     (post.tags||[]).forEach(t=>{ const s=document.createElement('span'); s.className='tag-pill'; s.textContent=`#${t}`; tags.appendChild(s); });
     expanded.style.maxHeight = expanded.scrollHeight + 'px';
     const btn = card.querySelector('.expand-btn'); btn.textContent = 'Show Less ↑';
+
+    // Hide missing images gracefully
+    full.querySelectorAll('img').forEach(img=>{
+      img.addEventListener('error', ()=>{
+        const fig = img.closest('figure');
+        if (fig) fig.remove(); else img.remove();
+      });
+    });
   }
 
   collapse(card){
@@ -145,7 +158,41 @@ class BlogSystem {
 
   formatDate(d){ try { const dt=new Date(d); return dt.toLocaleDateString(undefined,{year:'numeric', month:'short', day:'numeric'});} catch { return d; } }
 
-  parse(html){ return html; }
+  parse(html){
+    // Normalize a few common Unicode punctuation marks to HTML entities to avoid mojibake on misconfigured encodings
+    if (!html) return html;
+    return html
+      .replace(/\u2019/g, '&rsquo;')  // ’
+      .replace(/\u2018/g, '&lsquo;')  // ‘
+      .replace(/\u2014/g, '&mdash;')  // —
+      .replace(/\u2013/g, '&ndash;')  // –
+      .replace(/\u00A0/g, '&nbsp;');  // non‑breaking space
+  }
+
+  applyHash(){
+    const h = (window.location.hash||'').replace('#','');
+    if (!h) return;
+    // Category jump: support #research, #community, #papers
+    if (['research','community','papers'].includes(h)) {
+      const btn = Array.from(this.filterButtons||[]).find(b=> b.dataset.filter===h);
+      if (btn) {
+        this.filterButtons.forEach(b=> b.classList.remove('active'));
+        btn.classList.add('active');
+        this.applyFilters();
+        document.getElementById('blog-container')?.scrollIntoView({behavior:'smooth'});
+        return;
+      }
+    }
+
+    // Direct post jump: expand by id
+    const esc = (s)=> (window.CSS && CSS.escape) ? CSS.escape(s) : s.replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+    const card = this.container?.querySelector(`.blog-card[data-id="${esc(h)}"]`);
+    if (card) {
+      document.querySelectorAll('.blog-card.expanded').forEach(c=> this.collapse(c));
+      this.expand(card, this.posts.find(p=> p.id===h));
+      card.scrollIntoView({ behavior:'smooth', block:'start' });
+    }
+  }
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{ new BlogSystem(); });

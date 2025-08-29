@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="css/glassmorphism.css">
   <link rel="stylesheet" href="css/islamic-patterns.css">
   <link rel="stylesheet" href="css/memorial.css">
+  <link rel="stylesheet" href="css/programs.css">
 </head>
 <body>
 <canvas id="particles-canvas"></canvas>
@@ -26,16 +27,14 @@
 <header>
   <div class="container">
     <a class="logo" href="index.html">HassanaLabs</a>
-    <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">☰</button>
+    <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span class="menu-icon" aria-hidden="true"></span></button>
     <nav id="site-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="work.html">Our Work</a></li>
         <li><a href="programs.html">Programs</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="get-involved.html">Get Involved</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        
       </ul>
     </nav>
     
@@ -56,17 +55,20 @@
 <section class="personal-story">
   <div class="story-container">
     <div class="narrative-flow">
-      <img src="assets/hassana-portrait.JPG" alt="Hassana" class="story-photo">
-      <div class="narrative-content">
+      <div class="story-media">
+        <img src="assets/hassana-portrait.JPG" alt="Hassana" class="story-photo">
         <blockquote class="quranic-verse">
           <span class="arabic-verse">وَمَنْ تَطَوَّعَ خَيْرًا فَإِنَّ اللَّهَ شَاكِرٌ عَلِيمٌ</span>
-          <span class="verse-translation">And whoever volunteers good – then indeed, Allah is Appreciative and Knowing.</span>
+          <span class="verse-translation">And whoever volunteers good — then indeed, Allah is Appreciative and Knowing.</span>
         </blockquote>
-        <p class="lead">My grandmother Hassana never attended university, yet she understood something profound about knowledge—it was the only inheritance that couldn't be taken away.</p>
-        <p>Growing up during Lebanon's civil war, I watched her transform our cramped apartment into a classroom. While bombs fell outside, she taught neighborhood children to read, refusing to let war steal their futures.</p>
-        <p>When I told her I wanted to study physics, she sold her gold bracelet—her last valuable possession—to buy me textbooks. "This," she said, pointing to my head, "is your homeland. No one can occupy it."</p>
-        <p>Years later, as I worked at Apple, Meta, and top universities, I realized my success wasn't mine alone. It belonged to every child in that makeshift classroom, every family that sacrificed for education.</p>
-        <p class="emphasis">HassanaLabs exists because science shouldn't be a luxury. Every workshop we run, every paper we open‑source, every student we mentor carries forward her belief: knowledge belongs to those who need it most.</p>
+      </div>
+      <div class="narrative-content">
+        <p class="lead">My grandmother (Teta) Hassana never attended university, yet she understood something profound: knowledge is the only inheritance that can never be taken away.</p>
+        <p>Despite never having formal higher education, she dedicated herself to learning everything she could so she could teach others. Growing up in Lebanon, where she balanced the traditional responsibilities of her time with an insatiable love for reading, she became one of the most articulate and intellectual people I've ever known, without a trace of ego.</p>
+        <p>Teta taught me far more than long division during those childhood homework sessions. She taught me to love learning itself, to engage in spirited debates, and most importantly, that our greatest responsibility is to send the ladder back down once we've climbed it ourselves.</p>
+        <p>Her philosophy was simple yet transformative: give everyone a chance, treat everyone with kindness and respect, and let positivity radiate outward into the world. Without Teta's influence, I wouldn't have made it through A Levels, let alone earned my PhD from Cambridge University or built a decade-long career in machine learning.</p>
+        <p>When she passed away, I discovered that the best way to honor her memory was to carry forward her legacy, offering others the same support and opportunities she gave me. Today, I'm privileged to work with exceptional people and to share the principles she embodied with a wider world.</p>
+        <p class="emphasis">This work, and everything I do, is a testament to Teta's belief that knowledge and kindness, when shared freely, can transform lives. Thank you, Hassana, for everything.</p>
       </div>
     </div>
   </div>
@@ -82,15 +84,49 @@
   </div>
 </section>
 
-<!-- Living Impact (compact) -->
-<section class="living-impact">
-  <h2>Her Legacy Lives</h2>
-  <div class="impact-visual">
-    <div class="central-stat"><span class="big-number" data-target="60">0</span><span class="label">minds lit</span></div>
-    <div class="ripple-stats"><span><strong>12</strong> communities</span><span><strong>3</strong> continents</span><span><strong>∞</strong> potential</span></div>
+<!-- Impact (aligned with Programs stats) -->
+<section class="about-achievements">
+  <h2>Impact</h2>
+  <div class="achievements">
+    <div class="achievement-card glass-panel">
+      <div class="ach-icon" role="img" aria-label="Students trained">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 8.18L5.67 9 12 5.82 18.33 9 12 11.18zM4 12v4.5C4 18.43 7.58 20 12 20s8-1.57 8-3.5V12l-8 4.36L4 12z"/></svg>
+      </div>
+      <span class="sr-only">Students trained</span>
+      <div class="ach-value"><span class="stat-number" data-target="60">0</span></div>
+      <div class="ach-label">students trained</div>
+    </div>
+    <div class="achievement-card glass-panel">
+      <div class="ach-icon" role="img" aria-label="Active programs">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.87 6.13l-2.2 5.06a1 1 0 01-.53.53l-5.06 2.2 2.2-5.06a1 1 0 01.53-.53l5.06-2.2z"/></svg>
+      </div>
+      <span class="sr-only">Active programs</span>
+      <div class="ach-value"><span class="stat-number" data-target="12">0</span></div>
+      <div class="ach-label">active programs</div>
+    </div>
+    <div class="achievement-card glass-panel">
+      <div class="ach-icon" role="img" aria-label="Free coaching calls">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm8 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C23 14.17 18.33 13 16 13zM8 13c-.29 0-.62.02-.97.05C5.2 13.2 1 14.22 1 16.5V19h6v-2.5c0-.89.46-1.7 1.22-2.41C7.76 13.39 7.77 13 8 13z"/></svg>
+      </div>
+      <span class="sr-only">Free coaching calls</span>
+      <div class="ach-value"><span class="stat-number" data-target="30">0</span></div>
+      <div class="ach-label">free coaching calls</div>
+    </div>
+    <div class="achievement-card glass-panel">
+      <div class="ach-icon" role="img" aria-label="University seminars">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm-7 9.5V14l7 4 7-4v-1.5l-7 3.91-7-3.91z"/></svg>
+      </div>
+      <span class="sr-only">University seminars</span>
+      <div class="ach-value"><span class="stat-number" data-target="3">0</span></div>
+      <div class="ach-label">university seminars</div>
+    </div>
   </div>
-  <p class="closing">Every student we teach plants a seed she would recognize—knowledge growing despite the stones thrown at it.</p>
+  <div class="achievement-notes">
+    <span class="pill">2 student co‑authors (NeurIPS in prep)</span>
+    <span class="pill">Internships secured across disciplines</span>
+  </div>
 </section>
+
 
 <footer>
   <p>&copy; 2025 HassanaLabs. Inspired by Hassana’s legacy.</p>

@@ -1,0 +1,61 @@
+# Ignore everything by default
+*
+
+# Allow Git metadata and control files
+!.gitignore
+!.gitattributes
+
+# Top-level site files to keep
+!CNAME
+!404.html
+!index.html
+!about.html
+!work.html
+!programs.html
+!site.webmanifest
+!favicon.svg
+
+# Keep styles and scripts
+!css/
+css/*
+!css/**
+!js/
+js/*
+!js/**
+
+# Only keep actually used assets
+!assets/
+assets/*
+
+# Images used by pages/components
+!assets/hero.jpg
+!assets/lebanon-mountains.jpg
+!assets/hassana-portrait.JPG
+
+# Patterns
+!assets/patterns/
+assets/patterns/*
+!assets/patterns/islamic-star.svg
+
+# Data used by Programs
+!assets/programs-stats.json
+
+# Blog/illustration images referenced in JS
+!assets/AI_UCL.jpg
+!assets/AI_Leb_1.jpg
+!assets/AI_Leb_2.jpg
+!assets/AIGroupPhoto.jpg
+!assets/AI1.jpg
+!assets/AI2.jpg
+
+# Exclude pages not in the current header menu
+resources.html
+get-involved.html
+contact.html
+
+# Common OS/editor cruft
+.DS_Store
+*.log
+Thumbs.db
+.vscode/
+.idea/

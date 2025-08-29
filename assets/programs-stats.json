@@ -1,0 +1,6 @@
+{
+  "activeStudents": { "value": 72, "delta": 5, "trend": [60, 62, 64, 66, 68, 70, 72] },
+  "completionRate": { "value": 64, "delta": 2, "trend": [55, 57, 58, 60, 61, 63, 64] },
+  "hoursWatched": { "value": 360, "delta": 12, "trend": [240, 260, 275, 300, 320, 340, 360] },
+  "communityPosts": { "value": 34, "delta": 3, "trend": [18, 20, 22, 25, 28, 31, 34] }
+}

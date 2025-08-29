@@ -16,6 +16,7 @@
 .blog-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,217,255,0.12); }
 .blog-card .card-header { display:flex; justify-content: space-between; font-family: var(--font-code); opacity:.8; font-size:.9rem; margin-bottom:.5rem; }
 .blog-card .post-title { display:flex; align-items:center; gap:.5rem; margin: .2rem 0 0.6rem; }
+.post-emoji { font-family: 'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji','EmojiOne Color','Twemoji Mozilla', var(--font-main); }
 .blog-card .post-summary { opacity:.9; }
 .expand-btn { margin-top: 1rem; border: 1px solid var(--primary); background: transparent; color: var(--text); border-radius: 10px; padding: .5rem .8rem; cursor: pointer; }
 
@@ -48,6 +49,11 @@
 .full-post strong { color: var(--primary); font-weight: 600; }
 .full-post em { font-style: italic; opacity: 0.9; }
 
+/* Figures: fixed visual size, centered, with styled captions */
+.full-post figure { width: min(620px, 100%); margin: 1rem auto; }
+.full-post figure img { width: 100%; height: 360px; object-fit: cover; display: block; border-radius: 12px; }
+.full-post figure figcaption { font-size: 0.9rem; font-style: italic; opacity: 0.8; text-align: center; margin-top: 0.5rem; }
+
 /* Expanded content separation */
 .blog-card.expanded .expanded-content { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
 
@@ -69,4 +75,5 @@
   .post-links.links-2,
   .post-links.links-3,
   .post-links.links-4 { grid-template-columns: 1fr; }
+  .full-post figure img { height: 220px; }
 }

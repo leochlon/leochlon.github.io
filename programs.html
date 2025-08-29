@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/glassmorphism.css">
   <link rel="stylesheet" href="css/islamic-patterns.css">
+  <link rel="stylesheet" href="css/programs.css">
+  <script>window.PROGRAMS_STATS_URL = 'assets/programs-stats.json';</script>
   
 </head>
 <body>
@@ -26,39 +28,139 @@
 <header>
   <div class="container">
     <a class="logo" href="index.html">HassanaLabs</a>
-    <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">☰</button>
-    <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">☰</button>
+    <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span class="menu-icon" aria-hidden="true"></span></button>
     <nav id="site-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="work.html">Our Work</a></li>
         <li><a href="programs.html">Programs</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="get-involved.html">Get Involved</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        
       </ul>
     </nav>
   </div>
 </header>
 
-<section>
+<section class="programs-intro">
   <h2 class="terminal-header" data-text="PROGRAMS_AND_INITIATIVES"><span class="prefix">&gt;_</span><span class="typing-text"></span><span class="cursor">|</span></h2>
-  <p>We design accessible programs that make advanced technology and career guidance available to underrepresented communities.</p>
+  <p class="intro-tagline">Opening doors with free, practical AI education and mentorship.</p>
+  <div class="achievements">
+    <div class="achievement-card glass-panel">
+      <div class="ach-icon" role="img" aria-label="Students trained">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 8.18L5.67 9 12 5.82 18.33 9 12 11.18zM4 12v4.5C4 18.43 7.58 20 12 20s8-1.57 8-3.5V12l-8 4.36L4 12z"/></svg>
+      </div>
+      <span class="sr-only">Students trained</span>
+      <div class="ach-value"><span class="stat-number" data-target="60">0</span></div>
+      <div class="ach-label">students trained this year</div>
+    </div>
+    <div class="achievement-card glass-panel">
+      <div class="ach-icon" role="img" aria-label="Active programs">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.87 6.13l-2.2 5.06a1 1 0 01-.53.53l-5.06 2.2 2.2-5.06a1 1 0 01.53-.53l5.06-2.2z"/></svg>
+      </div>
+      <span class="sr-only">Active programs</span>
+      <div class="ach-value"><span class="stat-number" data-target="12">0</span></div>
+      <div class="ach-label">active programs</div>
+    </div>
+    <div class="achievement-card glass-panel">
+      <div class="ach-icon" role="img" aria-label="Free coaching calls">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm8 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C23 14.17 18.33 13 16 13zM8 13c-.29 0-.62.02-.97.05C5.2 13.2 1 14.22 1 16.5V19h6v-2.5c0-.89.46-1.7 1.22-2.41C7.76 13.39 7.77 13 8 13z"/></svg>
+      </div>
+      <span class="sr-only">Free coaching calls</span>
+      <div class="ach-value"><span class="stat-number" data-target="30" data-suffix="+">0</span></div>
+      <div class="ach-label">free coaching calls</div>
+    </div>
+    <div class="achievement-card glass-panel">
+      <div class="ach-icon" role="img" aria-label="University seminars">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm-7 9.5V14l7 4 7-4v-1.5l-7 3.91-7-3.91z"/></svg>
+      </div>
+      <span class="sr-only">University seminars</span>
+      <div class="ach-value"><span class="stat-number" data-target="3">0</span></div>
+      <div class="ach-label">university seminars</div>
+    </div>
+  </div>
+  <div class="achievement-notes">
+    <span class="pill">2 student co‑authors (NeurIPS in prep)</span>
+    <span class="pill">Internships secured across disciplines</span>
+  </div>
 </section>
 
-<section>
-  <h2 class="terminal-header" data-text="MACHINE_LEARNING_TUTORIALS"><span class="prefix">&gt;_</span><span class="typing-text"></span><span class="cursor">|</span></h2>
-  <p>Hands-on workshops introducing core ML concepts. Ideal for beginners and delivered with a focus on practical skills.</p>
-  <p><strong>Who for:</strong> Women in the Gulf, displaced people in Lebanon, and anyone seeking inclusive tech education.</p>
-  <p><strong>How to participate:</strong> Stay tuned for upcoming sessions or <a href="contact.html">contact us</a> to request a workshop.</p>
+<section class="impact-overview">
+  <h2>Impact Overview</h2>
+  <p class="impact-tagline">A high‑level summary of our recent work across research, community, and papers. Each tile links to details.</p>
+  <div class="programs-bento">
+    <div class="bento-grid" id="bento-grid">
+      <!-- Research: Large tile -->
+      <section class="bento-tile tile-research" id="tile-research" aria-labelledby="tile-research-title">
+        <div class="tile-header">
+          <h3 id="tile-research-title">Research</h3>
+          <a class="tile-action" href="work.html#research">View all</a>
+        </div>
+        <div class="tile-body">
+          <!-- Populated by programs.js: featured research -->
+        </div>
+      </section>
+
+      <!-- Community: Medium tile with live feed -->
+      <section class="bento-tile tile-community" id="tile-community" aria-labelledby="tile-community-title">
+        <div class="tile-header">
+          <h3 id="tile-community-title">Community</h3>
+          <button class="tile-action" type="button" data-action="pause" aria-pressed="false">Pause</button>
+        </div>
+        <div class="tile-body">
+          <div class="live-feed" id="live-feed" aria-busy="true" aria-live="polite">
+            <!-- Populated by programs.js: compact activity feed -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Papers: Distinct tile with citation formatting -->
+      <section class="bento-tile tile-papers" id="tile-papers" aria-labelledby="tile-papers-title">
+        <div class="tile-header">
+          <h3 id="tile-papers-title">Papers</h3>
+          <a class="tile-action" href="work.html#papers">All papers</a>
+        </div>
+        <div class="tile-body">
+          <ol class="papers-list" id="papers-list">
+            <!-- Populated by programs.js: citation-style items -->
+          </ol>
+        </div>
+      </section>
+
+      <!-- Metrics dashboard: compact stats with sparklines -->
+      <section class="bento-tile tile-metrics" id="tile-metrics" aria-labelledby="tile-metrics-title">
+        <div class="tile-header">
+          <h3 id="tile-metrics-title">Metrics</h3>
+          <a class="tile-action" href="#" onclick="event.preventDefault(); window.scrollTo({top:0,behavior:'smooth'});">Refresh</a>
+        </div>
+        <div class="tile-body">
+          <div class="stats-grid">
+            <div class="stat-card skeleton" data-key="activeStudents">
+              <div class="label">Active students</div>
+              <div class="value">0</div>
+              <svg class="sparkline" role="img" aria-label="Active students trend"></svg>
+            </div>
+            <div class="stat-card skeleton" data-key="completionRate">
+              <div class="label">Completion rate</div>
+              <div class="value">0%</div>
+              <svg class="sparkline" role="img" aria-label="Completion rate trend"></svg>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2 class="terminal-header" data-text="CAREERS_ADVICE_SESSIONS"><span class="prefix">&gt;_</span><span class="typing-text"></span><span class="cursor">|</span></h2>
-  <p>Guidance on navigating tech and science careers, from CV reviews to interview preparation.</p>
-  <p><strong>Highlights:</strong> Free seminars in London and remote mentoring for students worldwide.</p>
-</section>
+<!-- Bento Grid: Asymmetric, live components -->
+<!-- Programs bento grid temporarily removed -->
+
+<!-- Testimonials temporarily removed -->
+
+<!-- Upcoming sessions and waitlist temporarily removed -->
+
+<!-- Learning Path temporarily removed -->
+
+<!-- Compare section removed until real data is available -->
 
 <footer>
   <p>&copy; 2025 HassanaLabs. Inspired by Hassana’s legacy.</p>
@@ -85,6 +187,8 @@
 <script src="js/animations.js" defer></script>
 <script src="js/command-palette.js" defer></script>
 <script src="js/easter-eggs.js" defer></script>
+<script src="js/blog-posts.js" defer></script>
+<script src="js/programs.js" defer></script>
 <script src="js/site.js" defer></script>
 </body>
 </html>

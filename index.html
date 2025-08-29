@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/glassmorphism.css">
   <link rel="stylesheet" href="css/islamic-patterns.css">
+  <link rel="stylesheet" href="css/garden.css">
   
 </head>
 <body>
@@ -26,16 +27,14 @@
 <header>
   <div class="container">
     <a class="logo" href="index.html">HassanaLabs</a>
-    <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">☰</button>
+    <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span class="menu-icon" aria-hidden="true"></span></button>
     <nav id="site-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="work.html">Our Work</a></li>
         <li><a href="programs.html">Programs</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="get-involved.html">Get Involved</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        
       </ul>
     </nav>
     
@@ -57,40 +56,55 @@
   </button>
 </section>
 
-<section>
-  <h2 class="terminal-header" data-text="OUR_IMPACT">
-    <span class="prefix">&gt;_</span>
-    <span class="typing-text"></span>
-    <span class="cursor">|</span>
-  </h2>
-  <div class="bento-grid" id="projects-grid">
-    <div class="bento-item bento-large" data-aos="fade-up">
-      <div class="islamic-overlay"></div>
-      <div class="content">
-        <h3>People trained</h3>
-        <div class="stat-number" data-target="60" data-suffix="+">0</div>
+<!-- Living Garden Visualization under Our Impact -->
+<section class="living-garden" aria-labelledby="garden-title">
+  <div class="garden-bg">
+    <div class="bg-layer mountains" aria-hidden="true"></div>
+    <div class="bg-layer network" aria-hidden="true"></div>
+    <div class="bg-layer stars" aria-hidden="true"></div>
+  </div>
+  <div class="container">
+    <header class="garden-header">
+      <h2 id="garden-title" class="terminal-header" data-text="THE_LIVING_GARDEN">
+        <span class="prefix">&gt;_</span>
+        <span class="typing-text"></span>
+        <span class="cursor">|</span>
+      </h2>
+      <p class="garden-sub">An evolving field of impact — students, papers, and research contributions.</p>
+      <div class="garden-metrics">
+        <a class="metric" href="work.html#community" aria-label="View community impact: students trained">
+          <span class="value stat-number" data-target="60">0</span><span class="label">students trained</span>
+        </a>
+        <a class="metric" href="work.html#community" aria-label="View community impact: coaching calls">
+          <span class="value stat-number" data-target="30">0</span><span class="label">coaching calls</span>
+        </a>
+        <a class="metric" href="work.html#papers" aria-label="View papers: student co-authors">
+          <span class="value stat-number" data-target="2">0</span><span class="label">student co-authors</span>
+        </a>
       </div>
-    </div>
-    <div class="bento-item" data-aos="fade-up">
-      <div class="islamic-overlay"></div>
-      <div class="content">
-        <h3>Published papers</h3>
-        <div class="stat-number" data-target="3" data-suffix="+">0</div>
-      </div>
-    </div>
-    <div class="bento-item bento-wide" data-aos="fade-up">
-      <div class="islamic-overlay"></div>
-      <div class="content">
-        <h3>Workshops & seminars</h3>
-        <div class="stat-number" data-target="12" data-suffix="+">0</div>
-      </div>
+    </header>
+    <div class="garden-viewport">
+      <canvas id="garden-canvas" role="img" aria-label="A living field of glowing nodes representing impact"></canvas>
+      <div id="leaf-tooltip" role="tooltip" class="leaf-tooltip" hidden></div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- Garden Modal -->
+<div id="garden-modal" class="garden-modal" role="dialog" aria-modal="true" aria-labelledby="garden-modal-title" aria-hidden="true" style="display:none;">
+  <div class="garden-modal-backdrop"></div>
+  <div class="garden-modal-content">
+    <button id="garden-modal-close" class="garden-modal-close" aria-label="Close">✕</button>
+    <h3 id="garden-modal-title">Impact</h3>
+    <div id="garden-modal-body" class="garden-modal-body"></div>
+  </div>
+</div>
+
+<!-- Removed: OUR_IMPACT stats bento section -->
+
+<section class="home-mission">
   <h2 class="terminal-header" data-text="OUR_DUAL_MISSION"><span class="prefix">&gt;_</span><span class="typing-text"></span><span class="cursor">|</span></h2>
-  <p>HassanaLabs bridges rigorous scientific research with social impact across the Levant and beyond.</p>
+  <p class="intro">HassanaLabs bridges rigorous scientific research with social impact across the Levant and beyond.</p>
   <div class="bento-grid">
     <div class="bento-item" data-aos="fade-in"><div class="islamic-overlay"></div><div class="content">Drug discovery pipeline leveraging AI.</div></div>
     <div class="bento-item" data-aos="fade-in"><div class="islamic-overlay"></div><div class="content">Three papers inviting contributions from underrepresented backgrounds.</div></div>
@@ -126,6 +140,7 @@
 <script src="js/animations.js" defer></script>
 <script src="js/command-palette.js" defer></script>
 <script src="js/easter-eggs.js" defer></script>
+<script src="js/garden.js" defer></script>
 <script src="js/site.js" defer></script>
 </body>
 </html>

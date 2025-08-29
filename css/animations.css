@@ -45,10 +45,11 @@
 /* Hero mesh overlay and optional iridescent shift */
 .hero-mesh { position: absolute; inset: 0; z-index: 0; opacity: .35; background-image: var(--gradient-mesh); pointer-events: none; }
 .hero.iridescent { animation: colorShift 20s linear infinite; }
+/* Enlarge Arabic writing on the home hero */
+.hero .name-transform { font-size: clamp(3rem, 9vw, 6.5rem); }
 @keyframes colorShift { from { filter: hue-rotate(0deg); } to { filter: hue-rotate(360deg); } }
 
 /* Loading tube (lab-inspired loader) */
 .loading-tube { width: 140px; height: 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.2); position: relative; overflow: hidden; }
 .loading-tube::after { content: ""; position: absolute; left: -40%; top: 0; bottom: 0; width: 40%; background: linear-gradient(90deg, var(--primary), var(--glow)); animation: tubeFill 1.4s ease-in-out infinite; }
 @keyframes tubeFill { 50% { left: 100%; } 100% { left: 100%; } }
-

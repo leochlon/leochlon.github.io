@@ -17,7 +17,12 @@
 .garden-header .garden-sub { opacity: .85; margin-top: .5rem; }
 
 .garden-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; justify-items: center; margin: 1.25rem auto 1rem; max-width: 900px; }
-.garden-metrics .metric { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: .75rem 1rem; width: 100%; text-align: center; }
+.garden-metrics .metric { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: .75rem 1rem; width: 100%; text-align: center; 
+  /* Make links match site aesthetic */
+  color: var(--text); text-decoration: none; display: block; transition: border-color .2s var(--transition-smooth), box-shadow .2s var(--transition-smooth), transform .2s var(--transition-smooth);
+}
+.garden-metrics .metric:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(0,0,0,0.25), 0 0 18px rgba(255,215,0,0.18); transform: translateY(-2px); }
+.garden-metrics .metric:focus-visible { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0,217,255,0.15); }
 .garden-metrics .value { font-size: 1.6rem; font-weight: 700; color: var(--accent); display: block; }
 .garden-metrics .label { opacity: .8; font-size: .95rem; }
 

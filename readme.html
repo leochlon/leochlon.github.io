@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HassanaLabs – Toolkit README</title>
+  <meta name="description" content="Hallucination Risk Calculator & Prompt Re‑engineering Toolkit README (OpenAI‑only).">
+  <meta property="og:title" content="Toolkit README – HassanaLabs"/>
+  <meta property="og:description" content="Post‑hoc calibration toolkit with EDFL/ISR/B2T and OpenAI backend."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:image" content="favicon.svg"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/glassmorphism.css">
+  <link rel="stylesheet" href="css/islamic-patterns.css">
+  <link rel="stylesheet" href="css/blog.css">
+
+  <!-- Syntax highlighting (Prism.js) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" integrity="sha512-Qq2S0N7lJ8e0z6aW6v8M7JHn1q6i9uP2mG9e3Vj2a6y0w2r0nWn9P0Qm8hSgYH5q1z9p2mQyH0g0zVv8KxNqZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Page-local typography tweaks for readability -->
+  <style>
+    .doc-hero { padding: 4rem 1.5rem 2rem; text-align: center; }
+    .doc-subtitle { max-width: 80ch; margin: .75rem auto 0; opacity: .9; }
+    .tech-wrap { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .tech-doc { max-width: 900px; margin: 0 auto; padding: 1.25rem 2rem 1.75rem 2rem; line-height: 1.9; }
+    .tech-doc h2, .tech-doc h3 { scroll-margin-top: 90px; }
+    .tech-doc h2 { font-size: 2.1rem; font-weight: 800; margin-top: 2rem; }
+    .tech-doc h3 { font-size: 1.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: .85rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: .9; position: relative; }
+    /* Centered em-dash style separator before subheadings */
+    .tech-doc h3::before { content: ""; display: block; width: 50%; height: 2px; background: var(--accent); opacity: .85; margin: 1rem auto .65rem; border-radius: 2px; }
+    .tech-doc p, .tech-doc li { line-height: 1.85; }
+    .tech-doc code, .tech-doc kbd { font-family: var(--font-code); background: rgba(255,255,255,0.06); padding: 0.125rem 0.375rem; margin: 0 0.125rem; font-size: 0.9em; border-radius: 6px; border: 1px solid rgba(255,255,255,0.12); }
+    .tech-doc pre { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 1rem; overflow-x: auto; }
+    .tech-doc section { padding: 1rem 0 1.25rem 0; }
+    .tech-doc ul, .tech-doc ol { margin-left: 1.5rem; padding-left: 0.75rem; }
+    .tech-doc > * { max-width: 75ch; margin-left: auto; margin-right: auto; }
+    .equation { position: relative; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 1rem 1rem; margin: 1.5rem 0; overflow-x: auto; text-align: left; }
+    .equation::before { content: attr(data-title); position: absolute; left: 12px; top: 8px; font-size: .85rem; opacity: .8; }
+
+    /* TOC and mobile drawer */
+    .toc-sidebar { display: none; }
+    .toc-sidebar nav { position: sticky; top: 90px; }
+    .toc-sidebar .toc-title { font-weight: 700; margin-bottom: .5rem; opacity: .9; }
+    .toc-sidebar ol { list-style: none; padding: 0; margin: 0; display: grid; gap: .25rem; }
+    .toc-sidebar a { color: var(--text); text-decoration: none; font-size: .95rem; opacity: .85; border-left: 2px solid transparent; padding-left: .5rem; }
+    .toc-sidebar a.active { color: var(--primary); opacity: 1; border-color: var(--primary); }
+    @media (min-width: 1100px) {
+      .tech-wrap { grid-template-columns: 240px 1fr; align-items: start; }
+      .toc-sidebar { display: block; }
+      .tech-doc { margin: 0; }
+    }
+    .toc-fab { position: fixed; right: 18px; bottom: 18px; width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); background: rgba(26,11,46,0.9); color: var(--text); display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.35); z-index: 9998; }
+    .toc-fab:hover { border-color: var(--primary); }
+    .toc-drawer { position: fixed; inset: 0; background: rgba(0,0,0,0.45); backdrop-filter: blur(6px); display: none; z-index: 9999; }
+    .toc-drawer.open { display: block; }
+    .toc-drawer .drawer { position: absolute; right: 0; top: 0; bottom: 0; width: min(86vw, 360px); background: rgba(26,11,46,0.98); border-left: 1px solid rgba(0,217,255,0.3); padding: 1rem; overflow-y: auto; }
+    .toc-drawer .close { position: absolute; right: 10px; top: 10px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.06); color: var(--text); border-radius: 8px; padding: .3rem .6rem; }
+
+    /* Badges */
+    .meta-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin-top: .75rem; }
+    .badge { border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.06); border-radius: 999px; padding: .25rem .6rem; font-size: .9rem; }
+    .badge.accent { border-color: var(--primary); }
+
+    /* Yellow for headings and bold text */
+    h1, h2, h3, h4, h5, h6, strong, b { color: var(--accent); }
+  </style>
+
+  <!-- MathJax for LaTeX rendering -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<canvas id="particles-canvas"></canvas>
+<div id="matrix-rain"></div>
+<header>
+  <div class="container">
+    <a class="logo" href="index.html">HassanaLabs</a>
+    <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span class="menu-icon" aria-hidden="true"></span></button>
+    <nav id="site-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html">Our Work</a></li>
+        <li><a href="programs.html">Programs</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="doc-hero">
+  <div class="container">
+    <h1>Hallucination Risk Calculator &amp; Prompt Re‑engineering Toolkit (OpenAI‑only)</h1>
+    <p class="doc-subtitle">Post‑hoc calibration without retraining. EDFL/ISR/B2T math with OpenAI Chat Completions backend.</p>
+    <div class="meta-badges" aria-label="Document metadata">
+      <span class="badge accent">README</span>
+      <span class="badge">OpenAI‑only</span>
+      <span class="badge">Units: nats</span>
+    </div>
+  </div>
+</section>
+
+<main class="container" aria-labelledby="doc-title">
+  <div class="tech-wrap">
+    <aside class="toc-sidebar">
+      <nav aria-label="Table of contents (sticky)">
+        <div class="toc-title">On this page</div>
+        <ol>
+          <li><a href="#install--setup">Install &amp; Setup</a></li>
+          <li><a href="#core-mathematical-framework">Core Mathematical Framework</a></li>
+          <li><a href="#understanding-system-behavior">Understanding System Behavior</a></li>
+          <li><a href="#two-ways-to-build-rolling-priors">Rolling Priors</a></li>
+          <li><a href="#api-surface">API Surface</a></li>
+          <li><a href="#calibration--validation">Calibration &amp; Validation</a></li>
+          <li><a href="#practical-considerations">Practical Considerations</a></li>
+          <li><a href="#project-layout">Project Layout</a></li>
+          <li><a href="#deployment-options">Deployment Options</a></li>
+          <li><a href="#minimal-end-to-end-example">Minimal E2E Example</a></li>
+          <li><a href="#license">License</a></li>
+          <li><a href="#attribution">Attribution</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <article class="glass-panel tech-doc" id="doc-root">
+
+      <section aria-label="Intro Summary">
+        <p><strong>Post‑hoc calibration without retraining</strong> for large language models. This toolkit turns a raw prompt into: 1) a <strong>bounded hallucination risk</strong> using the Expectation‑level Decompression Law (EDFL), and 2) a <strong>decision</strong> to <strong>ANSWER</strong> or <strong>REFUSE</strong> under a target SLA, with transparent math (nats).</p>
+        <p>It supports two deployment modes:</p>
+        <ul>
+          <li><strong>Evidence‑based:</strong> prompts include <em>evidence/context</em>; rolling priors are built by erasing that evidence.</li>
+          <li><strong>Closed‑book:</strong> prompts have <em>no evidence</em>; rolling priors are built by semantic masking of entities/numbers/titles.</li>
+        </ul>
+        <p>All scoring relies <strong>only</strong> on the OpenAI Chat Completions API. No retraining required.</p>
+      </section>
+
+      <hr/>
+
+      <section id="install--setup" aria-labelledby="install-h">
+        <h2 id="install-h">Install &amp; Setup</h2>
+        <pre><code class="language-bash">pip install --upgrade openai
+export OPENAI_API_KEY=sk-...</code></pre>
+        <p>&gt; The module uses <code>openai&gt;=1.0.0</code> and the Chat Completions API (e.g., <code>gpt-4o</code>, <code>gpt-4o-mini</code>).</p>
+      </section>
+
+      <hr/>
+
+      <section id="core-mathematical-framework" aria-labelledby="core-math-h">
+        <h2 id="core-math-h">Core Mathematical Framework</h2>
+        <h3>The EDFL Principle</h3>
+        <p>Let the binary event $\mathcal{A}$ be the thing you want to guarantee (e.g., <strong>Answer</strong> in decision mode, or <strong>Correct</strong> for factual accuracy). Build an ensemble of <strong>content‑weakened prompts</strong> (the <em>rolling priors</em>) $\{S_k\}_{k=1}^m$. For the realized label $y$, estimate:</p>
+        <ul>
+          <li><strong>Information budget:</strong></li>
+        </ul>
+        <div class="equation" data-title="Information Budget">$$\bar{\Delta} = \tfrac{1}{m}\sum_k 
+          \mathrm{clip}_+(\log P(y) - \log S_k(y), B)$$</div>
+        <p>(one‑sided clipping; default $B=12$ nats to prevent outliers while maintaining conservative bounds).</p>
+        <ul>
+          <li><strong>Prior masses:</strong> $q_k = S_k(\mathcal{A})$, with:</li>
+        </ul>
+        <p>$\bar{q}=\tfrac{1}{m}\sum_k q_k$ (average prior for EDFL bound) and $q_{\text{lo}}=\min_k q_k$ (worst‑case prior for SLA gating)</p>
+        <p>By EDFL, the achievable reliability is bounded by:</p>
+        <div class="equation" data-title="EDFL Bound">$$\bar{\Delta} \ge \mathrm{KL}(\mathrm{Ber}(p) \| \mathrm{Ber}(\bar{q})) \Rightarrow p\le p_{\max}(\bar{\Delta},\bar{q})$$</div>
+        <p>Thus the <strong>hallucination risk</strong> (error) is bounded by $\overline{\mathrm{RoH}} \le 1 - p_{\max}$.</p>
+
+        <h3>Decision Rule (SLA Gating)</h3>
+        <p>For target hallucination rate $h^*$:</p>
+        <ul>
+          <li><strong>Bits‑to‑Trust:</strong> $\mathrm{B2T} = \mathrm{KL}(\mathrm{Ber}(1-h^*) \| \mathrm{Ber}(q_{\text{lo}}))$</li>
+          <li><strong>Information Sufficiency Ratio:</strong> $\mathrm{ISR} = \bar{\Delta}/\mathrm{B2T}$</li>
+          <li><strong>ANSWER</strong> iff $\mathrm{ISR}\ge 1$ and $\bar{\Delta} \ge \mathrm{B2T} + \text{margin}$ (default <code>margin≈0.2</code> nats)</li>
+        </ul>
+        <p><strong>Why two priors?</strong> The gate uses <strong>worst‑case</strong> $q_{\text{lo}}$ for strict SLA compliance. The RoH bound uses <strong>average</strong> $\bar{q}$ per EDFL theory. This dual approach ensures conservative safety while providing realistic risk bounds.</p>
+      </section>
+
+      <hr/>
+
+      <section id="understanding-system-behavior" aria-labelledby="behavior-h">
+        <h2 id="behavior-h">Understanding System Behavior</h2>
+        <h3>Expected Behavioral Patterns</h3>
+        <p>The toolkit exhibits different behaviors across query types, which is <strong>mathematically consistent</strong> with the framework:</p>
+        <h3>Simple Arithmetic Queries</h3>
+        <p><strong>Observation:</strong> May abstain despite apparent simplicity</p>
+        <p><strong>Explanation:</strong></p>
+        <ul>
+          <li>Models often attempt answers even with masked numbers (pattern recognition)</li>
+          <li>This yields <strong>low information lift</strong> $\bar{\Delta} \approx 0$ between full prompt and skeletons</li>
+          <li>Despite potentially low EDFL risk bound, worst‑case prior gate triggers <strong>abstention</strong> (ISR &lt; 1)</li>
+        </ul>
+        <h3>Named‑Entity Factoids</h3>
+        <p><strong>Observation:</strong> Generally answered with confidence</p>
+        <p><strong>Explanation:</strong></p>
+        <ul>
+          <li>Masking entities/dates substantially reduces answer propensity in skeletons</li>
+          <li>Restoring these yields <strong>large</strong> $\bar{\Delta}$ that clears B2T threshold</li>
+          <li>System <strong>answers</strong> with tight EDFL risk bound</li>
+        </ul>
+        <p><strong>This is not a bug but a feature</strong>: The framework prioritizes safety through worst‑case guarantees while providing realistic average‑case bounds.</p>
+
+        <h3>Mitigation Strategies</h3>
+        <ol>
+          <li><strong>Switch Event Measurement</strong>
+            <ul>
+              <li>Use <strong>Correct/Incorrect</strong> instead of Answer/Refuse for factual QA</li>
+              <li>Skeletons without key information rarely yield correct results → large $\bar{\Delta}$</li>
+            </ul>
+          </li>
+          <li><strong>Enhance Skeleton Weakening</strong>
+            <ul>
+              <li>Implement mask‑aware decision head that refuses on redaction tokens</li>
+              <li>Ensures skeletons have strictly lower "Answer" mass than full prompt</li>
+            </ul>
+          </li>
+          <li><strong>Calibration Adjustments</strong>
+            <ul>
+              <li>Relax $h^*$ slightly (e.g., 0.10 instead of 0.05) for higher answer rates</li>
+              <li>Reduce margin for less conservative gating</li>
+              <li>Increase sampling ($n=7$–$10$) for stability</li>
+            </ul>
+          </li>
+          <li><strong>Provide Evidence</strong>
+            <ul>
+              <li>Adding compact, relevant evidence increases $\bar{\Delta}$ while preserving bounds</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <hr/>
+
+      <section id="two-ways-to-build-rolling-priors" aria-labelledby="rolling-priors-h">
+        <h2 id="rolling-priors-h">Two Ways to Build Rolling Priors</h2>
+        <h3>1) Evidence‑based (when you have context)</h3>
+        <ul>
+          <li><strong>Prompt</strong> contains a field like <code>Evidence:</code> (or JSON keys)</li>
+          <li><strong>Skeletons</strong> erase the evidence content but preserve structure and roles; then permute blocks deterministically (seeded)</li>
+          <li><strong>Decision head</strong>: "Answer only if the provided evidence is sufficient; otherwise refuse."</li>
+        </ul>
+        <p><strong>Example</strong></p>
+        <pre><code class="language-python">from scripts.hallucination_toolkit import OpenAIBackend, OpenAIItem, OpenAIPlanner
+
+backend = OpenAIBackend(model="gpt-4o-mini")
+prompt = (
+    """Task: Answer strictly based on the evidence below.
+Question: Who won the Nobel Prize in Physics in 2019?
+Evidence:
+- Nobel Prize press release (2019): James Peebles (1/2); Michel Mayor &amp; Didier Queloz (1/2).
+Constraints: If evidence is insufficient or conflicting, refuse.
+"""
+)
+item = OpenAIItem(
+    prompt=prompt, 
+    n_samples=5, 
+    m=6, 
+    fields_to_erase=["Evidence"], 
+    skeleton_policy="auto"
+)
+planner = OpenAIPlanner(backend, temperature=0.3)
+metrics = planner.run(
+    [item], 
+    h_star=0.05, 
+    isr_threshold=1.0, 
+    margin_extra_bits=0.2, 
+    B_clip=12.0, 
+    clip_mode="one-sided"
+)
+for m in metrics: 
+    print(f"Decision: {'ANSWER' if m.decision_answer else 'REFUSE'}")
+    print(f"Rationale: {m.rationale}")</code></pre>
+
+        <h3>2) Closed‑book (no evidence)</h3>
+        <ul>
+          <li><strong>Prompt</strong> has no evidence</li>
+          <li><strong>Skeletons</strong> apply <strong>semantic masking</strong> of entities, years, numbers, quoted spans</li>
+          <li><strong>Masking strengths</strong>: Progressive levels (0.25, 0.35, 0.5, 0.65, 0.8, 0.9) across skeleton ensemble</li>
+          <li><strong>Mask‑aware decision head</strong> refuses if redaction tokens appear or key slots look missing</li>
+        </ul>
+        <p><strong>Example</strong></p>
+        <pre><code class="language-python">from scripts.hallucination_toolkit import OpenAIBackend, OpenAIItem, OpenAIPlanner
+
+backend = OpenAIBackend(model="gpt-4o-mini")
+item = OpenAIItem(
+    prompt="Who won the 2019 Nobel Prize in Physics?",
+    n_samples=7,  # More samples for stability
+    m=6,          # Number of skeletons
+    skeleton_policy="closed_book"
+)
+planner = OpenAIPlanner(backend, temperature=0.3, q_floor=None)
+metrics = planner.run(
+    [item], 
+    h_star=0.05,           # Target max 5% hallucination
+    isr_threshold=1.0,     # Standard ISR gate
+    margin_extra_bits=0.2, # Safety margin in nats
+    B_clip=12.0,          # Clipping bound
+    clip_mode="one-sided" # Conservative clipping
+)
+for m in metrics: 
+    print(f"Decision: {'ANSWER' if m.decision_answer else 'REFUSE'}")
+    print(f"Δ̄={m.delta_bar:.4f}, B2T={m.b2t:.4f}, ISR={m.isr:.3f}")
+    print(f"EDFL RoH bound={m.roh_bound:.3f}")</code></pre>
+        <p><strong>Tuning knobs (closed‑book):</strong></p>
+        <ul>
+          <li><code>n_samples=5–7</code> and <code>temperature≈0.3</code> stabilize priors</li>
+          <li><code>q_floor</code> (Laplace by default: $1/(n+2)$) prevents worst‑case prior collapse to 0</li>
+          <li>Adjust masking strength levels if a task family remains too answerable under masking</li>
+        </ul>
+      </section>
+
+      <hr/>
+
+      <section id="api-surface" aria-labelledby="api-surface-h">
+        <h2 id="api-surface-h">API Surface</h2>
+        <h3>Core Classes</h3>
+        <ul>
+          <li><code>OpenAIBackend(model, api_key=None)</code> – wraps Chat Completions API</li>
+          <li><code>OpenAIItem(prompt, n_samples=5, m=6, fields_to_erase=None, skeleton_policy="auto")</code> – one evaluation item</li>
+          <li><code>OpenAIPlanner(backend, temperature=0.5, q_floor=None)</code> – runs evaluation:
+            <ul>
+              <li><code>run(items, h_star, isr_threshold, margin_extra_bits, B_clip=12.0, clip_mode="one-sided") -&gt; List[ItemMetrics]</code></li>
+              <li><code>aggregate(items, metrics, alpha=0.05, h_star, ...) -&gt; AggregateReport</code></li>
+            </ul>
+          </li>
+        </ul>
+        <h3>Helper Functions</h3>
+        <ul>
+          <li><code>make_sla_certificate(report, model_name)</code> – creates formal SLA certificate</li>
+          <li><code>save_sla_certificate_json(cert, path)</code> – exports certificate for audit</li>
+          <li><code>generate_answer_if_allowed(backend, item, metric)</code> – only emits answer if decision was ANSWER</li>
+        </ul>
+        <h3>ItemMetrics Fields</h3>
+        <p>Every <code>ItemMetrics</code> includes:</p>
+        <ul>
+          <li><code>delta_bar</code>: Information budget (nats)</li>
+          <li><code>q_conservative</code>: Worst‑case prior $q_{\text{lo}}$</li>
+          <li><code>q_avg</code>: Average prior $\bar{q}$</li>
+          <li><code>b2t</code>: Bits‑to‑Trust requirement</li>
+          <li><code>isr</code>: Information Sufficiency Ratio</li>
+          <li><code>roh_bound</code>: EDFL hallucination risk bound</li>
+          <li><code>decision_answer</code>: Boolean decision</li>
+          <li><code>rationale</code>: Human‑readable explanation</li>
+          <li><code>meta</code>: Dict with <code>q_list</code>, <code>S_list_y</code>, <code>P_y</code>, <code>closed_book</code>, etc.</li>
+        </ul>
+      </section>
+
+      <hr/>
+
+      <section id="calibration--validation" aria-labelledby="calibration-h">
+        <h2 id="calibration-h">Calibration &amp; Validation</h2>
+        <h3>Validation Set Calibration</h3>
+        <ol>
+          <li><strong>Sweep the margin</strong> parameter from 0 to 1 nats</li>
+          <li>For each margin, compute:
+            <ul>
+              <li>Empirical hallucination rate among answered items</li>
+              <li>Wilson upper bound at 95% confidence</li>
+            </ul>
+          </li>
+          <li><strong>Select smallest margin</strong> where Wilson upper bound ≤ target $h^*$ (e.g., 5%)</li>
+          <li><strong>Freeze policy</strong>: $(h^*, \tau, \text{margin}, B, \text{clip\_mode}, m, r, \text{skeleton\_policy})$</li>
+        </ol>
+
+        <h3>Portfolio Reporting</h3>
+        <p>The toolkit provides comprehensive metrics:</p>
+        <ul>
+          <li>Answer/abstention rates</li>
+          <li>Empirical hallucination rate + Wilson bound</li>
+          <li>Distribution of per‑item EDFL RoH bounds</li>
+          <li>Worst‑case and median risk bounds</li>
+          <li>Complete audit trail</li>
+        </ul>
+      </section>
+
+      <hr/>
+
+      <section id="practical-considerations" aria-labelledby="practical-h">
+        <h2 id="practical-h">Practical Considerations</h2>
+        <h3>Choosing the Right Event</h3>
+        <p>The default event is the <strong>decision</strong> $\mathcal{A} = \{\text{Answer}\}$. However:</p>
+        <p>Recommended mappings:</p>
+        <ul>
+          <li><strong>Factual QA</strong> → <strong>Correct/Incorrect</strong> (directly measures hallucination)</li>
+          <li><strong>Decision Support</strong> → <strong>Answer/Refuse</strong> (measures confidence to respond)</li>
+          <li><strong>Creative Writing</strong> → <strong>Answer/Refuse</strong> (correctness often undefined)</li>
+        </ul>
+        <p>For tasks where skeletons still trigger answers frequently (causing $\bar{\Delta}\approx0$), switching to <strong>Correctness</strong> event with task‑specific grading dramatically improves performance.</p>
+
+        <h3>Common Issues &amp; Solutions</h3>
+        <h4>Issue: $\bar{\Delta} = 0$ with $\overline{\mathrm{RoH}} \approx 0$</h4>
+        <p><strong>Not a contradiction!</strong> The gate uses worst‑case $q_{\text{lo}}$; the bound uses average $\bar{q}$.</p>
+        <ul>
+          <li><strong>Solution</strong>: Increase <code>n_samples</code>, lower decision temperature, ensure skeletons truly weaken the event</li>
+        </ul>
+        <h4>Issue: Hit a low $\bar{\Delta}$ ceiling</h4>
+        <p><strong>Cause</strong>: Clipping may be too aggressive</p>
+        <ul>
+          <li><strong>Solution</strong>: Increase <code>B_clip</code> (default 12) and use <code>clip_mode="one-sided"</code></li>
+        </ul>
+        <h4>Issue: Arithmetic still refuses</h4>
+        <p><strong>Cause</strong>: Pattern recognition allows answers even with masked numbers</p>
+        <ul>
+          <li><strong>Solutions</strong>:
+            <ul>
+              <li>Switch to <strong>Correctness</strong> event</li>
+              <li>Reduce masking strength for numbers on subset of skeletons</li>
+              <li>Provide worked examples as evidence</li>
+            </ul>
+          </li>
+        </ul>
+        <h4>Issue: Prior collapse ($q_{\text{lo}} \to 0$)</h4>
+        <p><strong>Cause</strong>: All skeletons strongly refuse</p>
+        <ul>
+          <li><strong>Solution</strong>: Apply prior floor (default Laplace: $1/(n+2)$) or use quantile prior</li>
+        </ul>
+
+        <h3>Performance Characteristics</h3>
+        <ul>
+          <li><strong>Latency per item</strong>: 2–5 seconds (7 samples × 7 variants)</li>
+          <li><strong>API calls</strong>: $(1+m) \times \lceil n/\text{batch}\rceil$ (parallelizable)</li>
+          <li><strong>Accuracy</strong>: Wilson‑bounded at 95% (empirically validated)</li>
+          <li><strong>Cost</strong>: ~$0.01–0.03 per item (gpt‑4o‑mini)</li>
+        </ul>
+
+        <h3>Stability Guidelines</h3>
+        <ol>
+          <li><strong>Sampling parameters</strong>:
+            <ul>
+              <li>Use $n \ge 5$ samples per variant</li>
+              <li>Keep temperature $\in [0.2, 0.5]$ for decision head</li>
+              <li>Lower temperature → more stable priors</li>
+            </ul>
+          </li>
+          <li><strong>Skeleton ensemble</strong>:
+            <ul>
+              <li>Use $m \ge 6$ skeletons</li>
+              <li>Ensure diversity in masking strengths</li>
+              <li>Verify skeletons are meaningfully weaker</li>
+            </ul>
+          </li>
+          <li><strong>Clipping strategy</strong>:
+            <ul>
+              <li>Always use one‑sided clipping for conservative bounds</li>
+              <li>Set $B \ge 10$ nats to avoid artificial ceilings</li>
+              <li>Monitor clipping frequency in logs</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <hr/>
+
+      <section id="project-layout" aria-labelledby="layout-h">
+        <h2 id="layout-h">Project Layout</h2>
+        <pre><code class="language-none">.
+├── app/                    # Application entry points
+│   ├── web/web_app.py     # Streamlit UI
+│   ├── cli/frontend.py    # Interactive CLI
+│   ├── examples/          # Example scripts
+│   └── launcher/entry.py  # Unified launcher
+├── scripts/               # Core module
+│   ├── hallucination_toolkit.py
+│   └── build_offline_backend.sh
+├── electron/              # Desktop wrapper
+├── launch/                # Platform launchers
+├── release/              # Packaged artifacts
+├── bin/                  # Offline backend binary
+├── requirements.txt
+├── pyproject.toml
+└── README.md</code></pre>
+      </section>
+
+      <hr/>
+
+      <section id="deployment-options" aria-labelledby="deploy-h">
+        <h2 id="deploy-h">Deployment Options</h2>
+        <h3>1. Direct Python Usage</h3>
+        <pre><code class="language-python">from scripts.hallucination_toolkit import (
+    OpenAIBackend, OpenAIItem, OpenAIPlanner,
+    make_sla_certificate, save_sla_certificate_json
+)
+
+# Configure and run
+backend = OpenAIBackend(model="gpt-4o-mini")
+items = [OpenAIItem(prompt="...", n_samples=7, m=6)]
+planner = OpenAIPlanner(backend, temperature=0.3)
+metrics = planner.run(items, h_star=0.05)
+
+# Generate SLA certificate
+report = planner.aggregate(items, metrics)
+cert = make_sla_certificate(report, model_name="GPT-4o-mini")
+save_sla_certificate_json(cert, "sla.json")</code></pre>
+
+        <h3>2. Web Interface (Streamlit)</h3>
+        <pre><code class="language-bash">streamlit run app/web/web_app.py</code></pre>
+
+        <h3>3. One‑Click Launcher</h3>
+        <ul>
+          <li><strong>Windows</strong>: Double‑click <code>launch/Launch App.bat</code></li>
+          <li><strong>macOS</strong>: Double‑click <code>launch/Launch App.command</code></li>
+          <li><strong>Linux</strong>: Run <code>bash launch/launch.sh</code></li>
+        </ul>
+        <p>First run creates <code>.venv</code> and installs dependencies automatically.</p>
+
+        <h3>4. Desktop App (Electron)</h3>
+        <p>Development:</p>
+        <pre><code class="language-bash">cd electron
+npm install
+npm run start</code></pre>
+        <p>Build installers:</p>
+        <pre><code class="language-bash">npm run build</code></pre>
+
+        <h3>5. Offline Backend (PyInstaller)</h3>
+        <p>Build single‑file executable:</p>
+        <pre><code class="language-bash"># macOS/Linux
+bash scripts/build_offline_backend.sh
+
+# Windows
+scripts\build_offline_backend.bat</code></pre>
+        <p>Creates <code>bin/hallucination-backend[.exe]</code> with bundled Python, Streamlit, and dependencies.</p>
+      </section>
+
+      <hr/>
+
+      <section id="minimal-end-to-end-example" aria-labelledby="e2e-h">
+        <h2 id="e2e-h">Minimal End‑to‑End Example</h2>
+        <pre><code class="language-python">from scripts.hallucination_toolkit import (
+    OpenAIBackend, OpenAIItem, OpenAIPlanner,
+    make_sla_certificate, save_sla_certificate_json,
+    generate_answer_if_allowed
+)
+
+# Setup
+backend = OpenAIBackend(model="gpt-4o-mini")
+
+# Prepare items
+items = [
+    OpenAIItem(
+        prompt="Who won the 2019 Nobel Prize in Physics?",
+        n_samples=7,
+        m=6,
+        skeleton_policy="closed_book"
+    ),
+    OpenAIItem(
+        prompt="If James has 5 apples and eats 3, how many remain?",
+        n_samples=7,
+        m=6,
+        skeleton_policy="closed_book"
+    )
+]
+
+# Run evaluation
+planner = OpenAIPlanner(backend, temperature=0.3)
+metrics = planner.run(
+    items,
+    h_star=0.05,           # Target 5% hallucination max
+    isr_threshold=1.0,     # Standard threshold
+    margin_extra_bits=0.2, # Safety margin
+    B_clip=12.0,          # Clipping bound
+    clip_mode="one-sided" # Conservative mode
+)
+
+# Generate report and certificate
+report = planner.aggregate(items, metrics, alpha=0.05, h_star=0.05)
+cert = make_sla_certificate(report, model_name="GPT-4o-mini")
+save_sla_certificate_json(cert, "sla_certificate.json")
+
+# Show results
+for item, m in zip(items, metrics):
+    print(f"\nPrompt: {item.prompt[:50]}...")
+    print(f"Decision: {'ANSWER' if m.decision_answer else 'REFUSE'}")
+    print(f"Risk bound: {m.roh_bound:.3f}")
+    print(f"Rationale: {m.rationale}")
+    
+    # Generate answer if allowed
+    if m.decision_answer:
+        answer = generate_answer_if_allowed(backend, item, m)
+        print(f"Answer: {answer}")</code></pre>
+      </section>
+
+      <hr/>
+
+      <section id="license" aria-labelledby="license-h">
+        <h2 id="license-h">License</h2>
+        <p>This project is licensed under the MIT License — see the LICENSE file for details.</p>
+      </section>
+
+      <section id="attribution" aria-labelledby="attr-h">
+        <h2 id="attr-h">Attribution</h2>
+        <p>Developed by Hassana Labs (https://hassana.io).</p>
+        <p>This implementation follows the framework from the paper “Compression Failure in LLMs: Bayesian in Expectation, Not in Realization” (NeurIPS 2024 preprint) and related EDFL/ISR/B2T methodology.</p>
+      </section>
+
+    </article>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 HassanaLabs. Inspired by Hassana’s legacy.</p>
+  <nav aria-label="Footer">
+    <a href="work.html">Research</a> · <a href="programs.html">Programs</a>
+  </nav>
+</footer>
+
+<!-- Mobile TOC Drawer -->
+<button class="toc-fab" id="tocFab" aria-label="Open table of contents">☰</button>
+<div class="toc-drawer" id="tocDrawer" aria-hidden="true">
+  <div class="drawer">
+    <button class="close" id="tocClose" aria-label="Close">Close</button>
+    <nav aria-label="Table of contents (mobile)">
+      <div class="toc-title">On this page</div>
+      <ol>
+        <li><a href="#install--setup">Install &amp; Setup</a></li>
+        <li><a href="#core-mathematical-framework">Core Mathematical Framework</a></li>
+        <li><a href="#understanding-system-behavior">Understanding System Behavior</a></li>
+        <li><a href="#two-ways-to-build-rolling-priors">Rolling Priors</a></li>
+        <li><a href="#api-surface">API Surface</a></li>
+        <li><a href="#calibration--validation">Calibration &amp; Validation</a></li>
+        <li><a href="#practical-considerations">Practical Considerations</a></li>
+        <li><a href="#project-layout">Project Layout</a></li>
+        <li><a href="#deployment-options">Deployment Options</a></li>
+        <li><a href="#minimal-end-to-end-example">Minimal E2E Example</a></li>
+        <li><a href="#license">License</a></li>
+        <li><a href="#attribution">Attribution</a></li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- Site JS -->
+<script src="js/particles.js" defer></script>
+<script src="js/animations.js" defer></script>
+<script src="js/command-palette.js" defer></script>
+<script src="js/easter-eggs.js" defer></script>
+<script src="js/site.js" defer></script>
+
+<!-- Prism syntax highlighting -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-HBmN8LPmZ7f+M7iE1q8g5wQf5k0pC0Myk3KxwBeN3Vw+8bq9gYk1o9nZ+6Y0Qp0t3T5m5bJw7k6v3wS8l2x6pA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" integrity="sha512-4m0q7Q8y4pQm2v3w0QWmYw3f4zzQe0v3vZkE0m0bN3WwJv+Gm0m3cJr0m4t1l2m0l4c3b6a7Z2r1q8b0oQZxSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" integrity="sha512-wb1O0w7uQHq3gMmqnCXmT1x1Qh1nYbKcNNfD0Vt2HhXlY2N0WJm9Vt1oD6FJ6m3k5dR1lW9H3o4c9lV3gkJYPA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Page JS: TOC interaction (reuse simple logic) -->
+<script>
+  // TOC drawer
+  const tocFab = document.getElementById('tocFab');
+  const tocDrawer = document.getElementById('tocDrawer');
+  const tocClose = document.getElementById('tocClose');
+  tocFab?.addEventListener('click', () => tocDrawer.classList.add('open'));
+  tocClose?.addEventListener('click', () => tocDrawer.classList.remove('open'));
+
+  // Sticky TOC active link highlighting
+  const tocLinks = Array.from(document.querySelectorAll('.toc-sidebar a'));
+  const sections = tocLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const idx = sections.indexOf(entry.target);
+      if (idx >= 0) {
+        const link = tocLinks[idx];
+        if (entry.isIntersecting) link.classList.add('active'); else link.classList.remove('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+  sections.forEach(sec => obs.observe(sec));
+</script>
+
+</body>
+</html>

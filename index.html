@@ -1,146 +1,287 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HassanaLabs – Home</title>
-  <meta name="description" content="HassanaLabs bridges rigorous drug discovery and community impact, honoring Hassana’s legacy through research, education, and mentorship.">
-  <meta property="og:title" content="HassanaLabs"/>
-  <meta property="og:description" content="Bridging scientific research and community impact."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:image" content="assets/hero.jpg"/>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="favicon.svg">
-  <link rel="manifest" href="site.webmanifest">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leon Chlon</title>
+  <meta name="description" content="Leon Chlon, machine-learning researcher working on LLM reliability and post-training. Visiting Fellow at Oxford. Founder of Hassana Labs.">
+  <meta name="author" content="Leon Chlon">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Leon Chlon">
+  <meta property="og:description" content="Machine-learning researcher. Visiting Fellow at Oxford. Founder of Hassana Labs.">
+  <meta property="og:image" content="assets/headshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/glassmorphism.css">
-  <link rel="stylesheet" href="css/islamic-patterns.css">
-  <link rel="stylesheet" href="css/garden.css">
-  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=20260506">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Leon Chlon",
+    "url": "https://leochlon.github.io/",
+    "sameAs": [
+      "https://github.com/leochlon",
+      "https://www.linkedin.com/in/leochlon/",
+      "https://hassana.io/"
+    ],
+    "jobTitle": "Visiting Fellow",
+    "worksFor": {"@type":"Organization","name":"University of Oxford"},
+    "alumniOf": [
+      {"@type":"CollegeOrUniversity","name":"Massachusetts Institute of Technology"},
+      {"@type":"CollegeOrUniversity","name":"University of Cambridge"}
+    ]
+  }
+  </script>
 </head>
 <body>
-<canvas id="particles-canvas"></canvas>
-<div id="matrix-rain"></div>
-<header>
-  <div class="container">
-    <a class="logo" href="index.html">HassanaLabs</a>
-    <button class="menu-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span class="menu-icon" aria-hidden="true"></span></button>
-    <nav id="site-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="work.html">Our Work</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        
-      </ul>
-    </nav>
-    
-  </div>
-</header>
 
-<section class="hero has-image iridescent" style="--hero-image: url('assets/hero.jpg')">
-  <div class="hero-mesh" aria-hidden="true"></div>
-  <h1>Advancing Science, Empowering Communities</h1>
-  <p>Honoring Hassana’s legacy through cutting-edge drug discovery and inclusive education.</p>
-  <div class="name-transform" data-arabic="حسانة" data-code="&lt;HassanaLabs/&gt;">
-    <span class="arabic-text">حسانة</span>
-    <span class="code-text">&lt;HassanaLabs/&gt;</span>
-  </div>
-  <br/>
-  <button class="magnetic-button" data-magnetic onclick="location.href='about.html'">
-    <span class="button-text">Learn More</span>
-    <div class="button-bg"></div>
-  </button>
-</section>
+<main>
 
-<!-- Living Garden Visualization under Our Impact -->
-<section class="living-garden" aria-labelledby="garden-title">
-  <div class="garden-bg">
-    <div class="bg-layer mountains" aria-hidden="true"></div>
-    <div class="bg-layer network" aria-hidden="true"></div>
-    <div class="bg-layer stars" aria-hidden="true"></div>
-  </div>
-  <div class="container">
-    <header class="garden-header">
-      <h2 id="garden-title" class="terminal-header" data-text="THE_LIVING_GARDEN">
-        <span class="prefix">&gt;_</span>
-        <span class="typing-text"></span>
-        <span class="cursor">|</span>
-      </h2>
-      <p class="garden-sub">An evolving field of impact — students, papers, and research contributions.</p>
-      <div class="garden-metrics">
-        <a class="metric" href="work.html" aria-label="View community impact: students trained">
-          <span class="value stat-number" data-target="60">0</span><span class="label">students trained</span>
-        </a>
-        <a class="metric" href="work.html" aria-label="View community impact: coaching calls">
-          <span class="value stat-number" data-target="30">0</span><span class="label">coaching calls</span>
-        </a>
-        <a class="metric" href="work.html" aria-label="View papers: student co-authors">
-          <span class="value stat-number" data-target="2">0</span><span class="label">student co-authors</span>
-        </a>
-      </div>
-    </header>
-    <div class="garden-viewport">
-      <canvas id="garden-canvas" role="img" aria-label="A living field of glowing nodes representing impact"></canvas>
-      <div id="leaf-tooltip" role="tooltip" class="leaf-tooltip" hidden></div>
+  <!-- ============== HERO ============== -->
+  <section class="hero">
+    <div class="hero-photo">
+      <img src="assets/headshot.png" alt="Leon Chlon" width="800" height="800">
     </div>
-  </div>
-</section>
-
-<!-- Garden Modal -->
-<div id="garden-modal" class="garden-modal" role="dialog" aria-modal="true" aria-labelledby="garden-modal-title" aria-hidden="true" style="display:none;">
-  <div class="garden-modal-backdrop"></div>
-  <div class="garden-modal-content">
-    <button id="garden-modal-close" class="garden-modal-close" aria-label="Close">✕</button>
-    <h3 id="garden-modal-title">Impact</h3>
-    <div id="garden-modal-body" class="garden-modal-body"></div>
-  </div>
-</div>
-
-<!-- Removed: OUR_IMPACT stats bento section -->
-
-<section class="home-mission">
-  <h2 class="terminal-header" data-text="OUR_DUAL_MISSION"><span class="prefix">&gt;_</span><span class="typing-text"></span><span class="cursor">|</span></h2>
-  <p class="intro">HassanaLabs bridges rigorous scientific research with social impact across the Levant and beyond.</p>
-  <div class="bento-grid">
-    <div class="bento-item" data-aos="fade-in"><div class="islamic-overlay"></div><div class="content">Drug discovery pipeline leveraging AI.</div></div>
-    <div class="bento-item" data-aos="fade-in"><div class="islamic-overlay"></div><div class="content">Three papers inviting contributions from underrepresented backgrounds.</div></div>
-    <div class="bento-item" data-aos="fade-in"><div class="islamic-overlay"></div><div class="content">Workshops and mentorship for Gulf women and displaced communities.</div></div>
-  </div>
-  <a class="magnetic-button" data-magnetic href="work.html"><span class="button-text">Explore Our Work</span><div class="button-bg"></div></a>
-</section>
-
-<footer>
-  <p>&copy; 2025 HassanaLabs. Inspired by Hassana’s legacy.</p>
-  <nav aria-label="Footer">
-    <a href="work.html">Research</a> · <a href="programs.html">Programs</a>
-  </nav>
-</footer>
-<!-- Command Palette Shell -->
-<div id="command-palette" class="command-palette" style="display: none;">
-  <div class="command-overlay"></div>
-  <div class="command-modal">
-    <input type="text" class="command-input" placeholder="Type a command or search...">
-    <div class="command-results">
-      <div class="command-section">
-        <div class="command-item" data-action="projects"><span class="command-icon">📊</span><span class="command-text">View Projects</span><span class="command-shortcut">⌘P</span></div>
-        <div class="command-item" data-action="research"><span class="command-icon">🔬</span><span class="command-text">Research Papers</span><span class="command-shortcut">⌘R</span></div>
-        <div class="command-item" data-action="contact"><span class="command-icon">📧</span><span class="command-text">Contact</span><span class="command-shortcut">⌘C</span></div>
-        <div class="command-item" data-action="theme"><span class="command-icon">🎨</span><span class="command-text">Toggle Theme</span><span class="command-shortcut">⌘T</span></div>
-      </div>
+    <div class="hero-text">
+      <h1>Leon Chlon</h1>
+      <p class="lede">
+        I'm a machine-learning researcher working on <b>AI safety</b>, <b>LLM reliability</b>, and the <b>mechanistic understanding</b> of foundation models. My recent work asks <i>why language models hallucinate</i>, and how <b>structured inductive biases</b>, <b>symmetry-aware learning</b>, and a <b>Bayesian perspective</b> can make them more reliable and interpretable.
+      </p>
+      <p class="lede-secondary">
+        I also work on <i>world models</i>, <i>multimodal learning</i>, and <i>physics-informed ML</i>, where principled modeling bridges theory with scalable systems. Currently <b>Visiting Fellow at the University of Oxford</b> (Torr Vision Group), and founder of <a href="https://hassana.io/"><i>Hassana Labs</i></a>, a research organization opening doors in AI for researchers from marginalized communities. I'm writing an open-source book, <a href="https://github.com/leochlon/teta"><i>Information Geometry for Generative Models</i></a>, released free with donations going to Lebanese refugees.
+      </p>
+      <p class="contact-row">
+        <a href="mailto:leochlon@gmail.com">email</a>
+        <span class="dot">·</span>
+        <a href="assets/leon-chlon-cv.pdf">cv (pdf)</a>
+        <span class="dot">·</span>
+        <a href="https://github.com/leochlon" rel="me">github</a>
+        <span class="dot">·</span>
+        <a href="https://www.linkedin.com/in/leochlon/" rel="me">linkedin</a>
+        <span class="dot">·</span>
+        <a href="https://arxiv.org/a/chlon_l_1">arxiv</a>
+      </p>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- New modular JS -->
-<script src="js/particles.js" defer></script>
-<script src="js/animations.js" defer></script>
-<script src="js/command-palette.js" defer></script>
-<script src="js/easter-eggs.js" defer></script>
-<script src="js/garden.js" defer></script>
-<script src="js/site.js" defer></script>
+  <hr>
+
+  <!-- ============== NEWS ============== -->
+  <section id="news">
+    <h2>News</h2>
+    <ul class="news">
+      <li>
+        <span class="when">2026</span>
+        <span class="what"><i>Predictable Compression Failures: Why Language Models Actually Hallucinate</i> accepted at <b>ICML 2026</b>.</span>
+      </li>
+      <li>
+        <span class="when">2026</span>
+        <span class="what">Won <b>$300K</b> in backing from <b>Microsoft</b>, <b>Google</b>, and <b>NVIDIA</b> to fund an AI-research sabbatical at Oxford's Torr Vision Group.</span>
+      </li>
+      <li>
+        <span class="when">2026</span>
+        <span class="what"><a href="https://github.com/leochlon/hallbayes"><b>HallBayes</b></a> featured at <b>NVIDIA GTC 2026</b>; integrated into PyTorch Geometric (<b>1.6k★</b>, 150+ forks).</span>
+      </li>
+      <li>
+        <span class="when">2025</span>
+        <span class="what">Co-designed CUDA <b>INT4</b> kernels with <b>Prof. Omri Weinstein</b> (Hebrew University of Jerusalem) and <b>Unsloth</b>; cut quantization penalty by <b>~9%</b> on GPTQ/GGUF (Qwen3.5).</span>
+      </li>
+      <li>
+        <span class="when">2025</span>
+        <span class="what">HP &amp; NVIDIA-sponsored Triton kernels for <b>Blackwell GB10</b> (sm_121); <b>6.1×</b> over PyTorch baselines.</span>
+      </li>
+      <li>
+        <span class="when">2025</span>
+        <span class="what">Released <a href="https://github.com/leochlon/mezzanine"><b>Mezzanine</b></a>, a post-training toolkit adopted by <b>DeepMind</b>, <b>CERN</b>, <b>DAMTP</b>, and <b>CRUKCI</b>; powered the first pixel-free I-JEPA for robotics.</span>
+      </li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <!-- ============== PUBLICATIONS ============== -->
+  <section id="publications">
+    <h2>Selected publications</h2>
+    <ol class="pubs">
+      <li>
+        <p class="pub-title"><i>Predictable Compression Failures: Why Language Models Actually Hallucinate</i></p>
+        <p class="pub-meta">L. Chlon &middot; <b>ICML 2026 (accepted)</b></p>
+        <p class="pub-links">
+          <a href="https://arxiv.org/abs/2509.11208">arXiv:2509.11208</a>
+          <span class="dot">·</span>
+          <a href="https://github.com/leochlon/hallbayes">code</a>
+        </p>
+      </li>
+      <li>
+        <p class="pub-title"><i>LLMs are Bayesian, in Expectation, not in Realization</i></p>
+        <p class="pub-meta">L. Chlon &middot; <b>NeurIPS 2026 (under review)</b></p>
+        <p class="pub-links">
+          <a href="https://arxiv.org/abs/2507.11768">arXiv:2507.11768</a>
+        </p>
+      </li>
+      <li>
+        <p class="pub-title"><i>Attention Deficits in Language Models: Causal Explanations for Procedural Hallucinations</i></p>
+        <p class="pub-meta">L. Chlon &middot; <b>NeurIPS 2026 (under review)</b></p>
+        <p class="pub-links">
+          <a href="https://arxiv.org/abs/2602.19239">arXiv:2602.19239</a>
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <hr>
+
+  <!-- ============== OPEN SOURCE ============== -->
+  <section id="oss">
+    <h2>Open source</h2>
+    <ul class="oss">
+      <li>
+        <a href="https://github.com/leochlon/hallbayes" class="oss-name">hallbayes</a>
+        <span class="oss-stars">★ 1,664</span>
+        <span class="oss-desc">Model-agnostic post-training to <b>suppress LLM hallucinations</b>. Integrated into PyTorch Geometric. Featured at NVIDIA GTC 2026.</span>
+      </li>
+      <li>
+        <a href="https://github.com/leochlon/mezzanine" class="oss-name">mezzanine</a>
+        <span class="oss-stars">★ 143</span>
+        <span class="oss-desc">Post-training toolkit. Adopted by <b>DeepMind</b>, <b>CERN</b>, <b>DAMTP</b>, and <b>CRUKCI</b>. First pixel-free I-JEPA for robotics; <b>2.1×</b> retrieval-rank improvement on LeRobot ALOHA.</span>
+      </li>
+      <li>
+        <a href="https://github.com/leochlon/triton-blackwell" class="oss-name">triton-blackwell</a>
+        <span class="oss-stars">★ 2</span>
+        <span class="oss-desc">Fused Triton transformer kernels for <b>Blackwell GB10</b> (sm_121); <b>6.1×</b> over PyTorch baselines.</span>
+      </li>
+      <li>
+        <a href="https://github.com/leochlon/berry" class="oss-name">berry</a>
+        <span class="oss-stars">★ 14</span>
+        <span class="oss-desc">Information-budget MCP server for hallucination detection in agent workflows.</span>
+      </li>
+    </ul>
+    <p class="muted">Other public research code:
+      <a href="https://github.com/leochlon/ITO">ITO</a> (★65) &middot;
+      <a href="https://github.com/leochlon/teta">teta</a> (★33) &middot;
+      <a href="https://github.com/leochlon/factuality-slice">factuality-slice</a> (★31) &middot;
+      <a href="https://github.com/leochlon/aecf">aecf</a> (★4).
+    </p>
+    <p class="muted">Core contributions to <a href="https://github.com/google-deepmind/optax">DeepMind Optax</a> and <a href="https://github.com/huggingface">HuggingFace</a>; <b>4×</b> speedup in SAM image processing. <b>EWOR Fellowship</b> (0.1% acceptance rate).</p>
+  </section>
+
+  <hr>
+
+  <!-- ============== EXPERIENCE ============== -->
+  <section id="experience">
+    <h2>Selected work</h2>
+    <ul class="work">
+      <li>
+        <span class="role-where"><b>University of Oxford</b> &middot; Visiting Fellow</span>
+        <span class="role-when">2025&ndash;present</span>
+        <span class="role-what">Torr Vision Group. Building <i>HallBayes</i>, <i>Mezzanine</i>, and Triton kernels for Blackwell GB10.</span>
+      </li>
+      <li>
+        <span class="role-where"><b>Apple</b> &middot; Content Ranking</span>
+        <span class="role-when">2023&ndash;2025</span>
+        <span class="role-what">Production MMoE on TensorFlow + ONNX Runtime; <b>43%</b> p50-latency reduction on workloads serving <b>50M+ requests/day</b>.</span>
+      </li>
+      <li>
+        <span class="role-where"><b>TikTok</b> &middot; Post-training, Ranking</span>
+        <span class="role-when">2023&ndash;2025</span>
+        <span class="role-what">Bayesian-optimised MMoE retraining across a <b>500M+ DAU</b> ranking system; double-digit gains in cross-platform sharing.</span>
+      </li>
+      <li>
+        <span class="role-where"><b>World Bank Group</b> &middot; Post-training</span>
+        <span class="role-when">2023&ndash;2025</span>
+        <span class="role-what">Fine-tuned <b>LLaMA-2 70B</b> LoRa adapters across <b>300k</b> socioeconomic indicators; reduced forecast error by <b>35% sMAPE</b>; immediate adoption across 15 cross-country teams.</span>
+      </li>
+      <li>
+        <span class="role-where"><b>Tailor Bio</b> &middot; Founding AI Engineer (0&rarr;1)</span>
+        <span class="role-when">2022&ndash;2023</span>
+        <span class="role-what">Cambridge spinout. Drug-discovery stack on AWS (PyTorch, RDKit, Neo4j); custom sparse mat-mul + gradient checkpointing. <b>3×</b> throughput; 3 lead compounds validated for Series B.</span>
+      </li>
+      <li>
+        <span class="role-where"><b>Uber / Careem</b> &middot; Lead ML Engineer, Dynamic Pricing</span>
+        <span class="role-when">2022</span>
+        <span class="role-what">Marketplace pricing for <b>100M+ users</b> via algorithmic game theory; <b>2.7×</b> efficiency over legacy; <b>$2M+</b> revenue impact.</span>
+      </li>
+      <li>
+        <span class="role-where"><b>Meta</b> &middot; Senior Research Scientist, AI Safety</span>
+        <span class="role-when">2020&ndash;2022</span>
+        <span class="role-what">Bayesian RL for crash detection across Instagram / WhatsApp / Facebook; FAISS / HNSW vector embeddings improving hate-speech recall by <b>15%</b> at billion-post scale.</span>
+      </li>
+      <li>
+        <span class="role-where"><b>McKinsey &amp; Company</b> &middot; Senior Data Scientist</span>
+        <span class="role-when">2018&ndash;2020</span>
+        <span class="role-what">Gradient-boosting credit-risk models for Tier-1 banks covering <b>$100B+</b> exposures; Basel III / IFRS 9 strategies for C-suite at three major institutions.</span>
+      </li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <!-- ============== TALKS & WRITING ============== -->
+  <section id="talks">
+    <h2>Talks &amp; writing</h2>
+    <ul class="bare">
+      <li>
+        Open-source book (in progress): <a href="https://github.com/leochlon/teta"><b><i>Information Geometry for Generative Models</i></b></a>. Originally bound for Oxford University Press, released free instead. Donations support displaced Lebanese refugees. (<a href="https://github.com/leochlon/teta/blob/main/information_geometry_for_generative_models_v1.pdf">PDF</a>)
+      </li>
+      <li><b>NVIDIA GTC 2026</b>: HallBayes feature.</li>
+      <li>Invited talks: <b>Imperial College London</b>, <b>American University of Beirut</b>, <b>University of Sharjah</b> (UAE).</li>
+      <li>Social outreach: <b>40.5k</b> on LinkedIn, <b>50.5k</b> on Instagram, <b>90k</b> on TikTok. <i>Translating research-to-deployment for a wider audience.</i></li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <!-- ============== EDUCATION ============== -->
+  <section id="education">
+    <h2>Education</h2>
+    <ul class="education">
+      <li>
+        <span class="edu-where"><b>Massachusetts Institute of Technology</b></span>
+        <span class="edu-when">2018</span>
+        <span class="edu-what">Postdoctoral Researcher, Machine Learning</span>
+      </li>
+      <li>
+        <span class="edu-where"><b>University of Cambridge</b></span>
+        <span class="edu-when">2017</span>
+        <span class="edu-what">PhD, Machine Learning</span>
+      </li>
+      <li>
+        <span class="edu-where"><b>University of Cambridge</b></span>
+        <span class="edu-when">2014</span>
+        <span class="edu-what">MPhil, Theoretical Physics</span>
+      </li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <!-- ============== FOOTER ============== -->
+  <footer>
+    <p>
+      <a href="mailto:leochlon@gmail.com">leochlon@gmail.com</a>
+      <span class="dot">·</span>
+      <a href="https://github.com/leochlon">github</a>
+      <span class="dot">·</span>
+      <a href="https://www.linkedin.com/in/leochlon/">linkedin</a>
+      <span class="dot">·</span>
+      <a href="https://hassana.io/">hassana labs</a>
+    </p>
+    <p class="muted small">© <span id="year">2026</span> Leon Chlon. <a href="#news">back to top</a>.</p>
+  </footer>
+
+</main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>

@@ -1,25 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Leon Chlon</title>
-  <meta name="description" content="Leon Chlon, AI Research Lead at PhysicsX. Previously Visiting Fellow at Oxford. Founder of Hassana Labs.">
+  <meta name="description" content="Leon Chlon, AI Research Lead at PhysicsX and founder of Hassana Labs. Research on when models learn from context, why they hallucinate, and how symmetry and Bayesian methods make them more reliable.">
   <meta name="author" content="Leon Chlon">
+  <link rel="canonical" href="https://leonchlon.com/">
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Leon Chlon">
   <meta property="og:title" content="Leon Chlon">
-  <meta property="og:description" content="AI Research Lead at PhysicsX. Previously Visiting Fellow at Oxford. Founder of Hassana Labs.">
-  <meta property="og:image" content="assets/headshot.png">
+  <meta property="og:description" content="AI Research Lead at PhysicsX and founder of Hassana Labs. Papers, open-source tools and talks on in-context learning, hallucination and symmetry in machine learning.">
+  <meta property="og:url" content="https://leonchlon.com/">
+  <meta property="og:image" content="https://leonchlon.com/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Leon Chlon, AI Research Lead at PhysicsX and founder of Hassana Labs.">
+  <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css?v=20260506">
+  <link rel="preload" href="assets/fonts/hassana-serif-text.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/hassana-serif-display.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=20261005">
 
   <script type="application/ld+json">
   {
@@ -27,328 +34,210 @@
     "@type": "Person",
     "name": "Leon Chlon",
     "url": "https://leonchlon.com/",
+    "image": "https://leonchlon.com/assets/headshot-480.jpg",
     "sameAs": [
       "https://github.com/leochlon",
       "https://www.linkedin.com/in/leochlon/",
       "https://scholar.google.com/citations?user=-gWbKU0AAAAJ",
+      "https://arxiv.org/a/chlon_l_1",
       "https://hassana.io/"
     ],
     "jobTitle": "AI Research Lead",
-    "worksFor": {"@type":"Organization","name":"PhysicsX"},
+    "worksFor": {"@type": "Organization", "name": "PhysicsX", "url": "https://www.physicsx.ai/"},
+    "founder": {"@type": "ResearchOrganization", "name": "Hassana Labs", "url": "https://hassana.io/"},
     "alumniOf": [
-      {"@type":"CollegeOrUniversity","name":"Harvard Medical School"},
-      {"@type":"CollegeOrUniversity","name":"Massachusetts Institute of Technology"},
-      {"@type":"CollegeOrUniversity","name":"University of Cambridge"}
+      {"@type": "CollegeOrUniversity", "name": "Harvard Medical School"},
+      {"@type": "CollegeOrUniversity", "name": "Massachusetts Institute of Technology"},
+      {"@type": "CollegeOrUniversity", "name": "University of Cambridge"}
     ]
   }
   </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<main id="main">
 
-<main>
-
-  <!-- ============== HERO ============== -->
-  <section class="hero">
-    <div class="hero-photo">
-      <img src="assets/headshot.png" alt="Leon Chlon" width="800" height="800">
-    </div>
-    <div class="hero-text">
+  <header class="intro">
+    <picture class="photo">
+      <source srcset="assets/headshot-240.webp 1x, assets/headshot-480.webp 2x" type="image/webp">
+      <img src="assets/headshot-240.jpg" srcset="assets/headshot-240.jpg 1x, assets/headshot-480.jpg 2x" alt="Leon Chlon" width="240" height="240">
+    </picture>
+    <div class="intro-text">
       <h1>Leon Chlon</h1>
-      <p class="lede">
-        I'm <b>AI Research Lead</b> in the Fundamentals team at <a href="https://www.physicsx.ai/"><b>PhysicsX</b></a>. My research asks when language models genuinely <i>learn from their context</i> and when they take shortcuts: <i>why they hallucinate</i>, and how <b>structured inductive biases</b>, <b>symmetry-aware learning</b>, and a <b>Bayesian perspective</b> can make them more reliable and interpretable.
-      </p>
-      <p class="lede-secondary">
-        I also work on <i>world models</i>, <i>multimodal learning</i>, and <i>physics-informed ML</i>, where principled modeling bridges theory with scalable systems. Previously <b>Visiting Fellow at the University of Oxford</b> (Torr Vision Group). I founded <a href="https://hassana.io/"><i>Hassana Labs</i></a>, a research organization opening doors in AI for researchers from marginalized communities, and wrote an open-source book, <a href="https://github.com/leochlon/teta"><i>Information Geometry for Generative Models</i></a>, released free with donations going to Lebanese refugees.
-      </p>
-      <p class="contact-row">
-        <a href="mailto:leochlon@gmail.com">email</a>
-        <span class="dot">·</span>
-        <a href="https://github.com/leochlon" rel="me">github</a>
-        <span class="dot">·</span>
-        <a href="https://www.linkedin.com/in/leochlon/" rel="me">linkedin</a>
-        <span class="dot">·</span>
-        <a href="https://arxiv.org/a/chlon_l_1">arxiv</a>
-        <span class="dot">·</span>
-        <a href="https://scholar.google.com/citations?user=-gWbKU0AAAAJ">scholar</a>
-      </p>
+      <p class="role">AI Research Lead, <a href="https://www.physicsx.ai/">PhysicsX</a>. Founder, <a href="https://hassana.io/">Hassana Labs</a>.</p>
     </div>
-  </section>
+  </header>
 
-  <hr>
+  <div class="about">
+    <p>I study when language models genuinely learn from their context and when they take shortcuts: why they hallucinate, and how structured inductive biases, symmetry-aware learning and a Bayesian perspective can make them more reliable and easier to interpret. I also work on world models, multimodal learning and physics-informed machine learning.</p>
+    <p>I’m AI Research Lead in the Fundamentals team at PhysicsX. Before that I was a Visiting Fellow in the Torr Vision Group at the University of Oxford. I founded <a href="https://hassana.io/">Hassana Labs</a>, an independent non-profit AI research lab that opens doors for researchers from marginalised communities, and wrote a free book, <a href="https://github.com/leochlon/teta">Information Geometry for Generative Models</a>, with donations going to Lebanese refugees.</p>
+  </div>
 
-  <!-- ============== NEWS ============== -->
-  <section id="news">
-    <h2>News</h2>
-    <ul class="news">
-      <li>
-        <span class="when">2026</span>
-        <span class="what">Spoke at <a href="https://www.linkedin.com/feed/update/urn:li:activity:7511431473871347713/"><b>AAIF London</b></a> (Agentic AI Foundation) on <i>Training-Free Self-Improving Agents</i>, alongside speakers from <b>Google DeepMind</b>, <b>Imperial</b>, <b>Prolific</b> and <b>Vercel</b>; 687 people registered. <a href="https://hassana.io/talks/aaif-london-2026/">Slides</a>.</span>
-      </li>
-      <li>
-        <span class="when">2026</span>
-        <span class="what">Joined <b>PhysicsX</b> as <b>AI Research Lead</b> (Fundamentals team).</span>
-      </li>
-      <li>
-        <span class="when">2026</span>
-        <span class="what">Interviewed by <a href="https://www.linkedin.com/feed/update/urn:li:activity:7495907965418442753/"><b>WIRED</b></a>'s Isabella Ward about cracking AI.</span>
-      </li>
-      <li>
-        <span class="when">2026</span>
-        <span class="what">Two new preprints as PI: exact attention responses from RoPE derivatives (with <b>Prof. Gregory Gutin</b>, Royal Holloway), and robot world models that change their predictions when the same actions are written differently.</span>
-      </li>
-      <li>
-        <span class="when">2026</span>
-        <span class="what">Student researchers I supervised as PI have gone on to PhDs at <b>UCL</b> and the <b>University of Barcelona</b>.</span>
-      </li>
-      <li>
-        <span class="when">2026</span>
-        <span class="what"><i>Predictable Compression Failures</i> published at <b>ICML 2026</b>.</span>
-      </li>
-      <li>
-        <span class="when">2026</span>
-        <span class="what">Won <b>$300K</b> in backing from <b>Microsoft</b>, <b>Google</b>, and <b>NVIDIA</b> to fund an AI-research sabbatical at Oxford's Torr Vision Group.</span>
-      </li>
-      <li>
-        <span class="when">2026</span>
-        <span class="what"><a href="https://github.com/leochlon/hallbayes"><b>HallBayes</b></a> featured at <b>NVIDIA GTC 2026</b>; integrated into PyTorch Geometric (<b>1.7k★</b>, 160+ forks).</span>
-      </li>
-      <li>
-        <span class="when">2026</span>
-        <span class="what"><b>HP</b> invited me to review its new <b>ZGX Fury</b> workstation.</span>
-      </li>
-      <li>
-        <span class="when">2025</span>
-        <span class="what">Co-designed CUDA <b>INT4</b> kernels with <b>Prof. Omri Weinstein</b> (Hebrew University of Jerusalem) and <b>Unsloth</b>; cut quantization penalty by <b>~9%</b> on GPTQ/GGUF (Qwen3.5).</span>
-      </li>
-      <li>
-        <span class="when">2025</span>
-        <span class="what">HP &amp; NVIDIA-sponsored Triton kernels for <b>Blackwell GB10</b> (sm_121); <b>6.1×</b> over PyTorch baselines.</span>
-      </li>
-      <li>
-        <span class="when">2025</span>
-        <span class="what">Released <a href="https://github.com/leochlon/mezzanine"><b>Mezzanine</b></a>, a post-training toolkit adopted by <b>DeepMind</b>, <b>CERN</b>, <b>DAMTP</b>, and <b>CRUKCI</b>; powered the first pixel-free I-JEPA for robotics.</span>
-      </li>
-      <li>
-        <span class="when">2025</span>
-        <span class="what"><a href="https://github.com/leochlon/hallbayes"><b>HallBayes</b></a> passed <b>1,000 GitHub stars</b> in under a month; one of Hassana Labs' open-source releases raised <b>&pound;500</b> for a UNICEF fundraiser for Sudan.</span>
-      </li>
-    </ul>
-  </section>
+  <ul class="links" aria-label="Elsewhere">
+    <li><a href="mailto:leochlon@gmail.com">Email</a></li>
+    <li><a href="https://scholar.google.com/citations?user=-gWbKU0AAAAJ">Google Scholar</a></li>
+    <li><a href="https://arxiv.org/a/chlon_l_1">arXiv</a></li>
+    <li><a href="https://github.com/leochlon" rel="me">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/leochlon/" rel="me">LinkedIn</a></li>
+  </ul>
 
-  <hr>
-
-  <!-- ============== PUBLICATIONS ============== -->
-  <section id="publications">
-    <h2>Selected publications</h2>
-    <ol class="pubs">
+  <section id="papers" aria-labelledby="papers-h">
+    <h2 id="papers-h">Selected papers</h2>
+    <ol class="cites">
       <li>
-        <p class="pub-title"><i>Predictable Compression Failures: Order Sensitivity and Information Budgeting for Evidence-Grounded Binary Adjudication</i></p>
-        <p class="pub-meta">L. Chlon et al. &middot; <b>ICML 2026</b></p>
-        <p class="pub-links">
-          <a href="https://arxiv.org/abs/2509.11208">arXiv:2509.11208</a>
-          <span class="dot">·</span>
-          <a href="https://github.com/leochlon/hallbayes">code</a>
-        </p>
+        <p class="cite-title"><a href="https://arxiv.org/abs/2509.11208">Predictable Compression Failures: Order Sensitivity and Information Budgeting for Evidence-Grounded Binary Adjudication</a></p>
+        <p class="cite-meta"><span class="me">Leon Chlon</span>, Ahmed Karim, Maggie Chlon, MarcAntonio Awada. ICML 2026.</p>
+        <p class="cite-note">When the evidence doesn’t carry enough information to support an answer, a model fills the gap with something plausible; the paper turns this into a rule for when to answer and when to abstain. <a href="https://github.com/leochlon/hallbayes">Code</a></p>
       </li>
       <li>
-        <p class="pub-title"><i>Exact Finite Attention Responses From RoPE Derivatives</i></p>
-        <p class="pub-meta">J. Huang, M. Chlon, G. Gutin, L. Chlon (PI) &middot; arXiv 2026</p>
-        <p class="pub-links">
-          <a href="https://arxiv.org/abs/2609.14127">arXiv:2609.14127</a>
-        </p>
+        <p class="cite-title"><a href="https://arxiv.org/abs/2609.14127">Exact Finite Attention Responses From RoPE Derivatives</a></p>
+        <p class="cite-meta">Julie Huang, Maggie Chlon, Gregory Gutin, <span class="me">Leon Chlon</span>. arXiv preprint, September 2026.</p>
+        <p class="cite-note">An exact formula for how a model’s attention responds when parts of its input are moved, removed or changed.</p>
       </li>
       <li>
-        <p class="pub-title"><i>Robot World Models Are Not Invariant to How the Actions Are Written</i></p>
-        <p class="pub-meta">A. Karim, L. Chlon (PI) &middot; arXiv 2026</p>
-        <p class="pub-links">
-          <a href="https://arxiv.org/abs/2609.23252">arXiv:2609.23252</a>
-        </p>
+        <p class="cite-title"><a href="https://arxiv.org/abs/2609.23252">Robot World Models Are Not Invariant to How the Actions Are Written</a></p>
+        <p class="cite-meta">Ahmed Karim, <span class="me">Leon Chlon</span>. arXiv preprint, September 2026.</p>
+        <p class="cite-note">A robot world model trained on one way of writing actions breaks when it’s handed the same actions written another, equivalent way.</p>
       </li>
       <li>
-        <p class="pub-title"><i>LLMs are Bayesian, in Expectation, not in Realization</i></p>
-        <p class="pub-meta">L. Chlon et al. &middot; arXiv 2025</p>
-        <p class="pub-links">
-          <a href="https://arxiv.org/abs/2507.11768">arXiv:2507.11768</a>
-        </p>
+        <p class="cite-title"><a href="https://arxiv.org/abs/2507.11768">LLMs are Bayesian in Expectation, Not Realization</a></p>
+        <p class="cite-meta"><span class="me">Leon Chlon</span>, Zein Khamis, Fatima Sheaib, Maggie Chlon, Mahdi El Zein, MarcAntonio M. Awada. arXiv preprint, 2025, revised 2026.</p>
+        <p class="cite-note">Averaged over the order of their examples, language models come close to ideal Bayesian reasoning; any single ordering can drift from it.</p>
+      </li>
+      <li>
+        <p class="cite-title"><a href="https://github.com/leochlon/teta">Information Geometry for Generative Models</a></p>
+        <p class="cite-meta"><span class="me">Leon Chlon</span>. Free textbook, 2026. <a href="https://github.com/leochlon/teta/blob/main/information_geometry_for_generative_models_v1.pdf">PDF</a></p>
+        <p class="cite-note">Thirteen chapters, from compression and Bayesian prediction to transformers and diffusion. Originally bound for Oxford University Press and released free instead; donations support displaced Lebanese refugees.</p>
       </li>
     </ol>
   </section>
 
-  <hr>
-
-  <!-- ============== OPEN SOURCE ============== -->
-  <section id="oss">
-    <h2>Open source</h2>
-    <ul class="oss">
+  <section id="software" aria-labelledby="software-h">
+    <h2 id="software-h">Software</h2>
+    <ul class="tools">
       <li>
-        <a href="https://github.com/leochlon/hallbayes" class="oss-name">hallbayes</a>
-        <span class="oss-stars">★ 1.7k</span>
-        <span class="oss-desc">Model-agnostic post-training to <b>suppress LLM hallucinations</b>. <b>10,000+</b> industry integrations, including <b>deepset</b> and <b>PwC</b>; integrated into PyTorch Geometric. Featured at NVIDIA GTC 2026.</span>
+        <p class="tool-name"><a href="https://github.com/leochlon/hallbayes">Berry</a> <span class="aka">formerly HallBayes</span></p>
+        <p>Checks whether an AI’s answer is supported by the evidence it cites, and flags the claims that aren’t. About 1,700 GitHub stars; featured at NVIDIA GTC 2026; deepset built a <a href="https://haystack.deepset.ai/cookbook/hallucination_score_calculator">Haystack cookbook</a> on it.</p>
       </li>
       <li>
-        <a href="https://github.com/leochlon/ntkmirror" class="oss-name">ntkmirror</a>
-        <span class="oss-stars">★ 351</span>
-        <span class="oss-desc">LoRA-free, forward-pass fine-tuning for Hugging Face causal language models: frozen-model activation control for lightweight <b>in-context learning</b> and fine-tuning.</span>
+        <p class="tool-name"><a href="https://github.com/leochlon/ntkmirror">ntkmirror</a></p>
+        <p>Adapts Hugging Face language models with small controllers in the forward pass instead of LoRA. Controllers fitted separately combine by addition. About 350 GitHub stars.</p>
       </li>
       <li>
-        <a href="https://github.com/leochlon/mezzanine" class="oss-name">mezzanine</a>
-        <span class="oss-stars">★ 143</span>
-        <span class="oss-desc">Post-training toolkit. Adopted by <b>DeepMind</b>, <b>CERN</b>, <b>DAMTP</b>, and <b>CRUKCI</b>. First pixel-free I-JEPA for robotics; <b>2.1×</b> retrieval-rank improvement on LeRobot ALOHA.</span>
+        <p class="tool-name"><a href="https://github.com/leochlon/mezzanine">Mezzanine</a></p>
+        <p>Measures how much a model’s predictions swing across symmetry-equivalent inputs, then distils a student model that averages the swing away. Recipes for robotics, weather, particle physics and fast physics surrogates.</p>
       </li>
       <li>
-        <a href="https://github.com/leochlon/triton-blackwell" class="oss-name">triton-blackwell</a>
-        <span class="oss-stars">★ 2</span>
-        <span class="oss-desc">Fused Triton transformer kernels for <b>Blackwell GB10</b> (sm_121); <b>6.1×</b> over PyTorch baselines.</span>
-      </li>
-      <li>
-        <a href="https://github.com/leochlon/berry" class="oss-name">berry</a>
-        <span class="oss-stars">★ 14</span>
-        <span class="oss-desc">Information-budget MCP server for hallucination detection in agent workflows.</span>
+        <p class="tool-name"><a href="https://github.com/leochlon/triton-blackwell">triton-blackwell</a></p>
+        <p>Makes Triton work on NVIDIA’s GB10 (Blackwell) desktop hardware until official support arrives.</p>
       </li>
     </ul>
-    <p class="muted">Other public research code:
-      <a href="https://github.com/leochlon/ITO">ITO</a> (★65) &middot;
-      <a href="https://github.com/leochlon/teta">teta</a> (★33) &middot;
-      <a href="https://github.com/leochlon/factuality-slice">factuality-slice</a> (★31) &middot;
-      <a href="https://github.com/leochlon/aecf">aecf</a> (★4).
-    </p>
-    <p class="muted">Core contributions to <a href="https://github.com/google-deepmind/optax">DeepMind Optax</a> and <a href="https://github.com/huggingface">HuggingFace</a>; <b>4×</b> speedup in SAM image processing. <b>EWOR Fellowship</b> (0.1% acceptance rate).</p>
+    <p class="note">More research code: <a href="https://github.com/leochlon/ITO">ITO</a>, <a href="https://github.com/leochlon/factuality-slice">factuality-slice</a> and <a href="https://github.com/leochlon/aecf">aecf</a>. I’ve also contributed to Google DeepMind’s <a href="https://github.com/google-deepmind/optax">Optax</a> and to <a href="https://github.com/huggingface">Hugging Face</a>, including a 4× speed-up in SAM image processing.</p>
   </section>
 
-  <hr>
+  <section id="news" aria-labelledby="news-h">
+    <h2 id="news-h">News</h2>
+    <ul class="news">
+      <li><span class="when">Sep 2026</span><p>Spoke at the Agentic AI Foundation in London on training-free self-improving agents, alongside speakers from Google DeepMind, Imperial, Prolific and Vercel. <a href="https://hassana.io/talks/aaif-london-2026/">Slides</a></p></li>
+      <li><span class="when">Sep 2026</span><p>Two preprints: exact attention responses from RoPE derivatives, with Julie Huang, Maggie Chlon and Gregory Gutin (Royal Holloway), and robot world models that change their predictions when the same actions are written differently, with Ahmed Karim.</p></li>
+      <li><span class="when">Aug 2026</span><p>Quoted in <a href="https://www.wired.com/story/coders-say-they-already-found-workarounds-to-claudes-invisible-watermarks/">WIRED</a> on how the watermarks in AI-written text can be removed.</p></li>
+      <li><span class="when">Jun 2026</span><p>Predictable Compression Failures published at ICML 2026.</p></li>
+      <li><span class="when">2026</span><p>Joined PhysicsX as AI Research Lead in the Fundamentals team.</p></li>
+      <li><span class="when">2026</span><p>Berry, then called HallBayes, featured at NVIDIA GTC.</p></li>
+      <li><span class="when">2026</span><p>Backing from Microsoft, Google and NVIDIA, worth $300K, for an AI-research sabbatical in Oxford’s Torr Vision Group.</p></li>
+      <li><span class="when">Dec 2025</span><p>One of Hassana Labs’ open-source releases raised £500 for a UNICEF fundraiser for Sudan.</p></li>
+      <li><span class="when">Sep 2025</span><p>HallBayes passed 1,000 GitHub stars in under a month.</p></li>
+      <li><span class="when">2025</span><p>Triton kernels for NVIDIA’s Blackwell GB10, sponsored by HP and NVIDIA.</p></li>
+      <li><span class="when">2025</span><p>Co-designed CUDA INT4 kernels with Omri Weinstein (Hebrew University of Jerusalem) and Unsloth, cutting the quantisation penalty by about 9% on GPTQ and GGUF (Qwen3.5).</p></li>
+    </ul>
+  </section>
 
-  <!-- ============== EXPERIENCE ============== -->
-  <section id="experience">
-    <h2>Selected work</h2>
+  <section id="work" aria-labelledby="work-h">
+    <h2 id="work-h">Work</h2>
     <ul class="work">
       <li>
-        <span class="role-where"><b>PhysicsX</b> &middot; AI Research Lead, Fundamentals</span>
-        <span class="role-when">2026&ndash;present</span>
+        <p class="role-line"><span class="org">PhysicsX</span>, AI Research Lead, Fundamentals <span class="when">since 2026</span></p>
       </li>
       <li>
-        <span class="role-where"><b>University of Oxford</b> &middot; AI Research Lead, Visiting Fellow</span>
-        <span class="role-when">2025&ndash;2026</span>
-        <span class="role-what">Torr Vision Group. Built <i>HallBayes</i>, <i>Mezzanine</i>, and Triton kernels for Blackwell GB10; co-supervised joint PhD and lab projects across <b>MIT</b>, <b>Cambridge</b>, and <b>Oxford</b>.</span>
+        <p class="role-line"><span class="org">University of Oxford</span>, AI Research Lead and Visiting Fellow, Torr Vision Group <span class="when">2025–2026</span></p>
+        <p>Built HallBayes, Mezzanine and Triton kernels for Blackwell GB10; co-supervised joint PhD and lab projects across MIT, Cambridge and Oxford.</p>
       </li>
       <li>
-        <span class="role-where"><b>Apple</b> &middot; Content Ranking</span>
-        <span class="role-when">2023&ndash;2025</span>
-        <span class="role-what">Production MMoE on TensorFlow + ONNX Runtime; <b>43%</b> p50-latency reduction on workloads serving <b>50M+ requests/day</b>.</span>
+        <p class="role-line"><span class="org">Apple</span>, Content Ranking <span class="when">2023–2025</span></p>
+        <p>A production multi-gate mixture-of-experts model on TensorFlow and ONNX Runtime; 43% lower median latency on workloads serving more than 50 million requests a day.</p>
       </li>
       <li>
-        <span class="role-where"><b>TikTok</b> &middot; Post-training, Ranking</span>
-        <span class="role-when">2023&ndash;2025</span>
-        <span class="role-what">Bayesian-optimised MMoE retraining across a <b>500M+ DAU</b> ranking system; double-digit gains in cross-platform sharing.</span>
+        <p class="role-line"><span class="org">TikTok</span>, Post-training, Ranking <span class="when">2023–2025</span></p>
+        <p>Bayesian-optimised retraining of a mixture-of-experts ranking system with more than 500 million daily active users; double-digit gains in cross-platform sharing.</p>
       </li>
       <li>
-        <span class="role-where"><b>World Bank Group</b> &middot; Post-training</span>
-        <span class="role-when">2023&ndash;2025</span>
-        <span class="role-what">Fine-tuned <b>LLaMA-2 70B</b> LoRa adapters across <b>300k</b> socioeconomic indicators; reduced forecast error by <b>35% sMAPE</b>; immediate adoption across 15 cross-country teams.</span>
+        <p class="role-line"><span class="org">World Bank Group</span>, Post-training <span class="when">2023–2025</span></p>
+        <p>Fine-tuned LoRA adapters for Llama 2 70B across 300,000 socioeconomic indicators, cutting forecast error by 35% (sMAPE); adopted by 15 cross-country teams.</p>
       </li>
       <li>
-        <span class="role-where"><b>AI reliability advisory</b></span>
-        <span class="role-when">2023&ndash;2025</span>
-        <span class="role-what">Consultations with senior stakeholders at <b>PwC</b>, <b>McKinsey</b>, <b>NVIDIA</b>, and <b>Novartis</b>, and with government policymakers including <b>SDAIA</b> (Saudi Arabia).</span>
+        <p class="role-line"><span class="org">AI reliability advisory</span> <span class="when">2023–2025</span></p>
+        <p>Advised senior stakeholders at PwC, McKinsey, NVIDIA and Novartis, and government policymakers including SDAIA in Saudi Arabia.</p>
       </li>
       <li>
-        <span class="role-where"><b>Tailor Bio</b> &middot; Founding AI Engineer (0&rarr;1)</span>
-        <span class="role-when">2022&ndash;2023</span>
-        <span class="role-what">Cambridge spinout. Led the founding ML team; drug-discovery stack on AWS (PyTorch, RDKit, Neo4j) training GNN foundation models with custom sparse mat-mul + gradient checkpointing. <b>3×</b> throughput; 3 lead compounds validated for Series B.</span>
+        <p class="role-line"><span class="org">Tailor Bio</span>, Founding AI Engineer <span class="when">2022–2023</span></p>
+        <p>A Cambridge spin-out. Led the founding machine-learning team and built the drug-discovery stack on AWS (PyTorch, RDKit, Neo4j), training graph neural network foundation models with custom sparse matrix multiplication and gradient checkpointing for three times the throughput. Three lead compounds were validated for the Series B.</p>
       </li>
       <li>
-        <span class="role-where"><b>Uber / Careem</b> &middot; Lead ML Engineer, Dynamic Pricing</span>
-        <span class="role-when">2022</span>
-        <span class="role-what">Marketplace pricing for <b>100M+ users</b> via algorithmic game theory; <b>2.7×</b> efficiency over legacy; <b>$2M+</b> revenue impact.</span>
+        <p class="role-line"><span class="org">Uber / Careem</span>, Lead ML Engineer, Dynamic Pricing <span class="when">2022</span></p>
+        <p>Marketplace pricing for more than 100 million users using algorithmic game theory: 2.7 times as efficient as the previous system, with more than $2M in revenue impact.</p>
       </li>
       <li>
-        <span class="role-where"><b>Meta</b> &middot; Senior Research Scientist, AI Safety</span>
-        <span class="role-when">2020&ndash;2022</span>
-        <span class="role-what">Bayesian RL for crash detection across Instagram / WhatsApp / Facebook (<b>10&ndash;15%</b> better detection); FAISS / HNSW vector embeddings improving hate-speech recall by <b>15%</b> at billion-post scale.</span>
+        <p class="role-line"><span class="org">Meta</span>, Senior Research Scientist, AI Safety <span class="when">2020–2022</span></p>
+        <p>Bayesian reinforcement learning for crash detection across Instagram, WhatsApp and Facebook (10–15% better detection), and vector search with FAISS and HNSW that raised hate-speech recall by 15% at billion-post scale.</p>
       </li>
       <li>
-        <span class="role-where"><b>McKinsey &amp; Company</b> &middot; Senior Data Scientist</span>
-        <span class="role-when">2018&ndash;2020</span>
-        <span class="role-what">Gradient-boosting credit-risk models for Tier-1 banks covering <b>$100B+</b> exposures; <b>&gt;40%</b> better early-warning detection; Basel III / IFRS 9 strategies for C-suite at three major institutions.</span>
+        <p class="role-line"><span class="org">McKinsey &amp; Company</span>, Senior Data Scientist <span class="when">2018–2020</span></p>
+        <p>Gradient-boosted credit-risk models for tier-one banks covering more than $100B in exposures, with over 40% better early warning; Basel III and IFRS 9 strategy for executives at three major institutions.</p>
       </li>
     </ul>
   </section>
 
-  <hr>
-
-  <!-- ============== TALKS & WRITING ============== -->
-  <section id="talks">
-    <h2>Talks &amp; writing</h2>
-    <ul class="bare">
-      <li>
-        Open-source book: <a href="https://github.com/leochlon/teta"><b><i>Information Geometry for Generative Models</i></b></a>. Originally bound for Oxford University Press, released free instead. Donations support displaced Lebanese refugees. (<a href="https://github.com/leochlon/teta/blob/main/information_geometry_for_generative_models_v1.pdf">PDF</a>)
-      </li>
-      <li><b>NVIDIA GTC 2026</b>: HallBayes feature.</li>
-      <li>Press: interviewed by <a href="https://www.linkedin.com/feed/update/urn:li:activity:7495907965418442753/"><b>WIRED</b></a> (Isabella Ward, 2026).</li>
-      <li>Talks: <b>AAIF London</b> (2026, <a href="https://hassana.io/talks/aaif-london-2026/">slides</a>); <b>ICAIRE</b> (2025); <b>AE Global Summit on Open Problems for AI</b>, London (2025); <b>UCL Data Science Society</b> (2025); invited talks at <b>Imperial College London</b>, <b>American University of Beirut</b> and <b>University of Sharjah</b> (UAE).</li>
-      <li>Social outreach: <b>~50k</b> on LinkedIn, <b>50.5k</b> on Instagram, <b>90k</b> on TikTok. <i>Translating research-to-deployment for a wider audience.</i></li>
+  <section id="talks" aria-labelledby="talks-h">
+    <h2 id="talks-h">Talks and writing</h2>
+    <ul class="plain">
+      <li>Talks at the Agentic AI Foundation, London (2026, <a href="https://hassana.io/talks/aaif-london-2026/">slides</a>); ICAIRE, Riyadh (2025); the AE Global Summit on Open Problems for AI, London (2025); and the UCL Data Science Society (2025). Invited talks at Imperial College London, the American University of Beirut and the University of Sharjah.</li>
+      <li>Quoted by Isabella Ward in <a href="https://www.wired.com/story/coders-say-they-already-found-workarounds-to-claudes-invisible-watermarks/">WIRED</a> (August 2026).</li>
+      <li>I explain research for a general audience on LinkedIn, Instagram and TikTok, with about 190,000 followers across the three.</li>
     </ul>
   </section>
 
-  <hr>
-
-  <!-- ============== MENTORING & TEACHING ============== -->
-  <section id="mentoring">
-    <h2>Mentoring &amp; teaching</h2>
-    <ul class="bare">
-      <li>As PI, supervised three student researchers: one is now a PhD student at <b>UCL</b>, one at the <b>University of Barcelona</b>, and the third is finalising PhD applications.</li>
-      <li>Research mentorship of PhD and Masters students at <b>MIT</b> and <b>Harvard</b>, leading to co-authored publications; <a href="https://hassana.io/"><i>Hassana Labs</i></a> research fellowships for researchers from marginalized communities.</li>
-      <li>Community: a free careers workshop in <b>Beirut</b> (2024), a free <b>AI Careers Course</b> (2025), and a 24-hour AI research hackathon in <b>London</b> (2026).</li>
-      <li>Teaching assistant, MIT 9.073/HST.460 <i>Statistics for Neuroscience Research</i> (Prof. Emery Brown); guest teaching, Harvard SEAS ES 201/APMTH 231 <i>Decision Theory</i> (Prof. Demba Ba).</li>
+  <section id="teaching" aria-labelledby="teaching-h">
+    <h2 id="teaching-h">Teaching and mentoring</h2>
+    <ul class="plain">
+      <li>At <a href="https://hassana.io/">Hassana Labs</a> I’ve supervised three student researchers: one is now a PhD student at UCL, one at the University of Barcelona, and the third is finishing PhD applications. The lab’s <a href="https://hassana.io/fellowships/">research fellowships</a> are for people from marginalised communities.</li>
+      <li>Research mentoring of PhD and master’s students at MIT and Harvard, leading to co-authored papers.</li>
+      <li>Teaching assistant for MIT 9.073/HST.460, Statistics for Neuroscience Research (Emery Brown), and guest teaching for Harvard SEAS ES 201/APMTH 231, Decision Theory (Demba Ba).</li>
+      <li>A free careers workshop in Beirut (2024), a free AI careers course (2025) and a 24-hour AI research hackathon in London (2026).</li>
     </ul>
   </section>
 
-  <hr>
-
-  <!-- ============== EDUCATION ============== -->
-  <section id="education">
-    <h2>Education</h2>
-    <ul class="education">
-      <li>
-        <span class="edu-where"><b>Harvard Medical School / MIT</b></span>
-        <span class="edu-when">2018</span>
-        <span class="edu-what">Postdoctoral Fellow, Machine Learning</span>
-      </li>
-      <li>
-        <span class="edu-where"><b>University of Cambridge</b></span>
-        <span class="edu-when">2017</span>
-        <span class="edu-what">PhD, Machine Learning</span>
-      </li>
-      <li>
-        <span class="edu-where"><b>University of Cambridge</b></span>
-        <span class="edu-when">2014</span>
-        <span class="edu-what">MPhil, Theoretical Physics</span>
-      </li>
+  <section id="education" aria-labelledby="education-h">
+    <h2 id="education-h">Education</h2>
+    <ul class="work">
+      <li><p class="role-line"><span class="org">Harvard Medical School and MIT</span>, Postdoctoral Fellow, Machine Learning <span class="when">2018</span></p></li>
+      <li><p class="role-line"><span class="org">University of Cambridge</span>, PhD, Machine Learning <span class="when">2017</span></p></li>
+      <li><p class="role-line"><span class="org">University of Cambridge</span>, MPhil, Theoretical Physics <span class="when">2014</span></p></li>
+      <li><p class="role-line"><span class="org">EWOR Fellowship</span></p></li>
     </ul>
   </section>
-
-  <hr>
-
-  <!-- ============== FOOTER ============== -->
-  <footer>
-    <p>
-      <a href="mailto:leochlon@gmail.com">leochlon@gmail.com</a>
-      <span class="dot">·</span>
-      <a href="https://github.com/leochlon">github</a>
-      <span class="dot">·</span>
-      <a href="https://www.linkedin.com/in/leochlon/">linkedin</a>
-      <span class="dot">·</span>
-      <a href="https://scholar.google.com/citations?user=-gWbKU0AAAAJ">scholar</a>
-      <span class="dot">·</span>
-      <a href="https://hassana.io/">hassana labs</a>
-    </p>
-    <p class="muted small">© <span id="year">2026</span> Leon Chlon. <a href="#news">back to top</a>.</p>
-  </footer>
 
 </main>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<footer class="site-footer">
+  <ul class="links">
+    <li><a href="mailto:leochlon@gmail.com">leochlon@gmail.com</a></li>
+    <li><a href="https://github.com/leochlon">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/leochlon/">LinkedIn</a></li>
+    <li><a href="https://scholar.google.com/citations?user=-gWbKU0AAAAJ">Google Scholar</a></li>
+    <li><a href="https://hassana.io/">Hassana Labs</a></li>
+  </ul>
+  <p>&copy; 2026 Leon Chlon</p>
+</footer>
 
 </body>
 </html>

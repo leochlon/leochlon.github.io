@@ -310,17 +310,17 @@ figure img{display:block;width:100%;height:auto}
 <p>The edit reproduces about two-thirds of the fine-tune&rsquo;s change on the training problems. It leaves out the fine-tune&rsquo;s changes to attention, to the other layers and to the MLP inputs, which is where most of its damage was.</p>
 <h3>Results</h3>
 <div class="table-wrap"><table class="t2">
-  <caption><b>Table 4.</b> The edited model against the original on the same harness, paired by problem.</caption>
-  <thead><tr><th></th><th class="n">Original</th><th class="n">Edited</th><th class="n">Fixed / broken</th></tr></thead>
+  <caption><b>Table 4.</b> The edit against the original model and the fine-tune it was solved from, on the same harness. Fixed and broken counts compare the edit with the original, problem by problem.</caption>
+  <thead><tr><th></th><th class="n">Original</th><th class="n">Fine-tune alone</th><th class="n">Edited</th><th class="n">Fixed / broken</th></tr></thead>
   <tbody>
-    <tr><td>HumanEval+</td><td class="n">65.2%</td><td class="n">68.3%</td><td class="n">10 / 5</td></tr>
-    <tr><td>MBPP+</td><td class="n">59.5%</td><td class="n">64.6%</td><td class="n">30 / 11</td></tr>
-    <tr><td>Both benchmarks</td><td class="n"></td><td class="n"></td><td class="n">40 / 16</td></tr>
-    <tr><td>WikiText (bits per token)</td><td class="n">4.2587</td><td class="n">4.2588</td><td class="n">no change</td></tr>
-    <tr><td>MMLU (1,000 questions)</td><td class="n">50.4%</td><td class="n">50.4%</td><td class="n">6 / 6</td></tr>
+    <tr><td>HumanEval+</td><td class="n">65.2%</td><td class="n">61.6%</td><td class="n">68.3%</td><td class="n">10 / 5</td></tr>
+    <tr><td>MBPP+</td><td class="n">59.5%</td><td class="n">57.4%</td><td class="n">64.6%</td><td class="n">30 / 11</td></tr>
+    <tr><td>Both benchmarks</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">40 / 16</td></tr>
+    <tr><td>WikiText (bits per token)</td><td class="n">4.2587</td><td class="n">&mdash;</td><td class="n">4.2588</td><td class="n">no change</td></tr>
+    <tr><td>MMLU (1,000 questions)</td><td class="n">50.4%</td><td class="n">&mdash;</td><td class="n">50.4%</td><td class="n">6 / 6</td></tr>
   </tbody>
 </table></div>
-<p>Across both benchmarks the edit fixed 40 problems and broke 16 (p = 0.002, or 0.007 after correcting for the four variants we tried). MBPP+ improved significantly on its own (p = 0.004); HumanEval+ did not (p = 0.30). Ordinary text and MMLU didn&rsquo;t move. The edit still breaks 16 of 192 held-out practice problems the model used to pass, while fixing 26 of 192 it failed.</p>
+<p>The fine-tune on its own scored below the original on both benchmarks, while the edit scored above it: it keeps the useful part of the fine-tune&rsquo;s change and leaves out the rest. Across both benchmarks the edit fixed 40 problems and broke 16 (p = 0.002, or 0.007 after correcting for the four variants we tried). MBPP+ improved significantly on its own (p = 0.004); HumanEval+ did not (p = 0.30). Ordinary text and MMLU didn&rsquo;t move. The edit still breaks 16 of 192 held-out practice problems the model used to pass, while fixing 26 of 192 it failed.</p>
 <h3>Where bits didn&rsquo;t help</h3>
 <p>Bits didn&rsquo;t pick the winner. Copying the fine-tune&rsquo;s MLP weights for layers 6&ndash;18 straight into the model looked good on log loss, but it broke 32 of 192 problems the model used to pass and gained nothing on the benchmarks. Running the tests chose the final edit. Its gain over the previous version came from holding more of the model&rsquo;s own answers in place (about 500 instead of 128), which is a constraint in the solve rather than a measurement.</p>
 <p>The layer-by-layer readout that located the damage in the prompt experiment found nothing here: its curves for the original and the fine-tune looked almost the same. Choosing MLPs over attention was a judgement call. All the attention layers together saved more bits than all the MLPs together (0.093 against 0.066 bits per token), but the MLP effect is concentrated in fewer layers, so fewer places needed editing.</p>
